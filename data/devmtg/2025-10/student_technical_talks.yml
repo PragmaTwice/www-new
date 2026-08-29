@@ -1,0 +1,45 @@
+student_technical_talks:
+  - title: "MARCO - Modelica Advanced Research COmpiler"
+    speaker: "Michele Scuttari"
+    video_url: "https://youtu.be/u3wvGOYXAaI"
+    slides_url: "/devmtg/2025-10/slides/student_talks/scuttari.pdf"
+    description: |
+      Modelica is a high-level, equation-based language used for modeling complex physical systems.
+      MARCO (Modelica Advanced Research Compiler) is a novel compiler that leverages MLIR to bring
+      modern compiler infrastructure to the Modelica ecosystem. This talk introduces MARCO's
+      architecture and its MLIR-based lowering strategy for Modelica's Differential-Algebraic Equation
+      (DAE) systems. The talk is aimed at developers interested in domain-specific language compilation,
+      and attendees will take away insights on integrating MLIR for descriptive, non-traditional,
+      languages like Modelica. The project has been first and only presented at the Modelica conference
+      in 2023, but it has never been proposed to a compiler-oriented audience.
+
+  - title: "Translation Validation for LLVM's RISC-V Backend"
+    speaker: "Mitch Briles"
+    video_url: "https://youtu.be/znMGXxQC12A"
+    slides_url: "/devmtg/2025-10/slides/student_talks/briles.pdf"
+    description: |
+      With algorithms such as instruction selection, instruction folding, and register allocation,
+      LLVM's backends have the job of lowering IR to assembly or object code while being mindful of the
+      semantics of each language. Starting with AArch64, we're leveraging Alive2 to validate these
+      target-dependent optimizations and translations. After using our tool to find 44 miscompiles in
+      the AArch64 backend, the natural progression is to branch out to other architectures. Our next
+      focus is a much smaller ISA: RISC-V. The new tool, RISCV-TV, is early in development, but has
+      already detected 2 miscompiles! Bugs can be found in existing tests, but these tools are most
+      effective when paired with a fuzzer. We anticipate more results by the time of the meeting.
+
+  - title: "Leveraging MLIR to Compile a Basis-Oriented Quantum Programming Language"
+    speaker: "Austin Adams"
+    video_url: "https://youtu.be/gcpe6SGCH4I"
+    slides_url: "/devmtg/2025-10/slides/student_talks/adams.pdf"
+    description: |
+      Quantum computing has leaped from the theoretical realm into a competitive commercial race, but
+      programming quantum computers remains challenging. Quantum programming languages today require
+      programmers to master both physics notation and quantum gate engineering. The Qwerty quantum
+      programming language was recently proposed (arXiv:2404.12603) as a higher-level abstraction
+      providing primitives rooted in quantum bases rather than low-level quantum circuitry. The semantic
+      gap between Qwerty's novel basis-oriented constructs and traditional quantum circuits renders
+      existing quantum compilers unsuitable for compiling Qwerty code. This talk describes how MLIR is
+      used in our Qwerty compiler to compile Qwerty code embedded in Python into quantum assembly or
+      LLVM IR. The full architecture of our compiler is described, including custom MLIR dialects,
+      interfaces, analyses, and passes. A brief comparison between all known quantum MLIR dialects will
+      also be presented.

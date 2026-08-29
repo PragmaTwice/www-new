@@ -1,0 +1,454 @@
+posters:
+  - title: "LLVM pre-merge checks"
+    speaker: "Mikhail Goncharov (Google), Christian Kühnel (Google)"
+    video_url: ""
+    slides_url: ""
+    description: |
+      I would like to give a short presentation about https://github.com/google/llvm-premerge-checks to
+      advertise pre-merge checks, why do we have them and how it works.
+
+  - title: "Transitioning the Scientific Software Toolchain to Clang/LLVM"
+    speaker: "Mike Pozulp (Lawrence Livermore National Laboratory and University of California, Davis), Shawn Dawson (Lawrence Livermore National Laboratory), Ryan Bleile (Lawrence Livermore National Laboratory and University of Oregon), Patrick Brantley (Lawrence Livermore National Laboratory), M. Scott McKinley (Lawrence Livermore National Laboratory), Matt O'Brien (Lawrence Livermore National Laboratory), Dave Richards (Lawrence Livermore National Laboratory)"
+    video_url: ""
+    slides_url: ""
+    description: |
+      For the past 25 years, many of the largest scientific software applications at Lawrence Livermore
+      National Laboratory (LLNL) have used the Intel C/C++ compiler (icc/icpc) to compile the executables
+      provided to users on x86. This spring 2020, the Monte Carlo Transport Project will release our first
+      executable compiled with clang, which builds 25% faster and runs 6.1% faster than icpc. The poster
+      accompanying this paper will describe the challenges of switching toolchains and the resulting
+      advantages of using a clang/LLVM toolchain for large scientific software applications at LLNL.
+      Acknowledgement: The title was inspired by a technical talk from the 2019 LLVM Developers' Meeting,
+      "Transitioning the Networking Software Toolchain to Clang/LLVM".
+
+  - title: "Changing Everything With Clang Plugins: A Story About Syntax Extensions, Clang's AST, and Quantum Computing"
+    speaker: "Hal Finkel (Argonne National Laboratory), Alex Mccaskey (Oak Ridge National Laboratory)"
+    video_url: ""
+    slides_url: ""
+    description: |
+      Did you know that Clang has a powerful plugin API? Plugins can currently observe Clang's AST during
+      compilation, register new pragmas, and more. In this talk, I'll review Clang's current plugin
+      infrastructure, explaining how to write and use Clang plugins, and then talk about how we're working
+      to enhance Clang's plugin capabilities by allowing plugins to provide custom parsing within function
+      bodies. This new capability has many potential use cases, from parser generators to database-query
+      handling, and we'll discuss how this new capability can potentially enhance a wide spectrum of
+      tools. Finally, we'll discuss one such use case in more detail: embedding a quantum programming
+      language in C++ to create a state-of-the-art hybrid programming model for quantum computing.
+
+  - title: "Automatic generation of LLVM based compiler toolchains from a high-level description"
+    speaker: "Pavel Snobl (Codasip)"
+    video_url: ""
+    slides_url: ""
+    description: |
+      At Codasip we have developed a method for automatic generation of LLVM based compilers from a high
+      level, architecture description language called CodAL. From this description, the register and
+      instruction set architecture (ISA) definition is extracted in a process we call semantics
+      extraction. This definition is then used as an input to the tool called backendgen which uses it to
+      generate a fully functional C/C++ cross compiler. The high-level description is also used to
+      generate all other parts of a standard SDK needed to develop applications for a typical processor -
+      LLVM based assembler and disassembler, linker (LLD), debugger (LLDB) and a simulator. In this short
+      talk and the related poster, I will describe the CodAL language and the process of automatic
+      compiler generation and how it allows users with no previous compiler development experience to
+      quickly create an LLVM based toolchain for their architecture.
+
+  - title: "Loop Fission: Distributing loops based on conflicting heuristics"
+    speaker: "Ettore Tiotto (IBM Canada), Wai Hung (Whitney) Tsang (IBM Canada), Bardia Mahjour (IBM Canada), Kit Barton (IBM Canada)"
+    video_url: ""
+    slides_url: ""
+    description: |
+      This talk is about a new optimization pass implemented in LLVM opt - LoopFissionPass. Loop fission
+      aims at distributing independent statements in a loop into separate loops. In our implementation we
+      use an interference graph, induced from the Data Dependence Graph (DDG), to balance potentially
+      conflicting heuristics and derive an optimal distribution plan. We consider data reuse between
+      statements, memory streams, code size, etc., to decide how to distribute a loop nest. Additional
+      heuristics can be easily incorporated into the model, making this approach a flexible alternative to
+      the existing LoopDistributionPass in LLVM. We will share our experience on running Loop Fission on a
+      real-world application, and we will provide results on industry benchmarks. This talk targets
+      developers who have an interest in loop optimizations and want to learn about how to use the DDG
+      infrastructure now available in LLVM to drive a transformation pass. The takeaways for this talk
+      are: • How to balance conflicting heuristics using an interference graph • How to use the data
+      dependence graph • The key differences between the existing LoopDistribution pass and our new
+      LoopFission pass
+
+  - title: "Flang Update"
+    speaker: "Steve Scalpone (NVIDIA / Flang)"
+    video_url: ""
+    slides_url: ""
+    description: |
+      Provide an update about flang with an overview of changes since the last developer's meeting and the
+      changes planned for the near future. Topics will cover migration to the monorepo, integration with
+      MLIR, current in-flight projects, etc.
+
+  - title: "Extending Clang and LLVM for Interpreter Profiling Perf-ection"
+    speaker: "Frej Drejhammar (RISE SICS)"
+    video_url: ""
+    slides_url: ""
+    description: |
+      When profiling a highly optimized interpreter, such as the Erlang virtual machine, a profiler does
+      not really give you the information you need. This talk will show how surprisingly easy it is to
+      extend Clang and LLVM to solve an one-off profiling task using the Perf tool. The Erlang virtual
+      machine (BEAM) is a classic threaded interpreter, using first class labels and gotos, contained in a
+      single function. For profiling purposes this is bad, as the profiler will attribute execution time
+      to the main interpreter function when you as a developer really want execution time attributed to
+      individual BEAM opcodes. By adding custom attributes to Clang and an analysis late in the LLVM
+      back-end, we can easily traverse the CFG of the interpreter and figure out which basic blocks are
+      executed by each BEAM opcode. With a small patch to Perf's JIT interface, we can make this basic
+      block information override the debug information for the main interpreter function, thus allowing
+      Perf to assign execution time to individual BEAM opcodes.
+
+  - title: "Verifying Memory Optimizations using Alive2"
+    speaker: "Juneyoung Lee (Seoul National University, Korea), Chung-Kil Hur (Seoul National University, Korea), Nuno P. Lopes (Microsoft Research, UK)"
+    video_url: ""
+    slides_url: ""
+    description: |
+      Alive2 is a re-implementation of Alive to check existing optimizations without rewriting them in the
+      Alive DSL. It takes a pair of functions as input, and encodes their equivalence(refinement) of
+      condition into a mathematical formula, which is then verified by Z3. Alive2 can be run as a
+      standalone tool as well as an opt plugin which enables running Alive2 on LLVM's unit tests using the
+      lit testing tool. In this talk, I will present a demo that shows how to use Alive2 to prove
+      correctness of optimizations on memory accessing instructions such as load, store, and alloca. It
+      will include running examples of several optimizations that LLVM currently performs. Also, we'll
+      show how to interpret Alive2's error message from incorrect transformations by using real
+      miscompilation bugs that we've found from the LLVM unit tests.
+
+  - title: "Using MLIR to implement a compiler for Arc, a language for Batch and Stream Programming"
+    speaker: "Klas Segeljakt (KTH - Royal Institute of Technology), Frej Drejhammar (RISE SICS)"
+    video_url: ""
+    slides_url: ""
+    description: |
+      This poster covers the design and implementation of a compiler using MLIR for the language Arc. Arc
+      is a intermediate representation for data analytics which supports distributed online stream
+      operations, and comes with its own compilation pipeline and runtime system. The Arc compiler uses
+      the MLIR framework for high-level optimizations. Using MLIR allows us to concentrate on defining
+      Arc- specific optimizations and reuse standard high-level optimizations provided by MLIR. In
+      addition, MLIR offers a rich infrastructure for representing the Arc parse tree, custom
+      transformations, command-line parsing, and regression testing. The Arc compiler translates its parse
+      tree into MLIR's Affine and Standard dialects together with a new dialect for the Arc-specific
+      operations. We define Arc-specific dataflow optimizations, such as operator reordering, fission, and
+      fusion using the MLIR framework. The MLIR framework leverages optimizations such as common
+      subexpression elimination and constant propagation. In contrast to other compilers in the LLVM
+      world, we do not lower our MLIR-level program to LLVM IR, instead we stay at the high-level dialects
+      and produce Rust source code which is compiled and executed by the runtime.
+
+  - title: "CUDA2OpenCL - a tool to assist porting CUDA applications to OpenCL"
+    speaker: "Anastasia Stulova (Arm), Marco Antognini (Arm)"
+    video_url: ""
+    slides_url: ""
+    description: |
+      Conceptually, CUDA and OpenCL are similar programming models. Therefore it is feasible to convert
+      applications from one to another, especially after the recent development of C++ for OpenCL
+      (https://clang.llvm.org/docs/UsersManual.html#cxx-for-opencl) that allows to write OpenCL
+      applications fully in C++ mode. In this talk we would like to present a tool that uses Clang Tooling
+      and Rewriter to help migrating applications from CUDA to OpenCL. This tool combines (i) automatic
+      rewriting for trivial and safe changes; (ii) source code annotation for non-trivial changes to
+      assist manual porting of applications. We use Clang Tooling to parse the CUDA source and create an
+      Abstract Syntax Tree (AST). Then a custom AST Consumer will visit the AST and with the help of Clang
+      Rewriter will either modify the original source or insert annotation comments. If the mapping
+      between CUDA and OpenCL constructs is straightforward, the construct is likely to be rewritten,
+      e.g., address space, kernel attribute, kernel invocation. If the mapping is not straightforward the
+      tool emits annotations explaining how the code can be modified manually, e.g., if CUDA __shared__
+      variables are declared in the scope disallowed by OpenCL. Unlike OpenCL, CUDA combines device (also
+      known as kernel) and host code into one single source file. The tool will output two so-called
+      OpenCL code templates - one for the host side and one for the device side. In each template,
+      irrelevant code will be stripped out from the original, trivial constructs will be rewritten and
+      annotation hints will be added. Both templates can be further modified if needed and then compiled
+      using any C++ compiler for the host template and using Clang for the device template. The tool is at
+      an early stage of development and we are planning to open source it by the time of EuroLLVM 2020.
+      The mechanics are now fully in place but we don’t support many CUDA features yet and therefore only
+      a few simple examples can run successfully. We would like to invite developers to use the tool and
+      provide feedback on the missing features they would like to see added or even to help us add popular
+      features that are missing. One aim of this project is to keep the output from the tool as close to
+      the original source as possible to allow developers reading and modifying the output manually. While
+      Clang Tooling and Rewriter are excellent choices to accomplish our goals there are a number of
+      suggestions for improvements that we are hoping to highlight, e.g. improving accuracy of source
+      information in Rewriter and propagation of build options from Clang Driver.
+
+  - title: "llvm-diva – Debug Information Visual Analyzer"
+    speaker: "Carlos Enciso (Sony Interactive Entertainment)"
+    video_url: ""
+    slides_url: ""
+    description: |
+      Complexity and source-to-DWARF mapping are common problems with LLVM’s debug information. For
+      example, see the different sections used to store several items such as strings, types, locations
+      lists, line information, executable code, etc. In 2017 we presented DIVA [1] which we have
+      successfully used to analyse several debug information issues in Clang and LLVM. DIVA used libdwarf
+      [2] to parse DWARF debug information from ELF files. We have since re-implemented and expanded upon
+      this functionality in llvm-diva, a new tool which requires no additional dependencies outside of
+      LLVM. llvm-diva is a command line tool that reads a file (e.g. ELF or PDB) containing debug
+      information (DWARF or CodeView) and produces an output that represents its logical view. The logical
+      view is a high-level representation of the debug information composed of scopes, types, symbols and
+      lines. llvm-diva has two modes: Printing and Comparison. The first prints a logical view containing
+      attributes such as: lexical scopes, disassembly code associated with the debug line records, types,
+      variables percentage coverage, etc. The second compares logical views to produce a report with the
+      logical elements that are missing or added. This is a very powerful aid to find semantic differences
+      in debug information produced by different toolchain versions, or even debug information formats
+      [3]. The tool currently supports the ELF, MacOS and PDB file formats and the DWARF and COFF debug
+      information formats. In this lightning talk I will show some of the above features, to illustrate
+      how to use llvm-diva with the debug information generated by Clang. We aim to propose llvm-diva for
+      inclusion into the LLVM monorepo soon. [1]
+      https://llvm.org/devmtg/2017-03/assets/slides/diva_debug_information_visual_analyzer.pdf [2]
+      https://www.prevanders.net/dwarf.html [3] https://llvm.org/PR43905
+
+  - title: "Compile Faster with the Program Repository and ccache"
+    speaker: "Ying Yi (SN Systems Limited), Paul Bowen-Huggett (SN Systems Limited)"
+    video_url: ""
+    slides_url: ""
+    description: |
+      The Program Repository (llvm-prepo) is an LLVM/Clang compiler with program repository support. It
+      aims to improve turnaround times and eliminate duplication of effort by centralising program data in
+      a repository. This reduces compilation time by reusing previously optimised functions and global
+      variable fragments, including both sharing them across multiple translation units and reusing them
+      even when other portions of the relevant source files have changed. ccache is a compiler caching
+      tool that uses textual hashing of the source files. When used to build a large project, the ccache
+      cache can quickly become invalid due to the frequency of header file changes. Thus, llvm-prepo
+      reduces the build time for changed files, whereas ccache reduces the build time for unchanged files.
+      This lightning talk will focus on showing how using the llvm-prepo and ccache together achieves much
+      faster builds than using either of them individually. We will show the benefits by building the
+      LLVM+Clang project at points through its commit history.
+
+  - title: "MultiLevel Tactics: Lifting loops in MLIR"
+    speaker: "lorenzo chelini (TU Eindhoven), Andi Drebes (Inria and École Normale Supérieure), Oleksandr Zinenko (Google), Albert Cohen (Google), Henk Corporaal (TU Eindhoven), Tobias Grosser (ETH), Nicolas Vasilache (Google)"
+    video_url: ""
+    slides_url: ""
+    description: |
+      We propose MultiLevel Tactics, or ML Tactics for short, an extension to MLIR that recognizes
+      patterns of high-level abstractions (e.g., linear algebra operations) in low-level dialects and
+      replaces them with the corresponding operations of an appropriate high-level dialect. Our current
+      prototype recognizes matrix multiplications in loop nests of the Affine dialect and lifts these to
+      the Linalg dialect. The pattern recognition and replacement scheme are designed as reusable building
+      blocks for transformations between arbitrary dialects and can be used to recognize commonly
+      recurrent patterns in HPC applications.
+
+  - title: "Adventures using LLVM OpenMP Offloading for Embedded Heterogeneous Systems"
+    speaker: "Lukas Sommer (TU Darmstadt)"
+    video_url: ""
+    slides_url: ""
+    description: |
+      Modern embedded systems combine general-purpose processors with accelerators, such as GPUs, in a
+      single, powerful heterogeneous system-on-chip (SoC). Such systems can be efficiently programmed
+      using the device offloading features introduced in recent versions of the OpenMP standard. In this
+      talk, we present an extension of LLVM's OpenMP Nvidia GPU offloading capabilities for embedded,
+      heterogeneous systems combining ARM CPUs and Nvidia GPUs. Additionally, we adapted libomptarget and
+      its Nvidia GPU plugin to make use of physically shared memory on the device through the CUDA unified
+      memory model. We demonstrate the use of the adapted infrastructure on three automotive
+      benchmark-kernels from the autonomous driving domain. Our adapted LLVM OpenMP offloading
+      infrastructure allows the user to significantly improve execution times on embedded, heterogeneous
+      systems by allocating unified memory for simultaneous use on CPU and GPU and thereby eliminating
+      unnecessary data-transfers.
+
+  - title: "Interpreted Pattern Matching in MLIR with MLIR"
+    speaker: "Jeff Niu (Google), Mehdi Amini (Google), River Riddle (Google)"
+    video_url: ""
+    slides_url: ""
+    description: |
+      A pattern matching and rewrite system underlies many of MLIR’s transformations on code, including
+      optimizations, canonicalization, and operation legalization. The current approach to pattern
+      execution involves writing C++ classes to implement a match and rewrite function or using TableGen
+      to describe patterns, from which a backend generates C++. This method is powerful, easy to use, and
+      fits nicely into the overall system, but suffers from some pitfalls: • Not extensible at runtime:
+      adding or modifying patterns requires rebuilding the compiler, which makes it cumbersome for users
+      to easily modify pattern sets, especially for those not normally working with C++. • Duplicate work
+      between patterns: many patterns have similar constraints and checks, some of which can be expensive.
+      E.g. attribute lookups are linear searches using string comparisons. Current pattern generation
+      involves no intermediate form upon which optimizations may be performed. • C++ code generation from
+      TableGen results in binary size bloat. The proposed solution involves representing pattern sets as
+      bytecode and executing it in an interpreter embedded in MLIR, as with SelectionDagISel, but using a
+      pipeline built with MLIR and representing patterns as an MLIR dialect. This pattern dialect should
+      be able to express a superset of TableGen patterns and, if necessary, hook into native function
+      calls to provide power similar to writing C++ patterns. Optimizations can be performed on sets of
+      patterns represented in this intermediate form, which is then injected into the existing framework,
+      allowing interoperability with existing C++ patterns. Allowing emission of this intermediate form
+      from “front- ends”, such as Python, JSON, and TableGen, enables users to specify patterns
+      dynamically, without rebuilding the compiler. Then, pattern sets can be distributed separately from
+      the compiler itself. Or, users can modify patterns on-the-fly with whatever DSL they work in. This
+      specification leads to a series of sub-problems. Of them include designing the pattern dialect to be
+      feature-complete, optimizing this intermediate form, “lowering” pattern sets into a byte-code, and
+      designing the interpreter, in addition to how this system will integrate with the existing
+      infrastructure and how it needs to be modified. An early version of this work was presented at an
+      MLIR Open Design Meeting, see slides here:
+      https://docs.google.com/presentation/d/1e8MlXOBgO04kdoBoKTErvaPLY74vUaVoEMINm8NYDds/edit?usp=sharing
+
+  - title: "Merging Vector Registers in Predicated Codes"
+    speaker: "Matthias Kurtenacker (Compiler Design Lab, Saarland University), Simon Moll (NEC Germany), Sebastian Hack (Compiler Design Lab, Saarland University)"
+    video_url: ""
+    slides_url: ""
+    description: |
+      Vector Predication allows vectorizing if-converted code. New architectures, and extensions to
+      existing ones, allow to enable and disable execution on individual vector lanes during program
+      execution. As with predication in the scalar case, static analyses over the predicates allow
+      refining the register allocation process. The liveness information over a vector value can be
+      extended to include liveness predicates as well. This can be used for instance to reduce the amount
+      of spilling that a function needs to perform. We extend the greedy register allocator to take per
+      lane liveness information into account when allocating vector registers. The target-dependent parts
+      of this approach were implemented for NECs SX-Aurora TSUBASA architecture. First benchmarks show
+      promising results with speedups of up to 16%.
+
+  - title: "Case Study: LLVM Optimizations for AI Applications Using RISC-V V Extension"
+    speaker: "Chia-Hsuan Chang (National Tsing Hua University, Taiwan), Pi-You Chen (National Tsing Hua University, Taiwan), Chao-Lin Lee (National Tsing Hua University, Taiwan), Jenq-Kuen Lee (National Tsing Hua University, Taiwan)"
+    video_url: ""
+    slides_url: ""
+    description: |
+      RISC-V is an open ISA with small and flexible features. Hardware vendors for RISC-V could select the
+      extension by their requirements for the specific application. Among the extension, vector extension
+      is one of the RISC-V extensions to enable the superword SIMD in RISC-V architectures to support the
+      fallback engine of the AI Computing. As the specification is still new, there are needed supports in
+      the LLVM compiler site. In our paper, we describe the techniques to efficiently support RISC-V with
+      V extension at LLVM via both vector intrinsic functions and basic llvm vector builders. Note RISC-V
+      vector extension allows one to dynamically set the size of each element in the vector and also the
+      amount of vector elements. This was designed in the specification to allow the flexibility to deploy
+      different widths for low-power numeric with different layers in the deep learning models. However,
+      it creates challenges in the implementation site. In the optimization site, we support an extra llvm
+      compiler phase for the redundancy elimination of the vsetvl instructions. With the flexibility of
+      the dynamic vector size for each layer, there are extra vsetvl instructions generated in the vector
+      code generations. Our redundancy elimination phase reduces the unnecessary vsetvl codes. In
+      addition, an efficient vector initialization is devised. We perform AI model experiments with TVM
+      compiler flow to our LLVM compiler with RISC-V V extension and achieve average 4.24x instruction
+      reductions for the runtime execution than the baseline without SIMD supports.
+
+  - title: "OpenMP codegen in Flang using MLIR"
+    speaker: "Kiran Chandramohan (Arm Ltd)"
+    video_url: ""
+    slides_url: ""
+    description: |
+      Flang is the Fortran frontend of LLVM under construction. This presentation (and/or poster) provides
+      a brief summary of the design of LLVM IR generation for OpenMP constructs in Flang. Two major
+      components are used for this project. i) MLIR: A dialect is created for OpenMP. The dialect is
+      designed to be generic (so that other frontends can use it), inter-operable with other dialects and
+      also capable of optimisations. ii) OpenMP IRBuilder: The OpenMP IRBuilder project refactors codegen
+      for OpenMP directives from Clang and places them in the LLVM directory. This way both Clang and
+      Flang can share the LLVM IR generation code for OpenMP. The overall flow will be as follows. The
+      Flang parser will parse the Fortran source into a parse tree. The parse tree is then lowered to a
+      mix of FIR and OpenMP dialects. These are then optimised and finally converted to mix of OpenMP and
+      LLVM MLIR dialects. The mix is translated to LLVM IR using the existing translation library for LLVM
+      MLIR and the OpenMP IRBuilder. The presentation will include the details of the OpenMP dialect, some
+      examples, how it interacts with other dialects and how it is translated to LLVM IR. Also, see the
+      RFC for the OpenMP dialect in MLIR group.
+      https://groups.google.com/a/tensorflow.org/d/msg/mlir/SCerbBpoxng/bVqWTRY7BAAJ
+
+  - title: "OpenMP in LLVM --- What is changing and why"
+    speaker: "Johannes Doerfert (ANL)"
+    video_url: ""
+    slides_url: ""
+    description: |
+      This lighting talk will give a short overview on all the currently ongoing efforts involving OpenMP.
+      We will (try to) highlight the following topics with their respective rational: • The OpenMPOpt
+      pass, the dedicated optimization pass that knows about and transforms OpenMP runtime calls. • The
+      OpenMPIRBuilder, the new location for *all* OpenMP related code generation. • The interplay of
+      OpenMP and Flang. • The implementation of OpenMP loop transformations. • The OpenMP device runtime
+      redesign, a stepping stone to allow us to support more than a single offloading target. • Scalar
+      optimization for outlined OpenMP functions, transparent in the Attributor framework.
+
+  - title: "Autotuning C++ function templates with ClangJIT"
+    speaker: "Sebastian Kreutzer (TU Darmstadt), Hal Finkel (Argonne National Laboratory)"
+    video_url: ""
+    slides_url: ""
+    description: |
+      ClangJIT is an extension of the Clang compiler that introduces just-in-time compilation of function
+      templates in C++. This feature can be used to generate functions which are specialized for certain
+      inputs. However, especially in computational kernels, the default optimization passes leave much of
+      the potential performance gains on the table. In this work, we try to close this gap by introducing
+      autotuning capabilities to ClangJIT. We employ Polly as a backend for polyhedral optimization and
+      evaluate different code versions, in order to find chains of loop transformations that deliver
+      performance improvements. Using a best-first tree search approach, we are able to demonstrate
+      significant speedups on test kernels.
+
+  - title: "A Multidimensional Array Indexing Intrinsics"
+    speaker: "Prashanth NR (Compiler Tree Technologies), Vinay Madhusudan (Compiler Tree Technologies), Ranjith Kumar (Compiler Tree Technologies)"
+    video_url: ""
+    slides_url: ""
+    description: |
+      LLVM linearizes the multidimensional array indices. This hinders the memory dependency analysis for
+      loop nest optimization. Techniques like delinearization are adhoc and pattern based. Newer front
+      ends like FC, F18 plan to alleviate the issue by using a new high level IR called MLIR. For the
+      traditional front ends like flang, where MLIR lowering is not planned, a new technique is proposed
+      to circumvent the issue. We use intrinsics in the front end to communicate the dimensions of array
+      indices. We have implemented the same in flang/clang frameworks and have successfully experimented
+      with moderately big input programs.
+
+  - title: "Some Improvements to the Branch Probability Information (BPI)"
+    speaker: "Akash Banerjee (IIT Hyderabad), Venkata Keerthy S (IIT Hyderabad), Rohit Aggarwal (IIT Hyderabad), Ramakrishna Upadrasta (IIT Hyderabad)"
+    video_url: ""
+    slides_url: ""
+    description: |
+      The BranchProbabilityInfo (BPI) pass is LLVM’s heuristic-based profiler. A study on this analysis
+      pass indicates that the heuristics implemented in it were fast, but not adequate. We propose to
+      improve the current heuristics to make them more robust and give better predictions. This has the
+      potential to be useful in the absence of actual profile information (for example, from PGO). We
+      suggest some possible improvements to the existing heuristics in the current implementation and
+      experimentally observe that such improvements have a positive impact on the runtime when used by the
+      standard O3 sequence, and we obtained an average speed-up of 1.07.
+
+  - title: "The Bitcode Database"
+    speaker: "Sean Bartell (University of Illinois at Urbana-Champaign), Vikram Adve (University of Illinois at Urbana-Champaign)"
+    video_url: ""
+    slides_url: ""
+    description: |
+      This talk will introduce the Bitcode Database (BCDB), a database that can efficiently store huge
+      amounts of LLVM bitcode. The BCDB can store hundreds of large Linux packages in a single place,
+      without adding significantly to the build time or requiring modifications to the packages. Each
+      bitcode module is split into a separate part for each function, and identical functions are
+      deduplicated, which means that many builds of a program can be kept in the BCDB with minimal
+      overhead. When a program and all of its dynamic libraries are stored in the BCDB, it is possible to
+      link the program and libraries together into a single module and optimize them together. This
+      technique can reduce the size of the final binary by 25-50%, and significantly improve performance
+      in some cases. The talk will conclude with a discussion of more potential uses for the BCDB, such as
+      incremental compilation or efficiently sharing bitcode between different organizations.
+
+  - title: "Is Post Dominator tree spoiling your party?"
+    speaker: "Reshabh Kumar Sharma (AMD Inc)"
+    video_url: ""
+    slides_url: ""
+    description: |
+      The difference in perspective of the implementation and use can sometimes result in behaviors that
+      are not expected. They may not necessarily be bugs. We present you the same with a concrete example
+      of post dominator tree construction algorithm in LLVM. Post dominator tree is a very important
+      abstraction of a property of cfg (post dominance) which has wide applications in various analysis
+      and transform passes in LLVM. We take two near similar cfg as the base of the analysis. We show
+      these test cases exploit the post dominator tree construction algorithm to generate two different
+      yet valid post dominator trees. We took it further to analyze the ripple effect on other passes
+      which depends on it. We present a few cases that demonstrate this ripple effect. The main aim is to
+      demonstrate that such behaviors can have a larger effect than expected and can be harder to debug in
+      comparison with implementation bugs. Such behaviors if found can be very difficult to correct as
+      sometimes the correction can bring in big performance regression.
+
+  - title: "DragonFFI: using Clang/LLVM for seamless C interoperability, and much more!"
+    speaker: "Adrien Guinet (Quarkslab)"
+    video_url: ""
+    slides_url: ""
+    description: |
+      DragonFFI [1] is a Clang/LLVM-based library that allows calling C functions and using C structures
+      from any languages. It provides a way to easily call C functions and manipulate C structures from
+      any language. Its purpose is to parse C libraries headers without any modifications and
+      transparently use them in a foreign language, like Python or Ruby. The first release has been
+      published in February 2018. A blog post presenting the project has been published on the LLVM blog
+      in March 2018 [2], and been presented to Fosdem 2018 [3]. Since then, it has been improved to
+      fulfill various users' needs, and stabilized so it is near being production-ready. That's why a
+      stable DragonFFI 1.0 version is planned for March 2020, and will include: • stable C++ and Python
+      API/ABI • generating Python portable structures from a C header file (for a given ABI). This is
+      something the security community asks for, to make (for instance) exploit research easier. •
+      tutorials for first-users and proposer API documentation This talk will showcase this version and be
+      structured in this way: • why DragonFFI, and what are the pros and cons against existing solutions
+      (e.g. libffi, cffi, cppyy) • how DragonFFI use Clang and LLVM internally • what could be improved in
+      Clang and/or LLVM to make our life easier • the life of a cross-platform DragonFFI release, and its
+      pitfalls • demos ! • future directions [1] https://github.com/aguinet/dragonffi/ [2]
+      https://blog.llvm.org/2018/03/dragonffi-ffijit-for-c-language-using.html [3]
+      https://archive.fosdem.org/2018/schedule/event/dragonffi/
+
+  - title: "RISE: A Functional Pattern-based Dialect in MLIR"
+    speaker: "Martin Lücke (University of Edinburgh), Michael Steuwer (University of Glasgow), Aaron Smith (Microsoft)"
+    video_url: ""
+    slides_url: ""
+    description: |
+      Machine learning systems are stuck in a rut. Paul Barham and Michael Isard, two of the original
+      authors of TensorFlow, come to this conclusion in their recent HotOS paper. They argue that while
+      TensorFlow and similar frameworks have enabled great advances in machine learning, their current
+      design and implementations focus on a fixed set of monolithic and inflexible kernels. We present our
+      work on the MLIR dialect RISE, a compiler intermediate representation inspired by pattern-based
+      program representations like Lift. A set of small generic patterns is provided, which can be
+      composed to represent complex computations. We argue that this approach of using simple reusable
+      patterns to break up large monolithic kernels will enable easier exploration of different novel
+      optimizations for machine learning workloads. Rise is a spiritual successor to Lift and developed at
+      the University of Edinburgh, University of Glasgow and University of Münster. Martin Lücke is a PhD
+      student from Edinburgh and works on the MLIR implementation of RISE. This work is mainly focused on
+      the representation of the high-level Rise patterns in MLIR, but we will also talk about the
+      challenges of introducing low-level patterns and a rewriting system in the future.

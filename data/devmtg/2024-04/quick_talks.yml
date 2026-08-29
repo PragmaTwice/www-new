@@ -23,7 +23,7 @@ quick_talks:
   - title: "Arcilator for ages five and up: flexible self-contained hardware simulation made easy"
     speaker: "Théo Degioanni"
     video_url: "https://youtu.be/lE7ynoMstQA"
-    slides_url: "Degioanni-Arcilator.pdf"
+    slides_url: "/devmtg/2024-04/slides/QuickTalks/Degioanni-Arcilator.pdf"
     description: |
       Théo Degioanni introduces Arcilator, a simulator for hardware modeled in CIRCT dialects. This talk explains the new dialect-based interface for Arcilator, eliminating the need for heavy C++ wrappers, and showcases its use cases.
 

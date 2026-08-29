@@ -1,0 +1,81 @@
+tutorials:
+  - title: "Implementing Common Compiler Optimizations From Scratch"
+    speaker: "Mike Shah (Northeastern University)"
+    video_url: ""
+    slides_url: ""
+    description: |
+      In this tutorial I will present several common compiler optimizations performed in LLVM. Chances are
+      you have learned them in your compilers course, but have you ever had the chance to implement them?
+      The following optimizations will be explained and presented: dead code elimination, common
+      subexpression elimination, code motion, and finally function inlining. Attendees will also learn how
+      to generate a control flow graph and visualize it in this After leaving this tutorial, attendees
+      should be able to implement more advanced program analysis using the LLVM framework. They will be
+      given a set of exercises that they can then challenge themselves with given the knowledge they learn
+      from this tutorial.
+
+  - title: "LLVM in a Bare Metal Environment"
+    speaker: "Hafiz Abid Qadeer (Mentor Graphics)"
+    video_url: ""
+    slides_url: ""
+    description: |
+      This tutorial is about building and validating LLVM toolchain for Embedded Bare Metal Systems.
+      Currently, most of the bare metal toolchains using LLVM depend on an existing GCC installation to
+      provide some runtime bits. In this tutorial, I will go through the steps involved in building an
+      LLVM toolchain that does not have this dependency. The tutorial will cover the following topics: •
+      What are multilibs and how to specify them • How to generate command line options for compiler,
+      linker and other tools in the driver • How building runtime libraries is different from building
+      host tools and ways to build LLVM runtime libraries (compiler-rt, libunwind, libcxxabi, libcxx) for
+      bare metal targets • Overview of the LLVM testing and how to test runtime libraries • Current
+      testing infrastructure provides support to test runtime libraries on emulator like QEMU. How to
+      extend it to real bare metal hardware
+
+  - title: "MLIR tutorial"
+    speaker: "Oleksandr Zinenko (Google), Mehdi Amini (Google)"
+    video_url: ""
+    slides_url: ""
+    description: |
+      MLIR is a flexible infrastructure for defining custom compiler abstractions and transformations,
+      recently introduced to LLVM. It aims at generalizing the success of LLVM’s intermediate
+      representation to new domains, ranging from device instruction sets, to loop abstractions, to graphs
+      of operators used in machine learning. In this tutorial, we will explain how the few core concepts
+      present in MLIR can be combined to represent and transform various IRs, including LLVM IR itself, by
+      demonstrating the development of an optimizing compiler for a custom DSL step by step. The tutorial
+      should be sufficient for the developers of compilers, IRs and similar tools to start using MLIR to
+      implement custom operations with parsing and printing, define custom type systems and implement
+      generic passes over the combination of those. We will provide an overview of MLIR ecosystem and
+      related efforts, building the analogy with existing LLVM subsystems and frequently discussed LLVM
+      extension proposals, e.g. loop optimizations or GPU-specific abstractions.
+
+  - title: "How to Give and Receive Code Reviews"
+    speaker: "Kit Barton (IBM Canada), Hal Finkel (ANL)"
+    video_url: ""
+    slides_url: ""
+    description: |
+      Code reviews are a critical component to the development process for the LLVM Community. Code
+      maintainers rely on the code review process to ensure a high quality of code and to serve as an
+      early detection and prevention mechanism for potential bugs. Developers also benefit greatly from
+      code reviews through the insight and suggestions they receive from the reviewers. This tutorial will
+      cover the code review process from both the developer and the reviewer's point of view. As a
+      developer, there are several guidelines to follow when preparing patches for review, as well as
+      common etiquette to follow during the review process. As a reviewer, there many things to look for
+      during the review (correctness, style, computational complexity, etc). This talk will discuss both
+      these roles, in depth. It will use demonstrations with Phabricator to emphasize several aspects of
+      the code review process. It will also highlight several features in Phabricator that can be used
+      during code reviews. The focus will be to summarize the current best practices for code reviews that
+      have been discussed on the llvm-dev mailing list and summarized on our website
+      (https://llvm.org/docs/CodeReview.html). It is meant to be as interactive as possible, with
+      questions during the presentation encouraged.
+
+  - title: "From C to assembly: adding a custom intrinsic to Clang and LLVM"
+    speaker: "Mateusz Belicki (Intel)"
+    video_url: ""
+    slides_url: ""
+    description: |
+      This tutorial will introduce you to all necessary steps to create a Clang intrinsic (builtin
+      function) and extend LLVM to generate code for it. This tutorial aims to provide a complete manual
+      for adding a custom target-specific intrinsic including exposition to the source language. After
+      completing this tutorial you should be able to extend clang with custom intrinsic and know how to
+      handle it in LLVM, including steps to test and debug your changes at different stages of
+      development. Fluency in C++ and general programming concepts is expected. The tutorial will try to
+      accommodate for listeners with no prior knowledge of LLVM or compiler-specific topics, but it's
+      recommended to complete general introduction tutorial to LLVM first.

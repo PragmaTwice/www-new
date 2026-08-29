@@ -2,7 +2,7 @@ technical_talks:
   - title: "Modern Embedded Development with LLVM"
     speaker: "Petr Hosek"
     video_url: "https://youtu.be/5hHQi-Uj34I"
-    slides_url: "https://llvm.org/devmtg/2024-10/slides/techtalk/Hosek-ModernEmbeddedDevelopment-with-LLVM.pdf"
+    slides_url: "/devmtg/2024-10/slides/techtalk/Hosek-ModernEmbeddedDevelopment-with-LLVM.pdf"
     description: |
       Modern day embedded development is anything but modern. I believe that we can change
       the way embedded development is done by using a modern toolchain based on LLVM and
@@ -14,7 +14,7 @@ technical_talks:
   - title: "What we learned from building Mojo’s optimization pipeline"
     speaker: "Weiwei Chen"
     video_url: "https://youtu.be/yuSBEXkjfEA"
-    slides_url: "https://llvm.org/devmtg/2024-10/slides/techtalk/Weiwei-What-We-Learned-Building-Mojo-OptimizationPipeline.pdf"
+    slides_url: "/devmtg/2024-10/slides/techtalk/Weiwei-What-We-Learned-Building-Mojo-OptimizationPipeline.pdf"
     description: |
       Mojo is a programming language for heterogenous compute built on top of MLIR and
       LLVM. Like many other programming languages and compiler systems built this way, the LLVM
@@ -26,7 +26,7 @@ technical_talks:
   - title: "Floating Point in LLVM: the Good, the Bad, and the Absent"
     speaker: "Joshua Cranmer"
     video_url: "https://youtu.be/sSNAGFXNXYU"
-    slides_url: "https://llvm.org/devmtg/2024-10/slides/techtalk/Cranmer-FloatingPoint-in-LLVM.pdf"
+    slides_url: "/devmtg/2024-10/slides/techtalk/Cranmer-FloatingPoint-in-LLVM.pdf"
     description: |
       This talk will cover the current state of semantics in floating-point for LLVM: the
       things that work, the things that don't work, and the things that are just plain missing
@@ -35,7 +35,7 @@ technical_talks:
   - title: "Higher-Level Linker Scripts for Embedded Systems"
     speaker: "Daniel Thornburgh"
     video_url: "https://youtu.be/t-lvIFmggmA"
-    slides_url: "https://llvm.org/devmtg/2024-10/slides/techtalk/Thornburgh-Higher-LevelLinkerScripts-forEmbeddedSystems.pdf"
+    slides_url: "/devmtg/2024-10/slides/techtalk/Thornburgh-Higher-LevelLinkerScripts-forEmbeddedSystems.pdf"
     description: |
       Embedded systems intrinsically place idiosyncratic constraints on the memory
       addresses of code and data. These constraints are typically met by explicitly placing
@@ -48,7 +48,7 @@ technical_talks:
   - title: "Towards Useful Fast-Math"
     speaker: "Andy Kaylor"
     video_url: "https://youtu.be/3Uf_3Su1NEc"
-    slides_url: "https://llvm.org/devmtg/2024-10/slides/techtalk/Kaylor-Towards-Useful-Fast-Math.pdf"
+    slides_url: "/devmtg/2024-10/slides/techtalk/Kaylor-Towards-Useful-Fast-Math.pdf"
     description: |
       Fast-math semantic modes provide a way to selectively relax the default rules for
       numeric consistency used by the compiler. Relaxing these rules can improve performance,
@@ -60,7 +60,7 @@ technical_talks:
   - title: "LLVM libc math library - Current status and future directions"
     speaker: "Tue Ly"
     video_url: "https://youtu.be/-8zb8rHbvcQ"
-    slides_url: "https://llvm.org/devmtg/2024-10/slides/techtalk/Ly-LLVM-libc-math-library-CurrentStatus.pdf"
+    slides_url: "/devmtg/2024-10/slides/techtalk/Ly-LLVM-libc-math-library-CurrentStatus.pdf"
     description: |
       LLVM libc math library aim to be a correctly rounded, performant, and complete C23
       math library that supports various targets and use-cases. In this talk, we will go over
@@ -71,7 +71,7 @@ technical_talks:
   - title: "Exploiting MLIR Abstractions for Hardware Verification"
     speaker: "Bea Healy, Luisa Cicolini"
     video_url: "https://youtu.be/ga0VHhwmKMM"
-    slides_url: "https://llvm.org/devmtg/2024-10/slides/techtalk/Healy-Cicolini-ExploitingMLIR-Abstractions-for-HardwareVerification.pdf"
+    slides_url: "/devmtg/2024-10/slides/techtalk/Healy-Cicolini-ExploitingMLIR-Abstractions-for-HardwareVerification.pdf"
     description: |
       Hardware verification is a fundamental, yet often painful, step of hardware design.
       This talk will discuss how MLIR can accelerate this process through the CIRCT
@@ -85,7 +85,7 @@ technical_talks:
   - title: "Advancing SPIR-V Backend Stability: Navigating GlobalISel Compromises"
     speaker: "Michal Paszkowski, Vyacheslav Levytskyy"
     video_url: "https://youtu.be/oLuTsD4mLXE"
-    slides_url: "https://llvm.org/devmtg/2024-10/slides/techtalk/Paszkowski-Levytskyy-AdvancingSPIR-V-BackendStability.pdf"
+    slides_url: "/devmtg/2024-10/slides/techtalk/Paszkowski-Levytskyy-AdvancingSPIR-V-BackendStability.pdf"
     description: |
       This presentation outlines the recent advancements and ongoing challenges in the
       development of the SPIR-V backend, which has become a crucial component for supporting
@@ -102,7 +102,7 @@ technical_talks:
   - title: "New llvm-exegesis Support for RISC-V Vector Extension"
     speaker: "Min Hsu"
     video_url: "https://youtu.be/h2tDWoTWUnw"
-    slides_url: "https://llvm.org/devmtg/2024-10/slides/techtalk/Hsu-RVV-Exegesis.pdf"
+    slides_url: "/devmtg/2024-10/slides/techtalk/Hsu-RVV-Exegesis.pdf"
     description: |
       llvm-exegesis has been instrumental in calibrating LLVM's scheduling models using
       hardware-collected metrics, such as instruction latency. In this talk, we'll unveil the
@@ -116,7 +116,7 @@ technical_talks:
   - title: "Loop Vectorisation: a quantitative approach to identify/evaluate opportunities"
     speaker: "Sjoerd Meijer"
     video_url: "https://youtu.be/u7W3_xL_3NQ"
-    slides_url: "https://llvm.org/devmtg/2024-10/slides/techtalk/Meijer-Loop-Vectorisation.pdf"
+    slides_url: "/devmtg/2024-10/slides/techtalk/Meijer-Loop-Vectorisation.pdf"
     description: |
       In previous LLVM developer conferences, there have been several presentations and
       discussions on loop vectorisation, focusing on the progress of the VPlan infrastructure
@@ -137,7 +137,7 @@ technical_talks:
   - title: "Enhance SYCL offloading support to use the new offloading model"
     speaker: "Ravi Narayanaswamy"
     video_url: "https://youtu.be/4Qof7vtfhuk"
-    slides_url: "https://llvm.org/devmtg/2024-10/slides/techtalk/Narayanaswamy-EnhanceSYCL-offloading-support.pdf"
+    slides_url: "/devmtg/2024-10/slides/techtalk/Narayanaswamy-EnhanceSYCL-offloading-support.pdf"
     description: |
       Driven by Intel, SYCL compiler is an LLVM-based project that implements support for
       the SYCL language. In our downstream implementation, We (Intel) have made several changes
@@ -151,7 +151,7 @@ technical_talks:
   - title: "The State of Pattern-Based IR Rewriting in MLIR"
     speaker: "Matthias Springer"
     video_url: "https://youtu.be/xIeihq2WZOU"
-    slides_url: "https://llvm.org/devmtg/2024-10/slides/techtalk/Springer-Pattern-Based-IR-Rewriting-in-MLIR.pdf"
+    slides_url: "/devmtg/2024-10/slides/techtalk/Springer-Pattern-Based-IR-Rewriting-in-MLIR.pdf"
     description: |
       Pattern-based IR rewriting through the greedy pattern rewriter and the dialect
       conversion framework is widely used and one of the core mechanisms of MLIR. This talk will
@@ -165,7 +165,7 @@ technical_talks:
   - title: "Vectorization in MLIR: Towards Scalable Vectors and Matrices (Part 2)"
     speaker: "Andrzej Warzyński"
     video_url: "https://youtu.be/gaSb4BRRcmM"
-    slides_url: "https://llvm.org/devmtg/2024-10/slides/techtalk/Warzynski-Vectorization-in-MLIR.pdf"
+    slides_url: "/devmtg/2024-10/slides/techtalk/Warzynski-Vectorization-in-MLIR.pdf"
     description: |
       This presentation builds on the "Vectorization in MLIR" talk delivered at LLVM Dev
       Meeting 2023, delving deeper into the Linalg Vectorizer's capabilities within MLIR. The
@@ -184,7 +184,7 @@ technical_talks:
   - title: "Efficient Coroutine Implementation in MLIR"
     speaker: "Steffi Stumpos"
     video_url: "https://youtu.be/ILjuvj13EpQ"
-    slides_url: "https://llvm.org/devmtg/2024-10/slides/techtalk/Stumpos-EfficientCoroutineImplementatio-inMLIR.pdf"
+    slides_url: "/devmtg/2024-10/slides/techtalk/Stumpos-EfficientCoroutineImplementatio-inMLIR.pdf"
     description: |
       Because of the growing need to offload compute to GPUs and other types of customized
       hardware, asynchronous programming has become a necessary feature of modern programming
@@ -197,7 +197,7 @@ technical_talks:
   - title: "LLVM Premerge Testing: Current State and Next Steps"
     speaker: "Lucile Rose Nihlen"
     video_url: "https://youtu.be/CLczt-RJzAA"
-    slides_url: "https://llvm.org/devmtg/2024-10/slides/techtalk/Nihlen-LLVM-Premerge-Testing.pdf"
+    slides_url: "/devmtg/2024-10/slides/techtalk/Nihlen-LLVM-Premerge-Testing.pdf"
     description: |
       Presenting a detailed technical overview of the current LLVM Premerge
       Infrastructure, the challenges it is facing and their proposed solutions, and a roadmap
@@ -207,7 +207,7 @@ technical_talks:
   - title: "Fine-grained compilation caching using llvm-cas"
     speaker: "Shubham Rastogi"
     video_url: "https://youtu.be/c629Cggdes4"
-    slides_url: "https://llvm.org/devmtg/2024-10/slides/techtalk/Rastogi-Fine-grained-compilation-caching-using-llvm-cas.pdf"
+    slides_url: "/devmtg/2024-10/slides/techtalk/Rastogi-Fine-grained-compilation-caching-using-llvm-cas.pdf"
     description: |
       Last year, we demonstrated how debug information can be efficiently represented in
       fine-grained caching. Since then, we have used this technology to build a drop-in
@@ -222,7 +222,7 @@ technical_talks:
   - title: "Release Engineering Strategies: How LLVM and GCC Navigate Development and Maintenance"
     speaker: "Tom Stellard, David Edelsohn"
     video_url: "https://youtu.be/HwrQyOQBIpQ"
-    slides_url: "https://llvm.org/devmtg/2024-10/slides/techtalk/Edelsohn-GCC-and-LLVMDevelopment-and-Maintenance.pdf"
+    slides_url: "/devmtg/2024-10/slides/techtalk/Edelsohn-GCC-and-LLVMDevelopment-and-Maintenance.pdf"
     description: |
       LLVM and GCC have evolved very different policies for release engineering
       (development cycle, scheduling, type of maintenance, duration of maintenance) that impacts
@@ -238,7 +238,7 @@ technical_talks:
   - title: "Two Compilers, One Language, No Specification"
     speaker: "Chris Bieneman"
     video_url: "https://youtu.be/sVq5khCXkbw"
-    slides_url: "https://llvm.org/devmtg/2024-10/slides/techtalk/Bieneman-Two-Compilers-One-Language-NoSpecification.pdf"
+    slides_url: "/devmtg/2024-10/slides/techtalk/Bieneman-Two-Compilers-One-Language-NoSpecification.pdf"
     description: |
       The High Level Shader Language (HLSL) is a popular cross-platform programming
       language for GPUs focused on realtime graphics applications. Through its over 20 year life
@@ -250,7 +250,7 @@ technical_talks:
             the ptr dialect, and the road ahead"
     speaker: "Mehdi Amini, Fabian Mora Cordero"
     video_url: "https://youtu.be/Bt__BDQivxo"
-    slides_url: "https://llvm.org/devmtg/2024-10/slides/techtalk/Amini-Cordero-MakingUpstreamMLIRMoreFriendly.pdf"
+    slides_url: "/devmtg/2024-10/slides/techtalk/Amini-Cordero-MakingUpstreamMLIRMoreFriendly.pdf"
     description: |
       In this talk, we discuss the existing limitations of upstream MLIR for representing
       generic programming languages and propose solutions to address some of these issues. As
@@ -265,7 +265,7 @@ technical_talks:
   - title: "Hand-In-Hand: LLVM-libc and libc++ code sharing."
     speaker: "Michael Jones, Christopher Di Bella"
     video_url: "https://youtu.be/VAEO86YtTHA"
-    slides_url: "https://llvm.org/devmtg/2024-10/slides/techtalk/Jones-DiBella-hand-in-hand.pdf"
+    slides_url: "/devmtg/2024-10/slides/techtalk/Jones-DiBella-hand-in-hand.pdf"
     description: |
       Have you ever wondered how libc++ implements functions that are similar to libc? For
       example, consider std::from_chars(float) and strtof. They both take a string and output a
@@ -278,7 +278,7 @@ technical_talks:
   - title: "Challenges in Using LLVM as a Quantum Intermediate Representation"
     speaker: "Andrew Litteken"
     video_url: "https://youtu.be/lzl-qdswIgU"
-    slides_url: "https://llvm.org/devmtg/2024-10/slides/techtalk/Litteken-Challenges-Using-LLVM-as-a-QuantumIntermediate-Representation.pdf"
+    slides_url: "/devmtg/2024-10/slides/techtalk/Litteken-Challenges-Using-LLVM-as-a-QuantumIntermediate-Representation.pdf"
     description: |
       The most efficient programming and compilation paradigms for quantum computing are
       still being explored as new applications and architectures are developed. This talk lays
@@ -293,7 +293,7 @@ technical_talks:
   - title: "(Offload) ASAN via Software Managed Virtual Memory"
     speaker: "Johannes Doerfert"
     video_url: "https://youtu.be/B60jp4khrvc"
-    slides_url: "https://llvm.org/devmtg/2024-10/slides/techtalk/Doerfert-Offload-ASAN.pdf"
+    slides_url: "/devmtg/2024-10/slides/techtalk/Doerfert-Offload-ASAN.pdf"
     description: |
       We present LLVM/Offload Sanitizer, an address sanitizer (ASAN) designed for GPUs. In
       contrast to the classic CPU ASAN, the offload sanitizer will avoids high memory overhead,
@@ -309,7 +309,7 @@ technical_talks:
   - title: "A C++ Toolchain for Your GPU"
     speaker: "Joseph Huber"
     video_url: "https://youtu.be/4TxGWis1mws"
-    slides_url: "https://llvm.org/devmtg/2024-10/slides/techtalk/Huber-A-CPlusPlus-Toolchain-for-Your-GPU.pdf"
+    slides_url: "/devmtg/2024-10/slides/techtalk/Huber-A-CPlusPlus-Toolchain-for-Your-GPU.pdf"
     description: |
       This project seeks to treat the GPU as a standard hosted target by porting the LLVM
       C library, compiler runtime, and C++ runtime all to run on the GPU. We show how LLVM/Clang
@@ -319,7 +319,7 @@ technical_talks:
   - title: "When unsafe code is slow - Automatic Differentiation in Rust"
     speaker: "Manuel Drehwald"
     video_url: "https://youtu.be/xEcoNuzhfBI"
-    slides_url: "https://llvm.org/devmtg/2024-10/slides/techtalk/Drehwald-AutomaticDifferentiation-in-Rust.pdf"
+    slides_url: "/devmtg/2024-10/slides/techtalk/Drehwald-AutomaticDifferentiation-in-Rust.pdf"
     description: |
       Automatic Differentiation was accepted as an experimental Rust feature for HPC, ML,
       and Scientific Computing applications. We present Rust-Enzyme, an LLVM-based autodiff tool
@@ -333,7 +333,7 @@ technical_talks:
   - title: "A new constant expression interpreter for Clang"
     speaker: "Timm Baeder"
     video_url: "https://youtu.be/eMT1dBlaggQ"
-    slides_url: "https://llvm.org/devmtg/2024-10/slides/techtalk/Baeder-A-new-constant-expression-interpreter-for-Clang.pdf"
+    slides_url: "/devmtg/2024-10/slides/techtalk/Baeder-A-new-constant-expression-interpreter-for-Clang.pdf"
     description: |
       In this talk, we will look at the development status of the new bytecode interpreter
       for constant expressions in Clang, implementation challenges as well as future development
@@ -343,7 +343,7 @@ technical_talks:
   - title: "Generic implementation strategies in Carbon and Clang"
     speaker: "Richard Smith"
     video_url: "https://youtu.be/j0BL52NdjAU"
-    slides_url: "https://llvm.org/devmtg/2024-10/slides/techtalk/Smith-Generic-implementation-strategies-in-Carbon-and-Clang.pdf"
+    slides_url: "/devmtg/2024-10/slides/techtalk/Smith-Generic-implementation-strategies-in-Carbon-and-Clang.pdf"
     description: |
       A dive into the generics implementation in the Carbon toolchain and the templates
       implementation in Clang. This talk will contrast the approaches taken and discuss some
@@ -352,7 +352,7 @@ technical_talks:
   - title: "JSIR - Adversarial JavaScript Detection With MLIR"
     speaker: "Zhixun Tan"
     video_url: "https://youtu.be/SY1ft5EXI3I"
-    slides_url: "https://llvm.org/devmtg/2024-10/slides/techtalk/Tan-JSIR.pdf"
+    slides_url: "/devmtg/2024-10/slides/techtalk/Tan-JSIR.pdf"
     description: |
       Adversarial JavaScript is everywhere - web pages, mobile apps, browser extensions…
       you name it! To better support the detection of adversarial JavaScript, Google is using
@@ -366,7 +366,7 @@ technical_talks:
   - title: "Clang Modules at Scale"
     speaker: "Michael Spencer, Ian Anderson"
     video_url: "https://youtu.be/tcB1vXc4L8M"
-    slides_url: "https://llvm.org/devmtg/2024-10/slides/techtalk/Anderson-Spencer-ClangModules-at-Scale.pdf"
+    slides_url: "/devmtg/2024-10/slides/techtalk/Anderson-Spencer-ClangModules-at-Scale.pdf"
     description: |
       This presentation shares some of the things we've learned in the more than 10 years
       of deploying Clang modules in the SDKs. We explain what what a modular header actually is,
@@ -376,7 +376,7 @@ technical_talks:
   - title: "Shardy: An MLIR-based Tensor Partitioning System for All Dialects"
     speaker: "Bart Chrzaszcz, Zixuan Jiang"
     video_url: "https://youtu.be/po-Cxq2Acig"
-    slides_url: "https://llvm.org/devmtg/2024-10/slides/techtalk/Chrzaszcz-Jiang-Shardy.pdf"
+    slides_url: "/devmtg/2024-10/slides/techtalk/Chrzaszcz-Jiang-Shardy.pdf"
     description: |
       Generative AI models are so large that the tensor programs they are represented as
       are required to be chunked (partitioned) into programs on thousands of hardware
@@ -392,7 +392,7 @@ technical_talks:
   - title: "Swift Explicitly-Built Modules"
     speaker: "Artem Chikin"
     video_url: "https://youtu.be/DEjbcVRfSKA"
-    slides_url: "https://llvm.org/devmtg/2024-10/slides/techtalk/Chikin-Swift-Explicitly-Built-Modules.pdf"
+    slides_url: "/devmtg/2024-10/slides/techtalk/Chikin-Swift-Explicitly-Built-Modules.pdf"
     description: |
       Swift relies on modules exclusively for units of code distribution and library
       interface. Swift’s interoperability with C, ObjectiveC, and C++ leads to a heavy use of
@@ -408,7 +408,7 @@ technical_talks:
   - title: "Simplifying GPU Programming with Parametric Tile-Level Tensors In Mojo"
     speaker: "Ahmed Taei"
     video_url: "https://youtu.be/sOZWhPVvRdw"
-    slides_url: "https://llvm.org/devmtg/2024-10/slides/techtalk/Taei-Simplifying-GPU-Programming-with-Parametric-Tile-Level-Tensors-In-Mojo.pdf"
+    slides_url: "/devmtg/2024-10/slides/techtalk/Taei-Simplifying-GPU-Programming-with-Parametric-Tile-Level-Tensors-In-Mojo.pdf"
     description: |
       Today’s AI GPU workloads are dominated by operations such as matrix multiplication
       (matmul) and flash-attention, with state-of-the-art implementations designed to leverage
@@ -428,7 +428,7 @@ technical_talks:
   - title: "lean-mlir: A Workbench for formally verifying Peephole Optimizations for MLIR"
     speaker: "Alex Keizer, Siddharth Bhat"
     video_url: "https://youtu.be/4lh2NnLOxvQ"
-    slides_url: "https://llvm.org/devmtg/2024-10/slides/techtalk/Keizer-Bhat-lean-mlir.pdf"
+    slides_url: "/devmtg/2024-10/slides/techtalk/Keizer-Bhat-lean-mlir.pdf"
     description: |
       We aim to combine the convenience of automation with the versatility of ITPs for
       verifying peephole rewrites across domain-specific IRs. Our tool (lean-mlir) built in the
@@ -444,7 +444,7 @@ technical_talks:
   - title: "Improving optimized code line table quality"
     speaker: "Orlando Cazalet-Hyams"
     video_url: "https://youtu.be/yj1EUzXVP1I"
-    slides_url: "https://llvm.org/devmtg/2024-10/slides/techtalk/Cazalet-Hyams-Improving-optimized-code-line-table-quality.pdf"
+    slides_url: "/devmtg/2024-10/slides/techtalk/Cazalet-Hyams-Improving-optimized-code-line-table-quality.pdf"
     description: |
       Debug line tables are a key part of many development processes, including SPGO,
       debugging, and crash dumps. When optimising code, LLVM struggles to maintain attribution
@@ -455,7 +455,7 @@ technical_talks:
   - title: "Implementing Linear / Non-destructible Types in Vale and Mojo"
     speaker: "Evan Ovadia"
     video_url: "https://youtu.be/IpuvQUVB8Cg"
-    slides_url: "https://llvm.org/devmtg/2024-10/slides/techtalk/Ovadia-LinearTypes-in-Vale-and-Mojo.pdf"
+    slides_url: "/devmtg/2024-10/slides/techtalk/Ovadia-LinearTypes-in-Vale-and-Mojo.pdf"
     description: |
       Linear types are the secret ingredient to ensuring "liveness": the guarantee that
       desired future operations will happen. With them, you can solve caching problems,
@@ -468,7 +468,7 @@ technical_talks:
   - title: "Adding Pointer Authentication ABI support for your ELF platform"
     speaker: "Anton Korobeynikov"
     video_url: "https://youtu.be/bytWm7BzJVE"
-    slides_url: "https://llvm.org/devmtg/2024-10/slides/techtalk/Korobeynikov-Adding-Pointer-Authentication-ABI-support.pdf"
+    slides_url: "/devmtg/2024-10/slides/techtalk/Korobeynikov-Adding-Pointer-Authentication-ABI-support.pdf"
     description: |
       Recently the majority of the patches required to support Pointer Authentication
       C/C++ ABI were ported from downstream implementation for arm64e platform and were
@@ -494,7 +494,7 @@ technical_talks:
   - title: "Mitigating use-after-free security vulnerabilities in C and C++ with language support for type-isolating allocators"
     speaker: "Oliver Hunt"
     video_url: "https://youtu.be/GGGaiGpm5BY"
-    slides_url: "https://llvm.org/devmtg/2024-10/slides/techtalk/Hunt-Mitigating-use-after-free-security-vulnerabilities.pdf"
+    slides_url: "/devmtg/2024-10/slides/techtalk/Hunt-Mitigating-use-after-free-security-vulnerabilities.pdf"
     description: |
       Type based segregation of heap allocations has long been acknowledged as an
       effective mechanism to mitigate memory safety vulnerabilities in real world C and C++. A

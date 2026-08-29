@@ -1,0 +1,54 @@
+tutorials:
+  - title: "Understanding MLIR Crash Reproducers: Debugging, Application, and Best Practices"
+    speaker: "Artemiy Bulavin"
+    video_url: "https://youtu.be/joTDLdiJpmo"
+    slides_url: "/devmtg/2025-10/slides/tutorials/bulavin.pdf"
+    description: |
+      This talk offers a comprehensive guide to the MLIR crash reproducer ecosystem, aimed at developers
+      building and maintaining MLIR-based compilers. We will begin with the fundamentals, demonstrating
+      how to generate and use reproducers with mlir-opt for rapid debugging. We will then cover
+      practical integration strategies, showing how to enable this functionality in a programmatic and
+      user-friendly way via the PassManager, using Triton as an example downstream project. The session
+      will explore best practices for effectively using reproducers, including strategies for minimizing
+      them and the critical distinction between standard and local reproducers for pinpointing the exact
+      point of failure.
+
+  - title: "So you want to change the LLVM-IR?"
+    speaker: "Jeremy Morse"
+    video_url: "https://youtu.be/TyOIQ8BaDXc"
+    slides_url: ""
+    description: |
+      The LLVM IR is a powerful and flexible intermediate representation. However, it can be challenging
+      to change the LLVM IR without breaking things. In this talk, we will discuss the process of
+      changing the LLVM IR. We will discuss the challenges we faced, the solutions we came up with, and
+      the lessons we learned. We will also discuss how this work can be used to improve the quality of
+      the LLVM IR.
+
+  - title: "Scheduling Model in LLVM: Past, Present, and Future"
+    speaker: "Min Hsu"
+    video_url: "https://youtu.be/YZHhlmOTG0g"
+    slides_url: "/devmtg/2025-10/slides/tutorials/hsu.pdf"
+    description: |
+      The LLVM scheduling model is a key component of LLVM's code generation pipeline. In this talk, we
+      will discuss the LLVM scheduling model. We will discuss the challenges we faced, the solutions we
+      came up with, and the lessons we learned. We will also discuss how this work can be used to
+      improve the quality of code generation in LLVM.
+
+  - title: "BOLT tutorial on AArch64 and how it competes or complements other PGOs"
+    speaker: "Paschalis Mpeis"
+    video_url: "https://youtu.be/KdHtOMc5_c8"
+    slides_url: "/devmtg/2025-10/slides/tutorials/mpeis.pdf"
+    description: |
+      Many people experiment with BOLT and other Profile-Guided Optimization (PGO) methods because of
+      the performance gains they promise. We often see developers struggle to get BOLT running smoothly
+      or get confused by the variety of PGO methods. This tutorial aims to help with that by building
+      understanding through: * Break down of the code-layout challenges BOLT solves, visualize them in
+      binaries, and explain why traditional compilers struggle. * Describe the main profiling techniques
+      and their trade-offs between performance and quality, relative to user's environment or other
+      constraints. * Briefly compare BOLT, a Post-Link Optimizer (PLO), with other PLOs, as well
+      compile-time or link-time PGOs it competes with or complements, such as Propeller, FE-, IR-,
+      AFDO/S-, CS-, CSS-, HW-, and Temporal-PGO. To wrap up we will demonstrate the flow on a particular
+      binary: 1. Use Arm's latest Performance Analysis tools to predict whether BOLT can improve
+      performance. 2. Capture a profile and optimize the binary with BOLT. 3. Validate results with
+      metrics and visuals. Attendees will learn when to choose BOLT, what problem it solves, how to
+      apply it effectively, and when to combine it with other PGOs.

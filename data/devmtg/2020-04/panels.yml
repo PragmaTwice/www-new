@@ -1,0 +1,35 @@
+panels:
+  - title: "Vector Predication"
+    speaker: "Andrew Kaylor (Intel), Florian Hahn (Apple), Roger Ferrer Ibáñez (Barcelona Supercomputing Center), Simon Moll (NEC Deutschland)"
+    video_url: ""
+    slides_url: ""
+    description: |
+      LLVM lacks support for predicated vector instructions. Predicated vector operations in LLVM IR are
+      required to properly target SIMD/Vector ISAs such as Intel AVX512, ARM MVE/SVE, RISC V V-Extension
+      and NEC SX-Aurora TSUBASA. This panel discusses various design ideas and requirements to bring
+      native vector predication to LLVM with the goal of opening up on-going efforts to the scrutiny of
+      the wider LLVM community. This panel follows up on various round tables and the BoF at EuroLLVM
+      2019. We are planning to address the following aspects: • Design alternatives & choices - limits of
+      the instruction+select pattern. • Generating vector-predicated code (ie making predicated ops
+      available for VPlan/LV/RV). • Making existing optimizations work for vector-predicated code. • The
+      LLVM-VP (D57504) prototype and roadmap. The panelists have a diverse background in X86, RISC-V V
+      extension and NEC SX-Aurora code generation as well as experience with SLP/LV/VPlan vectorizers and
+      the out-of-tree Region Vectorizer, constrained fp and the current RFCs to bring predicated vector
+      operations to LLVM.
+
+  - title: "OpenMP (Target Offloading) in LLVM [Panel/BoF]"
+    speaker: "Johannes Doerfert (ANL)"
+    video_url: ""
+    slides_url: ""
+    description: |
+      Offloading, thus moving computation to accelerators, has (to) become reality in various fields,
+      including but not exclusively HPC. OpenMP is a promising language for many people as it integrates
+      well into existing code bases written in C/C++ or Fortran. In this Panel (or BoF) we want to give
+      people an overview of the current support, what is being worked on, and how researchers can impact
+      this important topic. While we hope for questions from the audience, we will present various topics
+      to start the conversation, including: • the redesign of the OpenMP device runtime library to support
+      more targets • the OpenMP optimization pass and scalar optimizations • OpenMP 5.0 and 5.1 support •
+      OpenMP in Flang The panelists are from companies and institutions involved in these efforts. We are
+      in contact with: Jon Chesterfield (AMD) Simon Moll (NEC) Xinmin Tian (Intel) Alexey Bataev (IBM) as
+      well as representatives from national labs and other hardware vendors. Note that depending on the
+      format we will need to list more people as authors.

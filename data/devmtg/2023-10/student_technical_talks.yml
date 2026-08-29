@@ -1,0 +1,102 @@
+student_technical_talks:
+  - title: "Code-Completion in Clang-Repl"
+    speaker: "Fred Fu"
+    video_url: "https://youtu.be/P_PYl3Hvl4o?feature=shared"
+    slides_url: ""
+    description: |
+      Built upon Clang and LLVM incremental compilation pipelines, Clang-Repl is a C++ interpreter
+      featuring a REPL that enables C++ users to develop programs in an exploratory fashion.
+      Autocompletion in Clang-Repl is a significant leap forward in this direction. The feature
+      empowers Clang-Repl to accelerate their input and prevent typos. Inspired by the counterpart
+      feature in Cling, a downstream project of Clang-Repl, our auto-completion feature leverages
+      existing components of Clang/LLVM, and provides context-aware semantic completion
+      suggestions. In this talk, we will present how autocompletion works at REPL and how it
+      interacts with other Clang/LLVM infrastructure.
+
+  - title: "TDG discovery and compile-time optimizations of OpenMP Tasks"
+    speaker: "Rafael Andres Herrera Guaitero"
+    video_url: "https://youtu.be/GsFs1GlpP4U?feature=shared"
+    slides_url: ""
+    description: |
+      In this session, the talk will focus on enhancing LLVM's ability to optimize OpenMP task
+      code by proposing an approach for encoding the partial Task Dependence Graph (TDG) during
+      compilation using LLVM-IR, attributes, and metadata. The goal is to enable the compiler to
+      perform traditional code analysis, aiding in the TDG's construction, and optimizations that
+      improve program execution. The significance of efficient and optimal code in the context of
+      OpenMP tasking will be highlighted, along with the challenges and potential opportunities.
+      To address these challenges effectively, a simple yet novel abstraction for OpenMP tasking
+      analysis and optimizations will be presented. The discussion will cover the outcomes and
+      current status of the implementation, demonstrating the feasibility and benefits of adopting
+      this approach, aiming to achieve greater efficiency and performance in tasking programming
+      models.
+
+  - title: "Leveraging MLIR for Loop Vectorization and GPU Porting of FFT Libraries"
+    speaker: "Yifei He"
+    video_url: "https://youtu.be/8xDF4qku3AI?feature=shared"
+    slides_url: "/devmtg/2023-10/slides/student-talks/He-LeveragingMLIRforLoopVectorization.pdf"
+    description: |
+      Leveraging MLIR for Loop Vectorization and GPU Porting of FFT Libraries Related paper:
+      https://arxiv.org/abs/2308.00497
+
+  - title: "Optimization of CUDA GPU Kernels and Translation to AMDGPU in 4) Polygeist/MLIR"
+    speaker: "Ivan Ivanov"
+    video_url: "https://youtu.be/W7-YIYb9ulc?feature=shared"
+    slides_url: ""
+    description: |
+      We extend the Polygeist C/C++ compiler to utilize a target-agnostic parallel representation
+      of GPU kernels in MLIR to perform parallel optimizations and architecture-specific tuning.
+      We also implement translation from CUDA to AMDGPU and expand the set of possible target
+      hardware for CUDA code.
+
+  - title: "Driving MLIR Compilation From Python"
+    speaker: "Martin Lucke"
+    video_url: "https://youtu.be/3EE0YMtsR3w?feature=shared"
+    slides_url: "/devmtg/2023-10/slides/student-talks/Lucke-DrivingMLIRCompilationFromPython.pdf"
+    description: |
+      The MLIR infrastructure supports productive IR construction via Python bindings, but offers
+      only limited string parsing-based pass pipeline constructor to transform the IR from Python.
+      We propose a Python-native interface to compose and fine-tune transformations at finer
+      granularity by leveraging MLIR's transform dialect. We also extend this dialect to allow for
+      constructing "passes" that apply a composition of rewrite patterns on-the-fly. This talk
+      highlights the challenges MLIR's radically extensible design presents for the conventional
+      pass-based design of compiler pipelines and offers a glimpse of the possible evolution.
+
+  - title: "OpenMP Kernel Language Extensions for Performance Portable GPU Codes"
+    speaker: "Shilei Tian"
+    video_url: "https://youtu.be/EhA4ZCDwzfI?feature=shared"
+    slides_url: ""
+    description: |
+      In this talk, we will introduce extensions to LLVM OpenMP, transforming it into a versatile
+      and performance portable kernel language for GPU programming. We will demonstrate how these
+      extensions allow for the seamless porting of CUDA programs to high-performance OpenMP GPU
+      programs with minimal modifications. Finally, we will present performance results on both
+      NVIDIA and AMD GPUs.
+
+  - title: "Quick explanation of the LLVM's OpenMP Task runtime and the new record and replay feature"
+    speaker: "Rémy Pierre Gwenaël Neveu"
+    video_url: "https://youtu.be/hP4KJkcECy4?feature=shared"
+    slides_url: ""
+    description: |
+      This talk offers a quick overview of the current implementation of OpenMP tasking. The
+      objective of this talk is to explain the current state of the implementation and provide
+      guidelines for other developers on how to get started and improve LLVM's OpenMP task
+      support. We first describe the overall compilation pipeline of programs that include OpenMP
+      tasks. We emphasize source code location and the role of each part of the compilation
+      process. Following, we provide a deeper overview of the clang front-end. Next, we provide an
+      overview of the runtime system interface and implementation. Finally, we provide hints on
+      how to test new functionalities and debug the runtime.
+
+  - title: "Profiling the Profiler: New metrics to evaluate and improve profile guided optimization"
+    speaker: "Micah Weston"
+    video_url: "https://youtu.be/khnRwNEupvw?feature=shared"
+    slides_url: "/devmtg/2023-10/slides/student-talks/Weston-ProfilingTheProfiler.pdf"
+    description: |
+      PGO can have the biggest impact when all compiler passes have accurate profile information,
+      but in practice many parts of the compilation pipeline introduce inaccuracies. Recent PGO
+      evaluations have measured accuracy of imported profiles, ignoring distortion from later
+      optimizations, or looked at aggregate performance, which is often too noisy to correlate
+      with profile accuracy. We propose new metrics that compare end-of-compilation profile data
+      against instruction traces, letting us check the accuracy of profile data end-to-end and
+      decoupling it from performance measurement noise. We share our experience using these new
+      metrics to measure the accuracy of profiles used in PGO, pinpoint areas for improvement, and
+      evaluate new fixes.

@@ -1,0 +1,88 @@
+posters:
+  - title: "Optimizing IREE to Match llama.cpp: An Introduction to IREE optimization for newbies through a benchmark journey"
+    speaker: "Uiseop Eom"
+    video_url: ""
+    poster_url: ""
+    description: |
+      Deploying efficient machine learning inference engines often involves rigorous benchmark
+      comparisons to achieve optimal performance. In this talk, we present a benchmark analysis
+      comparing the inference performance of IREE against llama.cpp, focusing specifically on executing
+      open-source llama3 model. Attendees will learn about the performance gaps initially observed
+      between IREE and llama.cpp, and the targeted optimizations we implemented within the iree-compiler
+      to bridge these gaps. The session will introduce common performance bottlenecks faced by new users
+      of iree-compiler and iree-runtime, including typical profiling tips. We will demonstrate practical
+      MLIR optimizations and how to implement them. This talk aims to be especially valuable for
+      newcomers looking to understand and enhance performance when leveraging IREE for model inference
+      tasks.
+
+  - title: "Better multithreading with LLVM"
+    speaker: "Jameson Nash"
+    video_url: ""
+    poster_url: ""
+    description: |
+      While no sane compiler would optimize atomics, we aren't always particularly sane. We'll look at
+      three ways that llvm could do more to interact with threads better: thread static analysis
+      warnings, new code optimizations for atomic update loops, and a work-stealing runtime for the llvm
+      backend.
+
+  - title: "XeGPU: A High-Performance MLIR Dialect for Intel GPU Programming"
+    speaker: "Chao Chen, Jianhui Li"
+    video_url: ""
+    poster_url: ""
+    description: |
+      We present XeGPU, the official MLIR dialect for programming Intel GPUs. Built on experience from
+      the XeTile prototype introduced last year, XeGPU brings a simplified, layout-guided programming
+      model tailored for tile-based GPU kernel development. By representing tile decomposition through
+      layout annotations instead of multiple explicit tiled loops, XeGPU produces IR that is both more
+      concise and easier to reason about and optimize. In contrast to Triton and CUTE, which employ
+      general-purpose layout algebra, XeGPU introduces a straightforward nested block layout
+      abstraction. This design effectively captures common patterns such as transpose, broadcast,
+      reduction, and matrix-matrix multiply (MMA), enabling concise and performant kernel construction.
+      XeGPU allows developers to define high-level workgroup operations using layout-annotated types,
+      which guide hierarchical lowering using upstream MLIR infrastructure. The lowering process
+      includes workgroup-to-subgroup distribution, blocking, and subgroup-to-workitem decomposition, all
+      expressed through MLIR's transformation pipelines. The dialect lowers to Intel GPU ISA through
+      LLVM-based code generation and enables mapping to hardware features such as shared local memory
+      and matrix instructions. We evaluate XeGPU on a range of matrix multiplication (GEMM) workloads
+      and compare it against hand-written reference kernels. XeGPU achieves competitive performance
+      while maintaining a compact and composable intermediate representation. This work demonstrates how
+      a domain-specific layout abstraction can simplify GPU programming without compromising
+      performance, and how MLIR can serve as a foundation for building production-grade AI compilers.
+
+  - title: "Mojo GPU Compilation"
+    speaker: "Weiwei Chen, Abdul Dakkak"
+    video_url: ""
+    poster_url: ""
+    description: |
+      Mojo is a heterogeneous programming language in the python family which unifies CPU+GPU
+      programming. It's the cornerstone of the Modular MAX inference engine — and is used extensively to
+      unlock high performance on heterogenous platforms while ensuring maintainability. This talk is
+      aimed at people who are interested in the GPU kernel programming in Mojo along with how Mojo's
+      unique compilation flow enables it to offload work to the accelerator from the library.
+
+  - title: "Towards Collection-Oriented Compilation in LLVM"
+    speaker: "Tommy McMichen"
+    video_url: ""
+    poster_url: ""
+    description: |
+      The LLVM compiler has a low-level view of memory, permitting fine-grained control over memory in
+      source languages. This low level representation hinders analysis and optimization, and the
+      freedoms it grants are not always needed. We find that most memory used in performance-critical
+      C/C++ applications implement data collections with high-level properties that can be leveraged in
+      the compiler. In this talk, we describe MEMOIR, an extension to the LLVM IR that provides a
+      first-class representation for common data collection types and operations. We will demonstrate
+      how our extension improves conventional compiler analysis and transformation, and enables new
+      optimizations on memory layout and collection implementation. We conclude by presenting ongoing
+      work on front-end support for C/C++ and Rust that pave the way towards collection-oriented
+      compilers in both LLVM and MLIR.
+
+  - title: "LLVM Advisor"
+    speaker: "Kevin Sala"
+    video_url: ""
+    poster_url: ""
+    description: |
+      LLVM Advisor addresses the challenge of processing overwhelming compiler output by providing a
+      unified visualization tool for LLVM remarks, profiling data, and other compilation artifacts. This
+      talk demonstrates how developers can transform scattered compiler diagnostics into actionable
+      insights through an intuitive local web-based interface, making offloading optimization
+      information more accessible to both newcomers and experienced developers.

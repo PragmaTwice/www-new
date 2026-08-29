@@ -1,0 +1,12 @@
+panels:
+  - title: "Contributing to Clang"
+    speaker: "Aaron Ballman, Corentin Jabot, Erich Keane"
+    video_url: "https://youtu.be/a5QorEEk8Js"
+    slides_url: ""
+    description: |
+      You want to start contributing to Clang, but aren't sure where to start? You are wondering what it
+      takes to maintain Clang, and how we prioritize features, triage bugs? Or maybe you just want to
+      ask us some burning questions. Come join a group of long-term Clang maintainers to talk about the
+      challenges of community building, onboarding, and maintaining a large open-source project. How
+      does Clang balance the needs of our users, the other parts of LLVM, and multiple committees, while
+      fostering a welcoming community? What can we improve, and how can you help?

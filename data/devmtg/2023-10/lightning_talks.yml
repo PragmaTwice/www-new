@@ -1,0 +1,113 @@
+lightning_talks:
+  - title: "Using llvm-exegesis to benchmark memory-accessing straightline assembly"
+    speaker: "Aiden Grossman"
+    video_url: "https://youtu.be/nDqlFrN4WPQ?feature=shared"
+    slides_url: "/devmtg/2023-10/slides/lightning-talks/01-llvm-exegesisForBenchmarking-asm-Grossman.pdf"
+    description: |
+      In this talk, we showcase how llvm-exegesis can be used to benchmark straight line assembly
+      code that access memory using snippet annotations. In addition, we discuss some of the
+      common shortcomings of how llvm-exegesis performs these benchmarks and ways to deal with
+      them.
+
+  - title: "LLVM-CM"
+    speaker: "Dayann D'almeida"
+    video_url: "https://youtu.be/cLqT7cHLfnI?feature=shared"
+    slides_url: "/devmtg/2023-10/slides/lightning-talks/02-Llvm-cm.pdf"
+    description: |
+      This lightning talk serves to introduce the llvm-cm tool, a static cost modeling tool
+      capable of ingesting machine basic block profile information for use in ML-based compiler
+      optimization efforts.
+
+  - title: "In IR Optimizer Utility Testing"
+    speaker: "Nate Chandler"
+    video_url: "https://youtu.be/FFGxAdBnqlk?feature=shared"
+    slides_url: "/devmtg/2023-10/slides/lightning-talks/03-NateChandler-InIROptimizerUtilityTesting.pdf"
+    description: |
+      Testing utility functions used by optimization passes can be a challenge. On the one hand,
+      we'd like to be able to write tests for them the same way we do for the passes themselves:
+      write an IR test case, run the utility on it, and FileCheck the result. On the other hand,
+      we'd like to be able to test them like any other function: pass arguments to the utility and
+      verify its effects. How can we do both?
+
+  - title: "Optimizing Scudo's Secondary Allocator Cache Strategy"
+    speaker: "Fernando Salas"
+    video_url: "https://youtu.be/wm1RLCuaWio?feature=shared"
+    slides_url: "/devmtg/2023-10/slides/lightning-talks/04-LLVM_%20Secondary%20Caching.pdf"
+    description: |
+      LLVM's memory allocator Scudo has a primary and secondary allocator. The secondary
+      allocator's cache uses a first-fit algorithm for quickly retrieving memory blocks but leads
+      to a more significant amount of memory fragmentation. To reduce this fragmentation we
+      implemented and tested different cache retrieval algorithms. In this talk we will walk
+      through how we changed the algorithm in order to save memory while improving the efficiency
+      of allocations.
+
+  - title: "LLVM Multicall Driver: Statically linked toolchain with dynamically linked size"
+    speaker: "Alex Brachet"
+    video_url: "https://youtu.be/bbOFgpQ_QWA?feature=shared"
+    slides_url: "/devmtg/2023-10/slides/lightning-talks/05-LLVM%20Dev%20Mtg_%20LLVM%20Multicall%20Driver.pdf"
+    description: |
+      The LLVM multicall driver statically links many tools into one binary which dramatically
+      reduces the size of a statically linked toolchain. The talk will discuss how to build a
+      toolchain with the multicall driver enabled. Additionally, the talk will go over the
+      complications of rolling out a multicall enabled toolchain.
+
+  - title: "Optional, Expected, Error, Oh My!"
+    speaker: "Paul Robinson"
+    video_url: "https://youtu.be/skwbczvpL0M?feature=shared"
+    slides_url: "/devmtg/2023-10/slides/lightning-talks/06-Optional-Expected-Error-OhMy.pdf"
+    description: |
+      Ever had to return an error to a caller? You have at least SIX ways to do this within LLVM,
+      and they each behave a little bit differently. If you don't want to spend a couple of hours
+      scrolling through header files trying to sort out which one is best for your case, this talk
+      is for you!
+
+  - title: "Steps to Clean and Validate Order Files"
+    speaker: "Sharjeel Khan"
+    video_url: "https://youtu.be/0bDBmxxqE-U?feature=shared"
+    slides_url: "/devmtg/2023-10/slides/lightning-talks/07-Steps%20to%20Clean%20and%20Validate%20Order%20Files.pdf"
+    description: |
+      Order files are text files containing symbols representing function names. Linkers (lld)
+      uses order files to layout functions in specific order. These ordered binaries will reduce
+      page faults and improve a program's startup time. Once we get an order file for a library or
+      binary, we need to clean the order file of unwanted and redundant symbols. Following this,
+      we check if it is valid based on certain criteria. In this presentation, we will talk about
+      the steps to clean or validate order files.
+
+  - title: "Implement ranges__starts_with and ranges__ends_with"
+    speaker: "Zijun Zhao"
+    video_url: "https://www.youtube.com/watch?v=Dn6UnPgzMeI&list=PL_R5A0lGi1AD9nPVlv7mG8_2mMSiL_0Ik"
+    slides_url: "/devmtg/2023-10/slides/lightning-talks/08-Implement%20ranges__starts_with%20and%20ranges__ends_with.pdf"
+    description: |
+      C++ 23 introduced starts_with, and ends_with algorithms in the ranges library. starts_with
+      checks whether a range starts with another range. Similarly, ends_with checks whether a
+      range ends with another range. These are new features which are not limited in string type.
+      They extend to [forward_iterator, bidirectional_iterator and random_access_iterator as well.
+      I'll talk about my implementation of starts_with and ends_with in lib++. I'll also talk
+      about the optimizations implemented in the ends_with algorithm based on the iterator
+      categories.
+
+  - title: "Intel Quantum SDK: An Open-Source Quantum Compiler Using the LLVM Framework"
+    speaker: "Xin-Chuan (Ryan) Wu"
+    video_url: "https://youtu.be/jar1-xJjwM0?feature=shared"
+    slides_url: "/devmtg/2023-10/slides/lightning-talks/09-Intel%20Quantum%20SDK%20An%20Open-Source%20Quantum%20Compiler%20Using%20the%20LLVM%20Framework.pdf"
+    description: |
+      In this session, we will illustrate how the LLVM compiler infrastructure can be leveraged to
+      create Intel Quantum Compiler, a tool we make open-source along with its compiler front-end
+      and optimization passes. Attendees will delve into the intersection of classical and quantum
+      compilation techniques Our guided exploration will simplify the intricacies of quantum
+      programming and showcase how LLVM's flexible, expandable, and open-source framework can pave
+      the path for quantum advancements. This session is more than just an informative guide – it
+      is an invitation to join us in this quantum computing revolution and help shape the future
+      of technology.
+
+  - title: "Improving clangd document open time with preamble caching"
+    speaker: "Dmitry Polukhin"
+    video_url: "https://youtu.be/kHHR-INQXcg?feature=shared"
+    slides_url: "/devmtg/2023-10/slides/lightning-talks/10-Improving%20clangd%20document%20open%20time%20with%20preamble%20caching.pdf"
+    description: |
+      Clangd, an LSP server, constructs an abstract syntax tree for each source file, a process
+      that can often be time-consuming. We are proposing a solution that integrates the use of
+      Clang's implicit modules for preamble caching, alongside cache priming techniques, to
+      significantly improve document open times. Our experiment demonstrates that this approach
+      can boost performance by up to 400 times for certain files, and by 20 times on average,
+      thereby promising a substantial optimization of Clangd's document open time.

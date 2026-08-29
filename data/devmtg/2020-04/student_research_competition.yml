@@ -1,0 +1,49 @@
+student_research_competition:
+  - title: "Autotuning C++ function templates with ClangJIT"
+    speaker: "Sebastian Kreutzer (TU Darmstadt), Hal Finkel (Argonne National Laboratory)"
+    video_url: ""
+    slides_url: ""
+    description: |
+      ClangJIT is an extension of the Clang compiler that introduces just-in-time compilation of function
+      templates in C++. This feature can be used to generate functions which are specialized for certain
+      inputs. However, especially in computational kernels, the default optimization passes leave much of
+      the potential performance gains on the table. In this work, we try to close this gap by introducing
+      autotuning capabilities to ClangJIT. We employ Polly as a backend for polyhedral optimization and
+      evaluate different code versions, in order to find chains of loop transformations that deliver
+      performance improvements. Using a best-first tree search approach, we are able to demonstrate
+      significant speedups on test kernels.
+
+  - title: "The Bitcode Database"
+    speaker: "Sean Bartell (University of Illinois at Urbana-Champaign), Vikram Adve (University of Illinois at Urbana-Champaign)"
+    video_url: ""
+    slides_url: ""
+    description: |
+      This talk will introduce the Bitcode Database (BCDB), a database that can efficiently store huge
+      amounts of LLVM bitcode. The BCDB can store hundreds of large Linux packages in a single place,
+      without adding significantly to the build time or requiring modifications to the packages. Each
+      bitcode module is split into a separate part for each function, and identical functions are
+      deduplicated, which means that many builds of a program can be kept in the BCDB with minimal
+      overhead. When a program and all of its dynamic libraries are stored in the BCDB, it is possible to
+      link the program and libraries together into a single module and optimize them together. This
+      technique can reduce the size of the final binary by 25-50%, and significantly improve performance
+      in some cases. The talk will conclude with a discussion of more potential uses for the BCDB, such as
+      incremental compilation or efficiently sharing bitcode between different organizations.
+
+  - title: "RISE: A Functional Pattern-based Dialect in MLIR"
+    speaker: "Martin Lücke (University of Edinburgh), Michael Steuwer (University of Glasgow), Aaron Smith (Microsoft)"
+    video_url: ""
+    slides_url: ""
+    description: |
+      Machine learning systems are stuck in a rut. Paul Barham and Michael Isard, two of the original
+      authors of TensorFlow, come to this conclusion in their recent HotOS paper. They argue that while
+      TensorFlow and similar frameworks have enabled great advances in machine learning, their current
+      design and implementations focus on a fixed set of monolithic and inflexible kernels. We present our
+      work on the MLIR dialect RISE, a compiler intermediate representation inspired by pattern-based
+      program representations like Lift. A set of small generic patterns is provided, which can be
+      composed to represent complex computations. We argue that this approach of using simple reusable
+      patterns to break up large monolithic kernels will enable easier exploration of different novel
+      optimizations for machine learning workloads. Rise is a spiritual successor to Lift and developed at
+      the University of Edinburgh, University of Glasgow and University of Münster. Martin Lücke is a PhD
+      student from Edinburgh and works on the MLIR implementation of RISE. This work is mainly focused on
+      the representation of the high-level Rise patterns in MLIR, but we will also talk about the
+      challenges of introducing low-level patterns and a rewriting system in the future.
