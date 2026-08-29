@@ -1,0 +1,60 @@
+tutorials:
+  - title: "How to add an C intrinsic and code-gen it, using the RISC-V vector C intrinsics"
+    speaker: "Eop Chen, Kito Cheng"
+    video_url: "https://www.youtube.com/watch?v=Dn6UnPgzMeI&list=PL_R5A0lGi1AD9nPVlv7mG8_2mMSiL_0Ik"
+    slides_url: "/devmtg/2023-10/slides/tutorials/Chen-Cheng-HowToAddCInstrinsucAndCodeGenIt.pdf"
+    description: |
+      This tutorial steps through how to develop a set of intrinsics into the compiler, using the
+      RISC-V vector C intrinsics as an example. The tutorial takes you through both the front-end
+      and the back-end. The talk is helpful for anyone that is looking to define their own
+      intrinsics in the LLVM compiler framework. It is also helpful to any one that is interested
+      and new to the RISC-V backend.
+
+  - title: "Understanding the LLVM build"
+    speaker: "Petr Hosek"
+    video_url: "https://youtu.be/Dnubzx8-E1M?feature=shared"
+    slides_url: "/devmtg/2023-10/slides/tutorials/Hosek-UnderstandingtheLLVMbuild.pdf"
+    description: |
+      In this tutorial, I am going to try and demystify the LLVM build, describing the common
+      options and demonstrating how to build a complete LLVM-based cross-compiling toolchain from
+      scratch with a single CMake invocation.
+
+  - title: "A Tour of ADT - the LLVM Developer's Toolbox"
+    speaker: "Jakub Kuderski"
+    video_url: "https://youtu.be/owQlnNYek2o?feature=shared"
+    slides_url: "/devmtg/2023-10/slides/tutorials/Kuderski-ATourOfADT.pdf"
+    description: |
+      The LLVM project comes with batteries included -- its utility library, ADT, makes
+      development easier, safer, and more fun. Similar to part of the C++ Standard Library known
+      as STL, LLVM's ADT provides generic data structures and algorithms to operate on them. This
+      tutorial gives an overview of the most useful parts of ADT and explains the underlying
+      concepts and abstractions that power them, with emphasis on what is not present in STL.
+
+  - title: "Starting LLVM Development in Visual Studio On Windows"
+    speaker: "Jonathan Smith"
+    video_url: "https://youtu.be/zlD2MpU7XIw?feature=shared"
+    slides_url: "/devmtg/2023-10/slides/tutorials/Smith-StartingLLVMDevelopmentinVisualStudioOnWindows.pdf"
+    description: |
+      Many developers who are beginners to LLVM start their journey on Windows using the community
+      edition of Visual Studio. In this tutorial, I'll cover how to build LLVM for pass
+      development purposes from inside the latest version of Visual Studio 2022. Next, I'll show
+      how to structure, configure, and build an out-of-tree IR pass plugin library as a DLL using
+      CMake and the latest features of it supported by Visual Studio. I will then show how to load
+      this DLL into the `opt` tool, execute, and debug its containing pass or passes – with some
+      example code to show how to make debugging IR easier. Finally, I will demonstrate how to
+      load, execute, and debug the IR pass directly from Clang without having to separately
+      execute `opt`. All demonstrations and explanations of building and debugging occur from
+      within the Visual Studio IDE.
+
+  - title: "MLIR Bufferization: From Tensors to MemRefsl"
+    speaker: "Martin Erhart, Matthias Springer"
+    video_url: "https://youtu.be/nLydW5zQoLU?feature=shared"
+    slides_url: "/devmtg/2023-10/slides/tutorials/Springer-bufferization_tutorial_slides.pdf"
+    description: |
+      Tensors in MLIR are immutable multi-dimensional containers without an assigned memory
+      location. Bufferization is the process of assigning memory buffers to tensors. In this
+      tutorial, we will show how to use the One-Shot Bufferize infrastructure; both from a user's
+      perspective (how to use the pass and how to debug spurious copies/inefficiencies) and from a
+      developer's perspective (making your own ops bufferizable). We will also touch upon related
+      transformations such as "empty tensor elimination", buffer deallocation" and "buffer
+      hoisting".

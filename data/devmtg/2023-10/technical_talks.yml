@@ -1,0 +1,459 @@
+technical_talks:
+  - title: "LLVM-based Compilers for Quantum Computing"
+    speaker: "Kit Barton"
+    video_url: "https://youtu.be/g9zotybrEgk?feature=shared"
+    slides_url: ""
+    description: |
+      Quantum computing is a novel computing paradigm that seeks to exploit quantum mechanics to
+      yield algorithmic improvements (in some cases exponential) on certain classes of problems.
+      In practice, quantum devices are controlled by systems of classical, real-time hardware. To
+      execute a quantum program it is therefore necessary to compile the quantum program to the
+      target classical hardware, which in turn emits and receives the signals that control and
+      measure a quantum device. This talk will present a brief introduction to quantum computing
+      and an overview of the compilation tools used to compile a quantum program to run on quantum
+      hardware. Both MLIR and LLVM are found at the heart of these compiler tools, including a new
+      MLIR dialect, QUIR, for Quantum programs, quantum-specific optimizations performed on QUIR,
+      and the traditional LLVM infrastructure to do much of the final code generation. This talk
+      will focus on how quantum programs flow through this compiler and are converted into
+      instructions to enable some of the first quantum experiments with real-time control-flow to
+      run on superconducting qubits.
+
+  - title: "Extending Dominance To MLIR Regions"
+    speaker: "Siddharth Bhat, Jeff Niu"
+    video_url: "https://youtu.be/VJORFvHJKWE?feature=shared"
+    slides_url: "/devmtg/2023-10/slides/techtalks/Bhat-Niu-ExtendingDominanceToMLIRRegions.pdf"
+    description: |
+      We recap the notion of dominance from LLVM, and provide an overview of how this has been
+      transplanted to MLIR. The notion of dominance is complicated in the presence of regions: The
+      control flow across regions and basic blocks is under-specified. MLIR has control flow
+      interfaces to model control flow and dominance. However, key properties of LLVM dominance
+      (e.g. if A dominates B, then variables live in A continue to be live in B) need not be true
+      in MLIR. We provide such examples of under-specification in MLIR, and propose potential ways
+      forward that warrant discussion.
+
+  - title: "A Proposal for Technical Governance"
+    speaker: "Chris Bieneman"
+    video_url: "https://youtu.be/4YB6Um7ey8U?feature=shared"
+    slides_url: "/devmtg/2023-10/slides/techtalks/Bieneman-LLVMGovernance.pdf"
+    description: |
+      The LLVM project has grown significantly, and the processes we use to make decisions have
+      not evolved to keep pace with the project growth. We struggle to make decisions in a way
+      that is timely and ensures that all contributors have a voice. This talk outlines a proposal
+      to adopt a community technical governance model to ensure the health of the community for
+      years to come.
+
+  - title: "Improving Vectorization of Select Reduction"
+    speaker: "Mel Chen"
+    video_url: "https://youtu.be/dRZpS1BfAW4?feature=shared"
+    slides_url: "/devmtg/2023-10/slides/techtalks/Chen-ImprovingVectorizationofSelectReduction.pdf"
+    description: |
+      Reduction patterns are an essential feature in auto-vectorization, and the select reduction
+      is one kind that has not been fully developed. Unlike general reductions, select reductions
+      select the result from a collection of data based on certain conditions. In this
+      presentation, we will introduce several types of select reductions, present the current
+      development status, and outline development challenges in the future.
+
+  - title: "Generalized Mem2Reg For MLIR"
+    speaker: "Théo Degioanni"
+    video_url: "https://youtu.be/ON3MAvjnUis?feature=shared"
+    slides_url: "/devmtg/2023-10/slides/techtalks/Degioanni-GeneralizedMem2RegForMLIR.pdf"
+    description: |
+      We present the recently added generic Mem2Reg infrastructure in MLIR for unstructured
+      control-flow. Mem2Reg converts memory locations into SSA values. This new set of interfaces
+      and rewrites allows any dialect to benefit from the provided cross-dialect Mem2Reg
+      implementation in upstream MLIR. This new infrastructure is accompanied by an implementation
+      of Scalar Replacement Of Aggregates (SROA) to turn allocations of aggregates into
+      independent allocations of their fields. In this talk, we show how those algorithms are
+      integrated in MLIR, what it takes for a dialect to benefit from Mem2Reg and SROA and the
+      benefits of a generic approach.
+
+  - title: "Wunsafe-buffer-usage: A Clang warning to adopt a bounds-safe programming mode in C++"
+    speaker: "Artem Dergachev"
+    video_url: "https://youtu.be/nPRY8-FtzZg?feature=shared"
+    slides_url: ""
+    description: |
+      Buffer overflows in C++ continue to be a source of security vulnerabilities. In this talk we
+      will describe -Wunsafe-buffer-usage, a new clang compiler warning with associated Fix-Its to
+      help programmers adopt the newly hardened bounds-safe APIs in libc++. Over the past year we
+      have implemented analysis and source-compatible Fix-Its that enable developers to
+      incrementally adopt these APIs for local variables and function parameters. We will share
+      what we have learned about writing complex Fix-Its that preserve program correctness while
+      protecting as much code as possible. We will also describe our vision for adopting in other
+      cases, such as class members, that we see as important future work.
+
+  - title: "Introducing hardened modes in libc++"
+    speaker: "Louis Dionne"
+    video_url: "https://youtu.be/pQfjn7E4Qfc?feature=shared"
+    slides_url: ""
+    description: |
+      This talk will describe libc++'s approach for hardening its APIs, and how different vendors
+      can leverage it to ship safer software. It will go over various interesting design choices
+      like performance and ABI considerations. To enable use in different contexts (e.g. testing
+      vs production) with varying performance characteristics, the library provides different
+      levels of hardening which make different performance/safety tradeoffs. Libc++ hardening
+      modes turn library-level undefined behavior into reliable program termination. For example,
+      indexing into a vector using an out-of-bounds index normally leads to undefined behavior (in
+      practice, it can either go undetected or result in a segmentation fault). When hardening is
+      enabled in libc++, the same incorrect usage will instead result in a reliable program
+      termination, making the bug easier to find during testing and more difficult to exploit in
+      case the bug isn't caught during testing.
+
+  - title: "Arcilator: Fast And Cycle Accurate Hardware Simulation In CIRCT"
+    speaker: "Martin Erhart"
+    video_url: "https://youtu.be/iwJBlRUz6Vw?feature=shared"
+    slides_url: "/devmtg/2023-10/slides/techtalks/Erhart-Arcilator-FastAndCycleAccurateHardwareSimulationInCIRCT.pdf"
+    description: |
+      Arcilator is a new cycle-accurate hardware simulator in CIRCT that eliminates the need to
+      export the design to Verilog and use a third-party OSS or proprietary simulator. In this
+      talk, we will discuss the design and implementation of Arcilator and the novel IR that
+      connects CIRCT's HW representation to LLVM IR. Moreover, we will show that it already
+      delivers performance comparable to Verilator, explore future developments of Arcilator, and
+      discuss other tools where the new IR could provide advantages.
+
+  - title: "An SMT dialect for assigning semantics to MLIR dialects"
+    speaker: "Yuyou Fan, Mathieu Fehr"
+    video_url: "https://youtu.be/3EE0YMtsR3w?feature=shared"
+    slides_url: ""
+    description: |
+      In this talk, we introduce the `smt` dialect, a dialect to represent semantics in MLIR using
+      SMT. We provide formal semantics to dialects such as `arith`, `index`, `comb`, or `scf`,
+      directly as a lowering to the `smt` dialect. Additionally, we present multiple tools using
+      the SMT dialect that can be extended with custom dialects and semantics. In particular, we
+      present a translation-validation tool for MLIR, to check the correctness of the compilation
+      of a given program. We also present a tool that automatically checks the correctness of a
+      PDL program (extended to work with analysis passes), by lowering a PDL program to the `smt`
+      dialect. Finally, we provide extra support for handling analysis passes with the use of an
+      `analysis` dialect. This dialect allows users to write dataflow analysis passes as MLIR
+      programs, and then verify both the correctness and the optimality of the analysis using the
+      `smt` dialect, as well as generating the C++ code that can be used by the dataflow analysis
+      framework.
+
+  - title: "VPlan: Status Update And Roadmap"
+    speaker: "Florian Hahn"
+    video_url: "https://youtu.be/SzGP4PgMuLE?feature=shared"
+    slides_url: "/devmtg/2023-10/slides/techtalks/Hahn-VPlan-StatusUpdateAndRoadmap.pdf"
+    description: |
+      This is a 2-year update on the numerous changes that went into VPlan since the virtual
+      roundtable of LLVM Dev '21, including full def-use modeling and new VPlan-to-VPlan
+      transformations, and suggests a future roadmap for continued refactoring and convergence,
+      raising challenges and inviting community involvement.
+
+  - title: "The LLVM C Library for GPUs"
+    speaker: "Joseph Huber"
+    video_url: "https://youtu.be/_LLGc48GYHc?feature=shared"
+    slides_url: "/devmtg/2023-10/slides/techtalks/Huber-LibCforGPUs.pdf"
+    description: |
+      This project seeks to treat the GPU as a standard hosted target by porting the LLVM C
+      library to run on the GPU and achieve truly general purpose GPU programming. We show how
+      LLVM/Clang can be used to compile regular, freestanding C++ to target the GPU as well as
+      introduce a novel mechanism to invoke generic host services from the GPU. This allows us to
+      compile a generic program and run it completely on the GPU, as well as provide missing
+      system services to users of standard offloading languages such as OpenMP, CUDA, and HIP.
+
+  - title: "LLVM Testsuite Under The Hood"
+    speaker: "Muhammad Omair Javaid"
+    video_url: "https://youtu.be/mqfEUiRltxg?feature=shared"
+    slides_url: "/devmtg/2023-10/slides/techtalks/Javaid-LLVMTestsuiteUnderTheHood.pdf"
+    description: |
+      The LLVM Test Suite also known as "whole program or nightly test suite" is an important part
+      of the LLVM project, designed to validate the correctness and performance of the LLVM
+      compiler infrastructure. It is less talked about component of LLVM compiler infrastructure
+      and lives under a separate git repository at https://github.com/llvm/llvm-test-suite. Linaro
+      and LLVM community have made an effort to port this project to Windows in our effort to
+      bring LLVM on Windows platform closer to its Linux/MacOS counterpart. This talk will be
+      presented by Omair Javaid who is leading LLVM Winodws on Arm project at Linaro. We aim to
+      provide an overview of the various components of the LLVM Test Suite, guiding participants
+      through the process of understanding, running, and contributing to this essential resource.
+      Our session will cover understanding of the various test suites living under LLVM test suite
+      repository and will also provide knowledge of infrastructure being used to run various test
+      suites This talk is intended for LLVM developers, enthusiasts, or anyone interested in
+      contributing to the LLVM testing infrastructure. Prior knowledge of LLVM is beneficial but
+      not mandatory.
+
+  - title: "Automatic Program Reoptimization"
+    speaker: "Sunho Kim"
+    video_url: "https://youtu.be/2ST0Rz_pC58?feature=shared"
+    slides_url: "/devmtg/2023-10/slides/techtalks/Kim-AutomaticProgramReoptimization.pdf"
+    description: |
+      One of the prominent applications of the JIT compiler is the ability to compile "hot"
+      functions utilizing various runtime profiling metrics gathered by slow versions of
+      functions. The ORC API can be generalized further to make use of the profiling metrics and
+      "reoptimize" the function hiding the reoptimization latency. For instance, one of the many
+      applications of this technique is to compile functions at a lower optimization level for
+      faster compilation speed and then reoptimize them to a higher level when those functions are
+      frequently executed. This talk we demonstrate how we can express lazy JIT, speculative
+      compilation, and re-optimization as ""symbol redirection"" problems. We demonstrate the
+      improved ORC API for redirecting symbols. In addition, this technical talk will peek at
+      internal details of how we implemented re-optimization support and showcase the demos such
+      as real time clang-repl re-optimization from -O0 to -O3 or real time virtual call
+      optimization through de-virtualization.
+
+  - title: "Building & Standardizing an Ecosystem for Encrypted Computation with MLIR"
+    speaker: "Jeremy Kun, Alexander Viand"
+    video_url: "https://youtu.be/_7lrKmJHRMM?feature=shared"
+    slides_url: ""
+    description: |
+      We present our work on building and standardizing common abstractions and interchange
+      formats (realized via MLIR) for Fully Homomorphic Encryption (FHE), a cryptographic
+      technique that allows computation over encrypted data and has recently started to see
+      real-world deployment (e.g., in Microsoft Edge). Developing FHE application poses
+      significant challenges, and compilers have emerged to address these. Recently, the major
+      players in the community have come together to unify the currently splintered ecosystem
+      through the development of MLIR-based abstractions and interchange formats. We report on our
+      abstractions (parts of which we plan to upstream) and our experiences of using MLIR as a
+      vehicle for ecosystem unification and standardization, and suggest ways to improve.
+
+  - title: "Improved \"noexcept\": exception handling in LLVM IR"
+    speaker: "James Y Knight"
+    video_url: "https://youtu.be/DMUeTaIe1CU?feature=shared"
+    slides_url: ""
+    description: |
+      This talk will discuss recent work to improve the representation of C++ "noexcept" functions
+      in LLVM. In the process, we'll dive into how exception handling works, both at the LLVM IR
+      level and how it's translated to an assembly representation and interpreted by the runtime
+      unwinder libraries in a running program.
+
+  - title: "Vector Codegen In The RISC-V Backend"
+    speaker: "Luke Lau"
+    video_url: "https://youtu.be/-ox8iJmbp0c?feature=shared"
+    slides_url: "/devmtg/2023-10/slides/techtalks/Lau-VectorCodegenInTheRISC-VBackend.pdf"
+    description: |
+      The RISC-V Vector extension (RVV) is a sizeable addition to the RISC-V architecture, and is
+      quite different from the SIMD features of other targets in LLVM. This talk goes over some of
+      the features unique to the vector-length agnostic RVV architecture, and how it compares to
+      ARM's SVE. It also takes a look at the challenges they present, the infrastructure within
+      LLVM to handle them, and how the auto-vectorization passes take advantage of RVV's modern
+      design.
+
+  - title: "Evolution of ClangIR: A Year of Progress, Challenges, and Future Plans"
+    speaker: "Bruno Cardoso Lopes, Vinicius Couto Espindola, Nathan Lanza, Hongtao Yu"
+    video_url: "https://youtu.be/XNOPO3ogdfQ?feature=shared"
+    slides_url: ""
+    description: |
+      Join us for an insightful technical talk as we take a deep dive into the world of ClangIR, a
+      new IR for Clang. One year after publishing the RFC in June 2022, we will discuss the
+      progress made, the challenges encountered, and our exciting future endeavors. The talk will
+      introduce the project, focus on key aspects such as the overall architecture, ClangIR
+      generation from Clang AST, the implementation of the ClangIR based lifetime checker for
+      C/C++, recent advancements in LLVM lowering through the Google Summer of Code program, and
+      our ambitious roadmap to address high-level optimizations for C++. Don't miss this
+      opportunity to explore the advancements in ClangIR and its potential impact on the Clang
+      ecosystem.
+
+  - title: "LLVM-MCA correlation for AARCH64"
+    speaker: "Sjoerd Meijer"
+    video_url: "https://youtu.be/Xm57_VYk2mw?feature=shared"
+    slides_url: "/devmtg/2023-10/slides/techtalks/Meijer-LLVM-MCA.pdf"
+    description: |
+      In this presentation we share our experiences correlating static performance predictions
+      made by LLVM-MCA with measured runtime performance metrics for the AArch64 NVIDIA Grace CPU.
+      Accurate static predictions are crucial for LLVM-MCA users (such as compiler engineers)
+      investigating performance bottlenecks or evaluating different assembly code sequences, and
+      for other tools like the SIMD superoptimiser "Minotaur" that rely on LLVM-MCA for
+      performance estimations. The performance predictions should capture the trends of the
+      results obtained on hardware. We show correlation results for several benchmarks and discuss
+      the reasons why LLVM-MCA's predictions are sometimes off and how they could be improved.
+
+  - title: "LLVM Toolchain for Embedded Systems"
+    speaker: "Prabhu Karthikeyan Rajasekaran"
+    video_url: "https://youtu.be/0HvgvBUPTyw?feature=shared"
+    slides_url: "/devmtg/2023-10/slides/techtalks/Rajasekaran-LLVMForEmbedded.pdf"
+    description: |
+      GNU toolchains are used widely for building embedded targets. In the past year, I led an
+      effort to port a real world embedded project to use the Clang/LLVM toolchain. In this talk,
+      I will present the motivation, challenges faced, results, and the future directions the LLVM
+      community must consider in supporting the embedded development scenarios. This talk will
+      offer a blueprint for embedded projects to transition to using LLVM toolchain and take
+      advantage of the incredible work carried out by the LLVM community.
+
+  - title: "A Python based Domain Specific Language framework for MLIR compilers and beyond"
+    speaker: "Prashantha NR"
+    video_url: "https://youtu.be/xscOix1DKxM?feature=shared"
+    slides_url: ""
+    description: |
+      In this talk, we propose a Python-based Domain Specific Llanguage Framework for conversion
+      to MLIR dialects. We introduce a new dialect called pyAST to represent Python AST in MLIR.
+      We also introduce LLVM TableGen based Semantic Checks, Type inference and Intrinsic handling
+      for pyAST dialect, to convert from Python AST to valid MLIR operations.
+
+  - title: "Optimizing Debug Info for Caching in llvm-cas"
+    speaker: "Shubham Rastogi"
+    video_url: "https://youtu.be/VPqZ8LoM5Z8?feature=shared"
+    slides_url: "/devmtg/2023-10/slides/techtalks/Rastogi-RepresentingDebugInformationInLLVMCAS.pdf"
+    description: |
+      DWARF debug info is designed to minimize disk space. Despite its efficient encoding, debug
+      info is usually the largest part of an object file's contents. This is particularly
+      noticeable when building a compilation cache for incremental builds: Even small changes to
+      an object file can have ripple effects on the debug info encoding as offsets in the file
+      change and abbreviations are renumbered. In this talk we explore how to efficiently store
+      DWARF debug information in a CAS (Content Addressable Storage). By isolating each function's
+      debug info contribution into its own CAS Object, we can reduce the overall size of the debug
+      information in incremental builds drastically. This can be achieved by emitting DWARF that
+      is more "split-able" while ensuring that we abide by the DWARF standard and do not lose any
+      information in the process. We will discuss the efficacy of this approach when comparing
+      against a file-based build cache such as ccache.
+
+  - title: "Compact Value Witnesses In Swift"
+    speaker: "Dario Rexin"
+    video_url: "https://youtu.be/hjgDwdGJIhI?feature=shared"
+    slides_url: "/devmtg/2023-10/slides/techtalks/Rexin-CompactValueWitnessesInSwift.pdf"
+    description: |
+      As a language with support for ABI stable library evolution, generic types and automatic
+      reference counting, Swift requires mechanisms to handle (copy, destroy etc.) values without
+      compile-time knowledge of their concrete layout. In this talk we will present techniques to
+      reduce code size overhead of these mechanisms, while maintaining runtime performance.
+
+  - title: "How to build an LLVM-based toolchain for the Game Boy Advance"
+    speaker: "Ties Stuij"
+    video_url: "https://youtu.be/Q-Woh_Uzw5g?feature=shared"
+    slides_url: "/devmtg/2023-10/slides/techtalks/Stuij-GBA-toolchain-talk.pdf"
+    description: |
+      Using the Game Boy Advance as concrete target, you learn how to build an embedded c/C++
+      toolchain with LLVM. We will also assess what general toolchain gaps still need to be
+      addressed compared to GCC (the Game Boy Advance toolchain of choice) and what real-world
+      problems you run into when converting GCC projects to this new toolchain. We'll demo the new
+      toolchain by benchmarking it against GCC on a Game Boy Advance.
+
+  - title: "Improving Efficiency And Correctness Of Implicit Modules"
+    speaker: "Connorn Sughrue"
+    video_url: "https://youtu.be/3Mwb5nb7AG8?feature=shared"
+    slides_url: "/devmtg/2023-10/slides/techtalks/Sughrue-ImprovingEfficiencyAndCorrectnessOfImplicitModules.pdf"
+    description: |
+      The implicit module system makes Clang modules and standard C++20 modules accessible but at
+      a cost - builds can be inefficient and sometimes even incorrect. This talk will delve into a
+      recent effort to improve explicit module accessibility, featuring a module build daemon that
+      enables explicit module functionality without requiring any development efforts by build
+      systems. The talk will describe the internals of the module build daemon, how to incorporate
+      it into existing projects, and the benefits of switching from the implicit system to the
+      explicit system.
+
+  - title: "Finding the Order Within CHAOSS"
+    speaker: "Ildikó Váncsa"
+    video_url: "https://youtu.be/L90XghBdn94?feature=shared"
+    slides_url: "/devmtg/2023-10/slides/techtalks/Vancsa-Finding_the_order_within_CHAOSS.pdf"
+    description: |
+      Open source communities are lively and organic ecosystems, which can seem chaotic even for
+      those who are actively participating in them. Whether someone is a contributor, a user, or a
+      spectator of a project, they all want their community to be balanced, successful and
+      sustainable. Metrics are often used to try to understand the dynamics of a project.
+      Collecting and analyzing data can help with finding bottlenecks in processes, discovering
+      new contributors, and much more. At the same time, large amounts of data can also become
+      overwhelming and distract from the useful information behind it. The CHAOSS open source
+      project was created to help define metrics to measure activity, find out more about
+      bottlenecks and root causes of issues in open source projects, and more, while also helping
+      people to understand how they can use the available metrics. This session will provide a
+      high-level overview of the CHAOSS project and metrics. Attendees will learn about the
+      challenges of collecting and analyzing data, and practices to overcome them. Last but not
+      least, the presentation will include a short case study to show how some of the CHAOSS
+      metrics are collected and used at OpenInfra Foundation projects.
+
+  - title: "Unlocking the Power of C++ as a Service: Uniting Python's Usability with C++'s Performance"
+    speaker: "Vassil Vassilev"
+    video_url: "https://youtu.be/rdfBnGjyFrc?feature=shared"
+    slides_url: "/devmtg/2023-10/slides/techtalks/Vassilev-UnlockingThePowerofCppAsAService.pdf"
+    description: |
+      In many ways Python and C++ represent the two ends in the spectrum of programming languages.
+      C++ has an important role in the field of computing as the language design principles
+      promote efficiency, reliability and backward compatibility – a vital tripod for any
+      long-lived codebase. Python has prioritized better usability and safety while making some
+      tradeoffs on efficiency and backward compatibility. That has led developers to believe that
+      there is a binary choice between performance and usability. Python has become the language
+      of data science and machine learning in particular while C++ still is the language of voice
+      for performance-critical software. The C++ and Python ecosystems are vast and achieving
+      seamless interoperability between them is essential to avoid risky software rewrites. In
+      this talk we leverage our decade-old experience in writing automatic Python to C++ bindings.
+      We demonstrate how we could connect the Python interpreter to the new in-tree C++
+      interpreter called Clang-Repl. We show how we can build a uniform execution environment
+      between both languages using the new compiler-as-a-service (CaaS) API available in Clang.
+      The execution environment enables advanced interoperability such as the ability for Python
+      to instantiate C++ templates on demand, inherit from C++ classes or catch std::exception. We
+      show how CaaS can be connected to external services such as Jupyter and execute code written
+      in both languages.
+
+  - title: "Vectorisation in MLIR: Towards Scalable Vectors and Matrices"
+    speaker: "Diego Caballero, Andrzej Warzyński"
+    video_url: "https://youtu.be/jHk56V6cHN8?feature=shared"
+    slides_url: "/devmtg/2023-10/slides/techtalks/Warzynski-Caballero-VectorizationinMLIR.pdf"
+    description: |
+      MLIR is an extensible compiler framework that we use to generate highly performant code for
+      compute-intensive and rapidly-evolving Machine Learning and Computer Vision workloads.
+      Vectorisation is a key optimisation in enabling this performance and MLIR is no exception.
+      In this presentation, we will give an overview of a high-level vectorisation approach that
+      leverages one of the main abstractions available in MLIR: the Linalg Dialect. We will also
+      discuss how it can be used to support Arm's Scalable Vector and Scalable Matrix Extensions
+      (SVE and SME, respectively) in MLIR. The Linalg Vectoriser combines a simple tiling +
+      basic-block vectorisation approach with advanced vectorisation concepts such as scalable
+      vectors, vector masking and multi-dimensional vectorisation. This presentation will provide
+      an overview of the design and how it differs from traditional vectorizers. You will also see
+      how the Linalg Vectoriser can be used to generate highly-optimised kernels for ubiquitous
+      operations like matrix-matrix multiplication and convolutions. The extensibility of MLIR has
+      allowed us to target less established, yet very promising, vector architectures, such as
+      those offering scalable vectors. In this presentation, we will give an overview of the key
+      building blocks of scalable vectorisation and provide a status update on the implementation.
+      Specifically, we will talk about the ongoing effort to support SVE and SME as real-world
+      end-to-end examples that leverage Linalg vectorization and target-specific dialects in MLIR.
+
+  - title: "Design and implementation of C++20 Ranges in libc++"
+    speaker: "Konstantin Varlamov"
+    video_url: "https://youtu.be/g9p1oo8bDJA?feature=shared"
+    slides_url: ""
+    description: |
+      Ranges are a major new enhancement to the way collections can be manipulated in C++,
+      providing a declarative interface that is easier and safer to use than traditional
+      iterators. Ranges were also one of the most challenging libc++ features to implement due to
+      the need for extensive changes across the entire implementation of STL containers and
+      algorithms. In this talk, I will provide insights into the novel design and implementation
+      strategies we employed in libc++ to minimize code duplication and create a robust,
+      well-tested implementation.
+
+  - title: "Deegen: A LLVM-based Compiler-Compiler for Dynamic Languages"
+    speaker: "Haoran Xu"
+    video_url: "https://youtu.be/5cAUX9QPj4Y?feature=shared"
+    slides_url: "/devmtg/2023-10/slides/techtalks/Xu-Deegen-LLVM-Based-Compiler.pdf"
+    description: |
+      Building a high-performance JIT-capable VM for a dynamic language has traditionally required
+      tremendous time, money, and expertise. To make high-performance VMs easier to engineer, we
+      present Deegen, a compiler-compiler that uses LLVM to statically generate a JIT-capable VM
+      from C++ execution semantics of the bytecodes. Currently, Deegen is capable of automatically
+      generating a two-tier VM execution engine (consisting of an optimized interpreter, a
+      baseline JIT and the tier-switching logic). We are in the progress of generating the
+      third-tier optimizing JIT. To demonstrate Deegen's capability in the real world, we
+      implemented LuaJIT Remake (LJR), a standard-compliant VM for Lua 5.1. Across a variety of
+      benchmarks, we demonstrated that LJR's interpreter significantly outperforms LuaJIT's
+      interpreter, and LJR's baseline JIT generates high-quality code with a negligible
+      compilation cost.
+
+  - title: "Large Scale Deployment of libTooling Derived Tools"
+    speaker: "Vaibhav Yenamandra, Konstantin Romanov"
+    video_url: "https://youtu.be/lx9z5n6ZEIE?feature=shared"
+    slides_url: "/devmtg/2023-10/slides/techtalks/Yenamandra-Romanov-LargeScaleDeploymentoflibToolingDerviedTools.pdf"
+    description: |
+      We present various lessons learned from building systems to apply refactoring tools – both
+      libTooling-based and others – on a large scale. The motivating example is the real-world use
+      case of automating the retirement of runtime feature toggles from C++ code. We will use this
+      example to derive some of our design constraints for the large-scale refactoring system, and
+      will also discuss some of the various challenges we faced using the libTooling refactoring
+      interface.
+
+  - title: "Using Clang Source-based Code Coverage At Scale"
+    speaker: "Petr Hosekl, Gulfem Savrun Yeniceri"
+    video_url: "https://youtu.be/RlySdMe3Eg0?feature=shared"
+    slides_url: "/devmtg/2023-10/slides/techtalks/Yeniceri-Hosek-UsingClang-Source-basedCodeCoverageAtScale.pdf"
+    description: |
+      In this talk, we will give an overview of source-based code coverage in Clang/LLVM and share
+      our experience of using it for the Fuchsia and Pigweed projects at Google, including the
+      overview of improvements we implemented to improve the coverage reliability and scalability.
+
+  - title: "MLIR Is Not an ML Compiler, and Other Common Misconceptions"
+    speaker: "Alex Zinenko"
+    video_url: "https://youtu.be/lXAp6ZAWyBY?feature=shared"
+    slides_url: "/devmtg/2023-10/slides/techtalks/Zinenko-MLIRisNotAnMLCompiler.pdf"
+    description: |
+      Despite the vast amount of material about the MLIR project, misconceptions regarding its
+      scope and implementation abound. This talk will clarify such misconceptions highlighting
+      that MLIR is not in fact a compiler, let alone a machine learning system; that dialects are
+      intended to be mixed together despite the misleading name; and that there is fundamentally
+      no single optimization and lowering pass pipeline. This talk addresses audience members with
+      varying degrees of familiarity with MLIR, from neophytes who would get a better conceptual
+      understanding of the project to advanced long-term users and contributors who could question
+      or additionally justify some of the design choices that led to these misconceptions.
