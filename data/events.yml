@@ -269,6 +269,15 @@ events:
     url: "/devmtg/2009-10/"
     event_site: "https://llvm.org/devmtg/2009-10/"
 
+  - name: "LLVM Developers' Gathering in Japan"
+    id: "2008-08-23"
+    start_date: "2008-08-23"
+    end_date: "2008-08-23"
+    description: "2008 LLVM Developers' Gathering in Japan"
+    location: "Tokyo, Japan"
+    url: "/devmtg/2008-08-23/"
+    event_site: "https://llvm.org/devmtg/2008-08-23/"
+
   - name: "LLVM Developers' Meeting"
     id: "2008-08"
     start_date: "2008-08-01"
