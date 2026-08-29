@@ -2,7 +2,7 @@ posters:
   - title: "Fuzzlang: Generating Compilation Errors to Teach ML Code Fixes"
     speaker: "Baodi Shan"
     video_url: ""
-    poster_url: "https://llvm.org/devmtg/2024-10/slides/poster/Shan-Fuzzlang-Poster.pdf"
+    poster_url: "/devmtg/2024-10/slides/poster/Shan-Fuzzlang-Poster.pdf"
     description: |
       In the realm of code repair, the diversity and accuracy of error datasets are
       critical for enhancing model performance. Fuzzlang, a newly developed Clang Python
@@ -47,7 +47,7 @@ posters:
   - title: "MLIR and Pytorch: A Compilation Pipeline targeting Huawei's Ascend Backend"
     speaker: "Amy Wang"
     video_url: ""
-    poster_url: "https://llvm.org/devmtg/2024-10/slides/poster/Wang-MLIR-and-PyTorch-Poster.pdf"
+    poster_url: "/devmtg/2024-10/slides/poster/Wang-MLIR-and-PyTorch-Poster.pdf"
     description: |
       We present our work on compiling PyTorch code through MLIR to target Ascend AI
       Processors. The approach starts from PyTorch to Torch-MLIR followed by an MLIR Pipeline,
