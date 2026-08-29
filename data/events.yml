@@ -1,4 +1,13 @@
 events:
+  - name: "2025 US LLVM Developers' Meeting"
+    id: "2025-10"
+    start_date: "2025-10-27"
+    end_date: "2025-10-29"
+    description: "2025 US LLVM Developers' Meeting"
+    location: "Santa Clara Marriott, Santa Clara, California"
+    url: "/devmtg/2025-10/"
+    event_site: "https://llvm.org/devmtg/2025-10/"
+
   - name: "AsiaLLVM Developers' Meeting"
     id: "2025-06"
     start_date: "2025-06-10"

@@ -1,0 +1,31 @@
+keynote:
+  - title: "ClangIR: Upstreaming an Incubator Project"
+    speaker: "Andy Kaylor, Bruno Cardoso Lopes"
+    video_url: "https://youtu.be/mQXE_y1T6H0"
+    slides_url: "/devmtg/2025-10/slides/keynotes/kaylor_lopes.pdf"
+    description: |
+      The presenters will share their experience transitioning ClangIR from an incubator project to an
+      upstream feature within the LLVM community. The talk will focus on the development process, the
+      technical challenges encountered, and the lessons learned while integrating a new high-level IR
+      into Clang. This provides a case study on managing significant changes and community collaboration
+      in a large-scale open-source project like LLVM.
+
+  - title: "From proprietary to fully open-source: Arm Toolchain's adoption of LLVM technology"
+    speaker: "Peter Smith"
+    video_url: "https://youtu.be/I7S_Vsnkecg"
+    slides_url: "/devmtg/2025-10/slides/keynotes/smith.pdf"
+    description: |
+      Arm's embedded toolchain has existed since the establishment of the company 35 years ago. For the
+      first 20 years, the toolchain was entirely proprietary. Over the last 15 years, Arm has
+      incrementally replaced the proprietary parts of the toolchain with LLVM technology, with the
+      latest incarnation providing an option for a fully open-source LLVM-based toolchain using LLVM
+      libc. Throughout the process, we have kept our toolchain in sync with the LLVM main branch. This
+      presentation covers the toolchain's adoption of LLVM technology, including: * Early experiments to
+      bridge the EDG front-end used by the proprietary compiler with an LLVM backend. * Replacement of
+      the compiler with a derivative of clang. * Testing the correctness of the combined toolchain. *
+      Adoption of libc++ as the C++ library. * How our strategy of managing downstream changes evolved.
+      * Replacement of all remaining proprietary tools with LLVM equivalents and removal of downstream
+      patches. * Our plans for integrating LLVM libc. The intended audience includes those interested
+      in: * Assembling a toolchain using a mixture of LLVM and proprietary technology. * Managing
+      downstream changes across a full toolchain, including merging and testing. * Migrating customers
+      through technology changes.

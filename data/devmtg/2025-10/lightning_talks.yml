@@ -1,0 +1,134 @@
+lightning_talks:
+  - title: "Mojo GPU Compilation"
+    speaker: "Weiwei Chen"
+    video_url: "https://youtu.be/aY6I76b8rLY"
+    slides_url: "/devmtg/2025-10/slides/lightning_talks/chen_dakkak.pdf"
+    description: |
+      Mojo is a heterogeneous programming language in the python family which unifies CPU+GPU
+      programming. It's the cornerstone of the Modular MAX inference engine — and is used extensively to
+      unlock high performance on heterogenous platforms while ensuring maintainability. This talk is
+      aimed at people who are interested in the GPU kernel programming in Mojo along with how Mojo's
+      unique compilation flow enables it to offload work to the accelerator from the library.
+
+  - title: "PyDSL: A MLIR DSL for Python developers"
+    speaker: "Kai-Ting Amy Wang"
+    video_url: "https://youtu.be/7_dB2QolUkc"
+    slides_url: "/devmtg/2025-10/slides/lightning_talks/wang.pdf"
+    description: |
+      Since its December 2023 debut, PyDSL has enabled Python-based prototyping language with a clean,
+      developer-friendly syntax to access MLIR's powerful compiler infrastructure. PyDSL bridges this
+      gap by offering a programming model that imitates native Python semantics while compiling to
+      efficient MLIR code. We review PyDSL's core design and introduce key enhancements in the latest
+      edition: a lightweight autotuning system for dynamic kernel specialization, seamless Triton
+      interoperability, and more Pythonic programming styles to write MLIR programs. These improvements
+      add expressive power, reduce boilerplates, and empower developers to write optimized
+      high-performance MLIR kernels entirely within a subset of Python.
+
+  - title: "Continuous Integration System for Global ISel"
+    speaker: "Neil Hickey"
+    video_url: "https://youtu.be/SImisNPSNpM"
+    slides_url: "/devmtg/2025-10/slides/lightning_talks/hickey.pdf"
+    description: |
+      The Global ISel (GISel) framework in LLVM has gained traction as a modern alternative for
+      instruction selection and is also the default selector at O0 for AArch64. Unlike the traditional
+      SelectionDAG approach, GISel works directly on a linear intermediate representation, aiming to
+      improve compile-time performance by bypassing DAG construction. However, GISel's adoption across
+      all backends is limited by its incomplete coverage of instruction selection cases, which
+      necessitates fallbacks to SelectionDAG. To address and monitor these limitations, we developed a
+      specialized continuous integration (CI) system that automatically builds the latest LLVM daily,
+      compiles a broad set of benchmarks (like RajaPerf, TSVC, SPEC 2017, and the LLVM test suite), and
+      reports every fallback event with detailed phase and instruction data. This CI system provides a
+      visualization dashboard for real-time tracking, fostering transparency and enabling the LLVM
+      community to systematically close GISel's gaps. While significant progress has been made—such as
+      achieving fallback-free runs for TSVC—fallbacks still occur in other benchmarks like RajaPerf,
+      underscoring the ongoing need for comprehensive monitoring and targeted improvements.
+
+  - title: "LLDB MCP"
+    speaker: "Jonas Devlieghere"
+    video_url: "https://youtu.be/OJas4nknp0o"
+    slides_url: "/devmtg/2025-10/slides/lightning_talks/devlieghere.pdf"
+    description: |
+      This talk introduces the new support for the Model Context Protocol (MCP) in LLDB, enabling
+      agent-driven debugging workflows. MCP provides a standardized way for AI models to access external
+      tools, bridging the gap between large language models and LLDB. Users can interact with the
+      debugger using natural language, which the model translates into LLDB commands executed over MCP.
+      Key benefits include reduced context switching between debugging tools and AI assistants, more
+      intuitive debugging for novice developers, and the ability to leverage AI's pattern recognition
+      capabilities for tedious or repetitive debugging tasks.
+
+  - title: "Shared Representation across Languages"
+    speaker: "Tommy McMichen"
+    video_url: "https://youtu.be/N2Qv_o5lhCE"
+    slides_url: "/devmtg/2025-10/slides/lightning_talks/mcmichen.pdf"
+    description: |
+      The LLVM compiler has a low-level view of memory, permitting fine-grained control over memory in
+      source languages. This low level representation hinders analysis and optimization, and the
+      freedoms it grants are not always needed. We find that most memory used in performance-critical
+      C/C++ applications implement data collections with high-level properties that can be leveraged in
+      the compiler. In this talk, we describe MEMOIR, an extension to the LLVM IR that provides a
+      first-class representation for common data collection types and operations. We will demonstrate
+      how our extension improves conventional compiler analysis and transformation, and enables new
+      optimizations on memory layout and collection implementation. We conclude by presenting ongoing
+      work on front-end support for C/C++ and Rust that pave the way towards collection-oriented
+      compilers in both LLVM and MLIR.
+
+  - title: "LLVM Advisor"
+    speaker: "Kevin Sala"
+    video_url: "https://youtu.be/AR4t4azfKL8"
+    slides_url: "/devmtg/2025-10/slides/lightning_talks/sala.pdf"
+    description: |
+      LLVM Advisor addresses the challenge of processing overwhelming compiler output by providing a
+      unified visualization tool for LLVM remarks, profiling data, and other compilation artifacts. This
+      talk demonstrates how developers can transform scattered compiler diagnostics into actionable
+      insights through an intuitive local web-based interface, making offloading optimization
+      information more accessible to both newcomers and experienced developers.
+
+  - title: "llvm-exegesis on AArch64: What Works and What Doesn't?"
+    speaker: "Sjoerd Meijer"
+    video_url: "https://youtu.be/YIgWZihk85s"
+    slides_url: "/devmtg/2025-10/slides/lightning_talks/meijer.pdf"
+    description: |
+      This talk provides an update on the effort to improve AArch64 support for llvm-exegesis, a
+      benchmarking tool that measures instruction characteristics. Initially, the tool was largely
+      dysfunctional on AArch64, with the vast majority of its ~6,000 generated tests failing due to
+      issues like uninitialized operands, pseudo-instructions, and segmentation faults. Through
+      systematic improvements—including expanding register class support, disabling unsupported
+      instructions, and adding basic load/store functionality—the team has dramatically increased the
+      number of cleanly-running test cases from just over 100 to more than 4,300. The presentation will
+      detail these fixes and outline future work, which will focus on enhancing support for load/store
+      instructions and improving the accuracy of latency measurements.
+
+  - title: "How to test and evaluate LLVM-libc on embedded applications"
+    speaker: "William Huynh"
+    video_url: "https://youtu.be/Dta6nQLmCOY"
+    slides_url: "/devmtg/2025-10/slides/lightning_talks/huynh.pdf"
+    description: |
+      For years, Arm has been building an embedded toolchain with picolibc as the default C library.
+      Recently, a promising new C library, LLVM-libc, has emerged. How do we know when is the right time
+      to switch over? What are the challenges of testing libraries on embedded applications? The
+      intended audience includes those looking for an introduction to LLVM-libc on embedded and
+      beginners interested in learning how to test embedded applications.
+
+  - title: "Non-attribute property improvements in MLIR"
+    speaker: "Krzysztof Drewniak"
+    video_url: "https://youtu.be/aqbeDB3xf9o"
+    slides_url: "/devmtg/2025-10/slides/lightning_talks/drewniak.pdf"
+    description: |
+      Over the past year, many improvements have been made to the infrastructure for using non-attribute
+      properties in MLIR. Such properties allow constants and other data to be stored inline in the
+      operation struct without potentially-expensive attribute uniquing. This presentation will showcase
+      these improvements, such as new support for such properties in TableGen-based
+      builder/parser/printer generation, operation verification, improved generic builders, and
+      declarative rewrite rules. It will also present future directions for non-attribute properties.
+
+  - title: "Can Vectorization Slow Down Performance? Addressing the Challenges of Vectorizing Stride Access"
+    speaker: "Kotaro Kinoshita"
+    video_url: "https://youtu.be/xHzVLvWmF0U"
+    slides_url: "/devmtg/2025-10/slides/lightning_talks/kinoshita.pdf"
+    description: |
+      TSVC is a benchmark designed to measure the vectorization capabilities of compilers. In one of its
+      test cases, s128, it has been discovered that vectorization in LLVM can cause performance
+      degradation under certain conditions. We found that this degradation is caused by vectorizing
+      strided access, and such issues occur even in simple cases. This talk will present potential LLVM
+      improvements for vectorizing strided access and discuss future directions for enhancing its
+      performance.
