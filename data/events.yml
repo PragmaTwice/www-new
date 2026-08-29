@@ -266,8 +266,8 @@ events:
     end_date: "2011-09-16"
     description: "2011 European User Group Meeting"
     location: "Hamilton House, Mabledon Place, London, UK, WC1H 9BD"
-    url: "/devmtg/2011-09/"
-    event_site: "https://llvm.org/devmtg/2011-09/"
+    url: "/devmtg/2011-09-16/"
+    event_site: "https://llvm.org/devmtg/2011-09-16/"
 
   - name: "LLVM Developers' Meeting"
     id: "2010-11"
