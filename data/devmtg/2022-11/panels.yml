@@ -2,7 +2,7 @@ panels:
   - title: "Machine Learning Guided Optimizations (MLGO) in LLVM "
     speaker: "Johannes Doerfert (moderator), Petr Hosek, Chris Cummins, Aiden Grossman, Mircea Trofin, Zoom: Yundi Qian, Ondrej Sykora, Dibyendu Das, Amir Ashouri, Mostafa Elhoushi, S. VenkataKeerthy"
     video_url: "https://youtu.be/0uUKDQyn1Z4"
-    slides_url: "https://llvm.org/devmtg/2022-11/slides/Panel1-MLGO.pdf"
+    slides_url: "/devmtg/2022-11/slides/Panel1-MLGO.pdf"
     description: |
       The panel brings together: compiler engineers working on ML-guided optimizations in LLVM, product engineers applying such optimizations in production, and researchers exploring the area.
 
