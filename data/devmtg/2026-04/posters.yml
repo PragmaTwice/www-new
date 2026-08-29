@@ -1,0 +1,128 @@
+posters:
+  - title: "MemorySSA-Based Reaching Definitions for IR2Vec Flow-Aware Embeddings"
+    speaker: "Nishant Sachdeva"
+    video_url: ""
+    poster_url: "/devmtg/2026-04/slides/poster/poster_sachdeva.pdf"
+    description: |
+      IR2Vec is a widely adopted framework for generating program embeddings from LLVM IR, supporting
+      both Symbolic and Flow-Aware inference modes. The Flow-Aware mode captures data dependencies by
+      computing reaching definitions over memory operations, but its original implementation relies on a
+      custom control-flow graph traversal, effectively reimplementing analyses already available in
+      LLVM. This work replaces the custom reaching-definitions logic with LLVM’s MemorySSA framework,
+      yielding more semantically rich embeddings while significantly simplifying the implementation. By
+      leveraging MemorySSA’s def-use chains, the new approach correctly handles complex memory behaviors
+      including pointer indirection, loop-carried dependencies, structured data access, and dynamic
+      allocation. Through detailed IR case studies, we demonstrate how the MemorySSA-based design
+      eliminates spurious dependencies and enables richer, more accurate flow-aware embeddings.
+
+  - title: "Bridging Runtime Gaps in LLVM: Vendor-Agnostic Dispatch for ML Kernels"
+    speaker: "S Akash"
+    video_url: ""
+    poster_url: "/devmtg/2026-04/slides/poster/poster_akash.pdf"
+    description: |
+      While LLVM and MLIR have revolutionized portable code generation for machine learning, a
+      significant "runtime gap" remains: the inability to dynamically introspect hardware and dispatch
+      kernels across heterogeneous NVIDIA, AMD, and CPU environments without per-target recompilation.
+      We explore the architecture of vendor-agnostic rerouting, and existing works like SYCL alongside
+      lightweight, header-only approaches.
+
+  - title: "Engineering a Hybrid Rust and MLIR Toolchain for AI Agents"
+    speaker: "Miguel Cárdenas"
+    video_url: ""
+    poster_url: "/devmtg/2026-04/slides/poster/poster_cardenas.pdf"
+    description: |
+      Developing a compiler for Agentic AI workloads presents a unique challenge because the runtime
+      demands the safety and ergonomics of Rust while the optimization pipeline requires the mature
+      infrastructure of MLIR. This talk presents the architecture of a toolchain designed to leverage
+      the strengths of both ecosystems. We discuss how we structured a hybrid build system where Rust
+      drives the compilation process and defines runtime semantics, while C++ manages the core MLIR
+      dialect and transformations. The session covers the practical engineering required to bridge these
+      worlds, from orchestrating CMake and Cargo to managing the boundary between Rust runtime metadata
+      and MLIR operation definitions. We share lessons learned about the complexity of linking, the
+      tradeoffs of code generation, and the reality of maintaining a custom dialect across the language
+      barrier.
+
+  - title: "Floating-Point Datapaths in CIRCT via FloPoCo AST Export and flopoco-arith-to-comb lowering"
+    speaker: "Louis Ledoux"
+    video_url: ""
+    poster_url: "/devmtg/2026-04/slides/poster/poster_cochard_de_dinechin_ledoux.pdf"
+    description: |
+      This work bridges the gap between floating-point arithmetic in MLIR and circuit-level hardware
+      representations in CIRCT.
+      While many accelerators are dominated by floating-point datapaths, existing flows either defer
+      floating-point realization to HLS-oriented dialects or rely on external generators, limiting
+      compiler visibility at the stage where hardware-specific trade-offs are most naturally expressed.
+      The approach restructures FloPoCo to expose arithmetic hardware as explicit combinational graphs
+      and introduces a new MLIR lowering pass that progressively translates floating-point regions into
+      CIRCT-compatible datapaths.
+      Multiple lowering strategies are supported, ranging from IEEE-754–preserving operator mappings to
+      fused and specialized datapaths that reduce rounding, area, and numerical error.
+      As a concrete result, a floating-point kernel extracted from a PyTorch LLaMA layer is compiled
+      end-to-end to a 1.5 mm² chip in a 130 nm process node.
+
+  - title: "Adding Compilation Metadata To Binaries To Make Disassembly Decidable"
+    speaker: "Daniel Engel"
+    video_url: ""
+    poster_url: "/devmtg/2026-04/slides/poster/poster_engel.pdf"
+    description: |
+      Once a program has been compiled into a binary, it is nigh impossible to lift it back into a
+      higher-level representation that is well-suited for analyses, instrumentation, and patching.
+      Disassemblers run into undecidable problems such as "which bytes are instructions?" or "how are
+      the data sections structured?".
+      Producing a representation that can be recompiled correctly is even harder.
+      Standard debugging formats such as DWARF do not contain enough information to make this task
+      possible.
+      However, at some point during the compilation process, the compiler knew all this information.
+      In this talk, we explore which information can be extracted from the standard ELF format, which
+      information clang can already emit, and which remains inaccessible.
+
+  - title: "A CPU Autotuning Pipeline for MLIR-IREE"
+    speaker: "Chun Lin Huang, Jenq Kuen Lee"
+    video_url: ""
+    poster_url: "/devmtg/2026-04/slides/poster/poster_huang_lee.pdf"
+    description: |
+      We present an autotuning pipeline for IREE’s LLVM-CPU backend that enables Transform
+      Dialect–driven, compile-time multi-level tiling with CPU-specific constraints. In single-dispatch
+      experiments, our constrained tuning flow achieves up to 20% speedup. We also outline next steps
+      toward joint tuning of per-layer sub-FP8 precision variants and tiling using an XGBoost-guided,
+      budgeted evaluation strategy under a quality floor.
+
+  - title: "A stride towards generating segment accesses in RVV"
+    speaker: "Athanasios Kastoras"
+    video_url: ""
+    poster_url: "/devmtg/2026-04/slides/poster/poster_kastoras.pdf"
+    description: |
+      We present an unconventional way of emitting RVV segment access instructions based on a
+      loop-vectorize pass that emits strided accesses instead of gathers and scatters. We implement a
+      pass that groups consecutive strided accesses, represented as VP intrinsics, and, if feasible,
+      lowers them to RVV intrinsics of segment instructions. Then, we reuse the analysis part of this
+      pass to cost groups of recipes as a single segment instruction, which enables the vectorization of
+      loops that otherwise were going to be deemed unprofitable.
+
+  - title: "Non-destructive PDL Rewriting for Multi-Level Equality Saturation"
+    speaker: "Jules Merckx, Sasha Lopoukhine"
+    video_url: ""
+    poster_url: "/devmtg/2026-04/slides/poster/poster_lopoukhine_merckx.pdf"
+    description: |
+      We present our work on representing e-graphs directly in MLIR IR. We extend the PDL dialect with
+      new operations to allow for non-destructive rewriting. We implement our approach both in xDSL
+      (Python) and MLIR, which makes equality saturation at multiple levels of abstraction accessible to
+      compiler developers. Finally, we show that this system can be used to achieve comparable results
+      to Herbie, a state-of-the-art tool to optimize floating-point expressions for accuracy.
+
+  - title: "Confirming the Impact of Warning Message Quality in the Clang Static Analyzer"
+    speaker: "Kristóf Umann"
+    video_url: ""
+    poster_url: "/devmtg/2026-04/slides/poster/poster_umann.pdf"
+    description: |
+      The Clang Static Analyzer has enjoyed almost 2 decades of industrial adoption, with more and more
+      focus on its usability. Prior research indicated that, among other things, warning message quality
+      is a leading source of dissatisfaction with static analysis tools, which developers of the Clang
+      Static Analyzer tackled but never conclusively proved the benefits of these changes. This talk
+      fills this gap by presenting a method for measuring warning message quality through a human
+      experiment. We sent out surveys in three stages to fine-tune our methodology, with our final one
+      receiving 64 responses from regular static analysis users. We were able to confirm many
+      long-suspected but never confirmed theories circulating among the Clang Static Analyzer
+      contributors: the value of summarizing functions, trimming bug reports, and simplifying low-level
+      code. Based on these results, we also created and landed a bug report improvement, which is
+      available since Clang 19.0.0.

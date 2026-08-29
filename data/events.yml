@@ -1,4 +1,13 @@
 events:
+  - name: "2026 EuroLLVM Developers' Meeting"
+    id: "2026-04"
+    start_date: "2026-04-13"
+    end_date: "2026-04-15"
+    description: "2026 EuroLLVM Developers' Meeting"
+    location: "Clayton Hotel Burlington Road, Dublin, Ireland"
+    url: "/devmtg/2026-04/"
+    event_site: "https://llvm.swoogo.com/2026eurollvm/"
+
   - name: "AsiaLLVM Developers' Meeting"
     id: "2025-06"
     start_date: "2025-06-10"

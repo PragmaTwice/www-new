@@ -1,0 +1,98 @@
+tutorials:
+  - title: "All About Alias Analysis"
+    speaker: "Nikita Popov"
+    video_url: ""
+    slides_url: "/devmtg/2026-04/slides/tutorial/tutorial_popov.pdf"
+    description: |
+      This tutorial introduces "alias analysis", which is the fundamental building block for most memory
+      optimizations. The tutorial covers both high-level concepts and usage of alias analysis, as well
+      as important aspects of the alias analysis implementation.
+
+  - title: "Creating a runtime using the LLVM_ENABLE_RUNTIMES system"
+    speaker: "Michael Kruse"
+    video_url: ""
+    slides_url: "/devmtg/2026-04/slides/tutorial/tutorial_kruse.pdf"
+    description: |
+      Few will need to create a new runtime library for LLVM, and it is not
+      actually the goal of this tutorial. We intend to illustrate the inner
+      workings and conventions of the LLVM build system. Currently, our
+      runtimes (compiler-rt, libc++, openmp, ...) build code is still mostly
+      based on the patterns from when each runtime had its own SVN
+      repository, had to be able to be built independently, and therefore
+      all runtimes implement their own boilerplate. Eventually, they should
+      converge instead of each runtime introducing their own solutions to
+      their build problems.
+      In addition to an introduction to the history of the
+      LLVM_ENABLE_RUNTIMES system and its rationale, what better way to
+      establish a common ground for our runtimes than creating a new runtime
+      that does not suffer from the burden of breaking existing builds?
+      Let's build a template runtime from scratch in 15 steps:
+      - 1. Register with the LLVM Build System
+      - 2. Build a Library Artifact
+      - 3. Create an Program Using the Library
+      - 4. Build Modes
+      - 5. CMake Cache Files
+      - 6. Artifact Output Location
+      - 7. Installation
+      - 8. Shared and Static Libraries
+      - 9. Regression Testing
+      - 10. Unittests
+      - 11. Sphinx Docs
+      - 12. Doxygen Docs
+      - 13. Cross-Compilation
+      - 14. Accelerator Offloading
+      - 15. Depending on Other LLVM Libraries
+      Some basic knowledge of CMake is expected. The primary intended target
+      audience is LLVM runtime-library and downstream maintainers who have
+      to keep their build working and regularly have to adapt CMake code.
+      Also join if you just want to know what happens when you run `ninja
+      check-compiler-rt`.
+      In this tutorial we will create a new runtime to exemplify the working of the often misunderstood
+      LLVM_ENABLE_RUNTIMES system. Few contributors will ever feel the need to create a new runtime from
+      scratch, but understanding it helps identifying and fixing build issues for configuration that no
+      CI is actively testing. The talk will go into details of how multi-stage bootstrapping,
+      cross-compilation, multilib, GPU-offloading, multi-compiler support, and inter-dependent runtimes
+      are designed to work. We also explore configuration options and which corners could still be
+      improved.
+
+  - title: "HIVM: MLIR Dialect Stack for Ascend NPU Compilation"
+    speaker: "Vladislav Tarasov, presented by Hugo Trachino, Q&A with Vladislav Tarasov and Andrey Bokhanko"
+    video_url: ""
+    slides_url: "/devmtg/2026-04/slides/tutorial/tutorial_tarasov.pdf"
+    description: |
+      Huawei Ascend NPUs combine DaVinci AI cores with a rich memory/synchronization hierarchy and, on
+      newer generations, a SIMD+SIMT execution model, making performance-oriented compilation
+      challenging. We present HIVM, an open-source family of MLIR dialects that lowers PyTorch/Inductor
+      -> Triton -> MLIR (HIVM) -> LLVM IR, enabling Ascend-specific optimizations such as layout
+      assignment/propagation, vector intrinsic selection/legalization, and explicit DMA/transfer
+      scheduling with synchronization. The pipeline ultimately targets the BiSheng LLVM-based backend to
+      produce executable code for Ascend chips. The talk walks step-by-step through the key IR levels
+      and transformation passes, serving as a practical baseline for developers building MLIR toolchains
+      for Ascend.
+
+  - title: "Hands-on Using Clang as a library"
+    speaker: "Aaron Jomy"
+    video_url: ""
+    slides_url: "/devmtg/2026-04/slides/tutorial/tutorial_jomy.pdf"
+    description: |
+      This tutorial teaches how to use Clang as a library to build a C++ REPL with incremental
+      compilation by splitting translation units into partial compilation steps. We demonstrate how to
+      create a compiler-as-a-service that enables programmatic instantiation and invocation of C++
+      template functions from client code. Finally, we integrate these components with the Python
+      runtime to examine practical cross-language interoperability.
+
+  - title: "Implementing C++26 std::simd with LLVM: A Layered, Compiler-First Approach"
+    speaker: "Daniel Towner"
+    video_url: ""
+    slides_url: "/devmtg/2026-04/slides/tutorial/tutorial_towner.pdf"
+    description: |
+      The C++26 standard introduces std::simd for portable data parallelism. We present a complete
+      implementation built on LLVM using a layered architecture: a minimal base layer interfaces with
+      LLVM's SIMD capabilities, while higher-level features build on this foundation. Multi-target
+      support emerges naturally by building upon LLVM's own architecture support, and a dispatch tag
+      system isolates target-specific code to minimal locations. This design has proven particularly
+      effective for x86, cleanly handling the many ISA variants (SSE, AVX, AVX-512, etc.), and should
+      extend naturally to any SIMD target LLVM supports. As the compiler's support improves, the library
+      improves too. We'll share our architectural patterns, performance results, and areas where LLVM
+      could be enhanced to enable better code generation. The authors have been involved in the C++
+      standardisation process for this the library and our goal is to release it as open source.
