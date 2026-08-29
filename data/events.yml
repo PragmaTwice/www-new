@@ -89,6 +89,15 @@ events:
     url: "/devmtg/2020-10/"
     event_site: "https://llvm.org/devmtg/2020-09/"
 
+  - name: "2020 European LLVM Developers' Meeting (Cancelled)"
+    id: "2020-04"
+    start_date: "2020-04-06"
+    end_date: "2020-04-07"
+    description: "Cancelled 2020 European LLVM Developers' Meeting"
+    location: "Marriott Rive Gauche, Paris, France"
+    url: "/devmtg/2020-04/"
+    event_site: "https://llvm.org/devmtg/2020-04/"
+
   - name: "2019 LLVM Developers' Meeting"
     id: "2019-10"
     start_date: "2019-10-22"
