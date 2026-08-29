@@ -9,6 +9,11 @@ subprojects:
       Clang is an 'LLVM native' C/C++/Objective-C compiler, which aims to deliver amazingly fast compiles, extremely useful error and warning messages and to provide a platform for building great source level tools. The Clang Static Analyzer and clang-tidy are tools that automatically find bugs in your code, and are great examples of the sort of tools that can be built using the Clang frontend as a library to parse C/C++ code.
     url: "https://clang.llvm.org/"
 
+  - name: "Flang"
+    description: |
+      Flang is a modern Fortran compiler with an associated runtime, which aims to generate high-performance code, and support Fortran 2023 and all official Fortran standards going back to Fortran 77, including a number of widely-used extensions. Flang supports OpenMP for both CPUs and GPUs.
+    url: "https://flang.llvm.org/"
+
   - name: "LLDB"
     description: |
       The LLDB project builds on libraries provided by LLVM and Clang to provide a great native debugger. It uses the Clang ASTs and expression parser, LLVM JIT, LLVM disassembler, etc so that it provides an experience that 'just works'. It is also blazing fast and much more memory efficient than GDB at loading symbols.
@@ -36,7 +41,7 @@ subprojects:
 
   - name: "OpenMP"
     description: |
-      The OpenMP subproject provides an OpenMP runtime for use with the OpenMP implementation in Clang.
+      The OpenMP subproject provides an OpenMP runtime for use with the OpenMP implementation in Clang and Flang.
     url: "https://openmp.llvm.org/"
 
   - name: "polly"
