@@ -1,0 +1,26 @@
+keynote:
+  - title: "Mojo 🔥: A system programming language for heterogenous computing"
+    speaker: "Abdul Dakkak, Chris Lattner, Jeff Niu"
+    video_url: "https://youtu.be/SEwTjZvy8vw?feature=shared"
+    slides_url: "/devmtg/2023-10/slides/keynote/Mojo.pdf"
+    description: |
+      This talk will give an overview of Mojo 🔥, a new programming language in the Python family
+      built on MLIR and LLVM. Mojo aims to bridge the programmability and performance gap in
+      systems programming by combining Python's ergonomics and ecosystem with C++ and CUDA-level
+      performance into a single language. We will describe how Mojo leverages the MLIR and LLVM
+      infrastructures to provide meta-programming, user-defined code transformations, hardware
+      backends, adaptive compilation, and auto-tuning to enable developers to achieve performance
+      without sacrificing programmability.
+
+  - title: "A Technical Guide to Compassion in Open Source"
+    speaker: "April Wensel"
+    video_url: "https://youtu.be/4aJdrLBsUL0?feature=shared"
+    slides_url: "/devmtg/2023-10/slides/keynote/Wensel-LLVM_Deck.pdf"
+    description: |
+      Open source communities offer rich opportunities for innovation, collaboration, and
+      learning. However, contributing to these projects may also require dealing with contentious
+      code reviews, frustrated users, and competing priorities. In this session, you'll learn ways
+      to apply compassion to help navigate these challenges. You'll leave with practical tools for
+      reducing your stress levels, managing conflict more productively, and encouraging newcomers.
+      Compassion isn't just some soft and fuzzy concept, but rather an essential communication
+      skill for creating communities where you and your collaborators can thrive.
