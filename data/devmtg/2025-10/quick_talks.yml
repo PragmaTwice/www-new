@@ -1,0 +1,305 @@
+quick_talks:
+  - title: "Generating efficient CPU code with MLIR for scalable vector extensions in an end-to-end case study"
+    speaker: "Ege Beysel, Andrzej Warzyński"
+    video_url: "https://youtu.be/kBOW0tp_6tw"
+    slides_url: "/devmtg/2025-10/slides/quick_talks/beysel_warzynski.pdf"
+    description: |
+      This talk demonstrates how to generate efficient CPU code for AI workloads using IREE's MLIR-based
+      compiler infrastructure with emphasis on ARM's Scalable Vector and Matrix Extensions (SVE and
+      SME). We explore the integration of SVE and SME code generation into IREE, covering compilation
+      strategies, vectorization techniques, and targeting two AI centric architecture features, namely
+      FEAT_BF16 and FEAT_I8MM.
+
+  - title: "Accelerating ML on Hexagon: A Glimpse into Qualcomm's MLIR-Based Compiler"
+    speaker: "Muthu Baskaran, Franck Slama"
+    video_url: "https://youtu.be/ozpJD2u_1ng"
+    slides_url: "/devmtg/2025-10/slides/quick_talks/baskaran_slama.pdf"
+    description: |
+      In this talk, I'll present an overview of Qualcomm's MLIR-based compiler for machine learning
+      models, designed to target the Hexagon™ DSP via the Hexagon™ LLVM backend. I'll outline the
+      high-level architecture of the compiler stack, which lowers Torch models to Hexagon assembly,
+      highlighting how MLIR enables modular and extensible compilation for embedded ML workloads. I'll
+      also touch on some of the key technical challenges the team has been addressing, such as memory
+      management on constrained devices. This session aims to give attendees a quick but insightful look
+      into the practical application of MLIR in a production-grade compiler.
+
+  - title: "Where We're Legalizing, We Don't Need Validators: Generating valid DXIL for the DirectX Backend"
+    speaker: "Farzon Lotfi"
+    video_url: "https://youtu.be/BvkWLJJjiL8"
+    slides_url: "/devmtg/2025-10/slides/quick_talks/lotfi.pdf"
+    description: |
+      In this talk, we present a plan for a validator-free pipeline for targeting DXIL directly from
+      LLVM. By reimagining the classic LLVM-to-DXIL flow, we've developed a suite of legalizations and
+      transformations that make DXIL generation predictable, robust, and compliant from the outset.
+      We'll cover our approach to data scalarization, leveraging and adapting the existing LLVM
+      Scalarizer. We'll also dive into our array flattening work, which transforms nested and
+      multidimensional arrays into forms acceptable by the DXIL backend. By carefully reusing and
+      extending LLVM infrastructure, we've built a system that emits DXIL-ready code which will
+      eventually no longer require a post-hoc validator step.
+
+  - title: "An investigation of missed devirtualization opportunities"
+    speaker: "Ehsan Amiri"
+    video_url: "https://youtu.be/l7dTGVsaf6w"
+    slides_url: "/devmtg/2025-10/slides/quick_talks/amiri.pdf"
+    description: |
+      We will present two groups of missed opportunities in whole program devirtualization (WPD).
+      Currently we have statistics that shows catching one the two cases will increase the number of
+      devirtualized callsites in some popular C++ open source programs by thousands or hundreds (0.5% to
+      3.5% of all virtual calls that are not devirtualized by WPD). In both groups of missed
+      opportunities there is enough information to devirtualize the call in the source code and in the
+      same function as the virtual callsite. Unfortunately catching these missed cases does not seem
+      easy. We will discuss why currently devirtualization misses these opportunities and what are the
+      challenges to make it happen. One notable issue that is highlighted during the discussion is the
+      existing tension between WPD and non-strict-aliasing. After reminding this issue using an example,
+      we will discuss why we think a language level improvement is needed to address this issue.
+
+  - title: "Understanding linalg.pack and linalg.unpack"
+    speaker: "Maximilian Bartel"
+    video_url: "https://youtu.be/Q6ryij-nJrM"
+    slides_url: "/devmtg/2025-10/slides/quick_talks/bartel.pdf"
+    description: |
+      The linalg.pack and linalg.unpack operations enable critical data layout transformations for
+      tensor computations in MLIR. This talk examines their design, implementation challenges, and
+      production deployment insights. We begin by demonstrating how these operations facilitate
+      efficient mapping to hardware-specific kernels, particularly for matrix multiplication workloads.
+      Through visual examples, we illustrate the transformation patterns and their impact on memory
+      access efficiency. Drawing from production AI compiler development, we present concrete examples
+      of semantic ambiguities encountered during implementation—cases where operation behavior was
+      undefined or inconsistent. We detail how these issues were identified, their implications for
+      correctness, and the solutions adopted by the MLIR community. The talk concludes with practical
+      guidance on when and how to employ these operations effectively. We share performance
+      considerations for both isolated kernels and full network compilation and discuss the trade-offs
+      between transformation overhead and execution efficiency. Attendees will gain actionable knowledge
+      for integrating linalg.pack/unpack into their compilation flows while avoiding common
+      implementation pitfalls.
+
+  - title: "Optimizing IREE to Match llama.cpp: An Introduction to IREE optimization for newbies through a benchmark journey"
+    speaker: "Uiseop Eom"
+    video_url: "https://youtu.be/yLZW-xWVDT8"
+    slides_url: "/devmtg/2025-10/slides/quick_talks/eom.pdf"
+    description: |
+      Deploying efficient machine learning inference engines often involves rigorous benchmark
+      comparisons to achieve optimal performance. In this talk, we present a benchmark analysis
+      comparing the inference performance of IREE against llama.cpp, focusing specifically on executing
+      open-source llama3 model. Attendees will learn about the performance gaps initially observed
+      between IREE and llama.cpp, and the targeted optimizations we implemented within the iree-compiler
+      to bridge these gaps. The session will introduce common performance bottlenecks faced by new users
+      of iree-compiler and iree-runtime, including typical profiling tips. We will demonstrate practical
+      MLIR optimizations and how to implement them. This talk aims to be especially valuable for
+      newcomers looking to understand and enhance performance when leveraging IREE for model inference
+      tasks.
+
+  - title: "Optimizing generic code lowering to LLVM-IR through function equivalence coalescing"
+    speaker: "Alina Sbirlea"
+    video_url: "https://youtu.be/0mH_024cHUw"
+    slides_url: "/devmtg/2025-10/slides/quick_talks/sbirlea.pdf"
+    description: |
+      This talk describes a solution for the problem of duplicate LLVM IR functions being emitted when
+      lowering generic code such as C++ templates, and generics in Rust, Swift, or Carbon. The aim is to
+      tackle the issue of code size and high compile-times, originally impacting C++ templates, for
+      which a front end approach is expected to be more efficient than LLVM's function merging pass. We
+      present an algorithm for coalescing different front-end level functions into a single LLVM IR
+      function when such functions are equivalent in LLVM IR. For this, we use LLVM types for building a
+      canonical fingerprint for functions, even when such types are distinct in the language's front
+      end. We implement this proof of concept in Carbon's front end during the lowering to LLVM-IR
+      stage. The algorithm determines if two functions are equivalent by considering their SemIR
+      (Carbon's IR) representation and their lowered LLVM type information, handling recursion through
+      strongly-connected components (SCCs) call graph analysis, and using two types of fingerprints in
+      order to identify potential equivalences. We also discuss alternatives and future improvements.
+
+  - title: "Project Widen Your Char-izons: Adding wchar support to LLVM-libc"
+    speaker: "Uzair Nawaz, Sriya Pratipati"
+    video_url: "https://youtu.be/YjI9dum74uM"
+    slides_url: "/devmtg/2025-10/slides/quick_talks/nawaz_pratipati.pdf"
+    description: |
+      Project Widen Your Char-izons adds wide character functionality to LLVM-libc. This includes
+      implementing parallels to standard string utilities (e.g., concatenation, length) and facilitating
+      conversions between multibyte and wide characters, currently supporting UTF-8 and UTF-32
+      encodings. There were many interesting implementation details and design choices that had to be
+      made when implementing these functions, such as "how do we handle someone partially converting a
+      character" or "should we consider multiple wide character sizes" (we wanted the answer to be no).
+      This talk aims to elaborate on the design decisions and challenges encountered during the
+      implementation of these libc functions. It is primarily targeted at runtime developers interested
+      in character encodings. The content is moderately technical, focusing on our design rationale and
+      the trade-offs involved in decisions that were not pursued. The ultimate goal is to explain the
+      established framework and demonstrate its potential for future expansion to UTF-16.
+
+  - title: "Extending ThinLTO Support for AMDGPU"
+    speaker: "Shilei Tian"
+    video_url: "https://youtu.be/hEnUlpTWnHk"
+    slides_url: "/devmtg/2025-10/slides/quick_talks/tian.pdf"
+    description: |
+      In this talk, we'll briefly introduce the ongoing effort to support ThinLTO for AMDGPU. We'll
+      start by discussing the motivation for enabling ThinLTO and the current limitations in the AMDGPU
+      ABI that prevent us from using it out of the box. By default, ThinLTO compiles modules from each
+      translation unit in parallel, effectively following a split scheme based on translation units. To
+      work around some of the limitations, we've made targeted modifications to the existing ThinLTO
+      infrastructure. However, not all limitations can be addressed with workarounds. To properly
+      support ThinLTO, we'll introduce a new split scheme that divides the program based on a graph
+      constructed from the module summary. The remaining ThinLTO infrastructure will then compile the
+      resulting splits in parallel, instead of compiling modules per translation unit as ThinLTO does by
+      default. We also expect this new scheme to benefit other GPU targets that don't share the same ABI
+      constraints as AMDGPU.
+
+  - title: "TangoLLVM: An LLVM Backend for the Go compiler"
+    speaker: "Tianxiao Gu"
+    video_url: "https://youtu.be/5uSGRZAIaVg"
+    slides_url: "/devmtg/2025-10/slides/quick_talks/gu.pdf"
+    description: |
+      We add LLVM as an alternative backend for the Go compiler. The LLVM backend can be used to
+      generate code for selected functions only. Different from TinyGo or GOLLVM, we do not aim at
+      building everything using LLVM. Instead, we still use the Go compiler to parse and compile the
+      source code to obtain an object file. Before lowering the Go SSA into platform dependent format,
+      we translate the generic Go SSA into LLVM bitcode, compile the bitcode and generate the necessary
+      auxiliary data (e.g., GC stack maps), and patch the code and auxiliary data into the object file
+      generated by the Go compiler. In this way, we can first reuse many optimizations that have been
+      applied before lowering (e.g., escape analysis, nil check elimination). Second, we have no need to
+      deal with the Go ABI internal to lower every call instruction to LLVM IR. We do not need to
+      generate type descriptors and other module data at LLVM. Third, we can reuse many optimizations
+      released in LLVM. For example, we do additional inlining at LLVM side to further improve
+      performance. We have implemented TangoLLVM on top of Go 1.19/1.24 and LLVM19. We have evaluated
+      TangoLLVM on go1 benchmark suite. The geomean improvement is 10.41%.
+
+  - title: "MLIR based graph compiler for in-memory inference computing"
+    speaker: "Kshitij Jain, Satyam Srivastava"
+    video_url: "https://youtu.be/vtE_3xit044"
+    slides_url: "/devmtg/2025-10/slides/quick_talks/jain_srivastava.pdf"
+    description: |
+      Inference for LLMs has brought newer challenges to be addressed in compute space like KV-cache.
+      d-matrix has designed an accelerator which is suited for llm inference. In this talk we would like
+      to address the design challenges faced while designing a compiler for the hierarchical distributed
+      shared memory inference chip. An MLIR based compiler tool chain was designed from ground up to
+      tackle the native code generation issues. Novel bottom up based fine grained scale out solution
+      was designed at affine dialect level to address the inference scale out. The talk will also
+      address the integration of subset of triton language to the PyTorch compiler tool chain.
+
+  - title: "Building an MLIR Compiler for Real-Time AI on Existing 5G Infrastructure"
+    speaker: "Isaac Nudelman, Ankush Tyagi"
+    video_url: "https://youtu.be/UGHJV2bUhW8"
+    slides_url: "/devmtg/2025-10/slides/quick_talks/nudelman_tyagi.pdf"
+    description: |
+      This talk explores how we developed a MLIR based compiler for Ericsson's many-core architecture to
+      enable real-time AI inference for 5G baseband infrastructure. While recent improvements in
+      compiler optimization and model compression have enabled efficient deployment of models on
+      embedded systems, there are still gaps, especially for real-time applications. We will discuss the
+      specific challenges we encountered, such as optimizations that hurt latency and upstream
+      assumptions about hardware. We will also discuss the strategies we used to overcome these hurdles,
+      including the different approaches available to develop hardware specific optimizations, as well
+      as making effective use of quantization and model architecture adjustments to reduce latency.
+
+  - title: "Are we fully leveraging TableGen in MLIR?"
+    speaker: "Kshitij Jain"
+    video_url: "https://youtu.be/bo5krmvbS9c"
+    slides_url: "/devmtg/2025-10/slides/quick_talks/jain.pdf"
+    description: |
+      While TableGen descriptions in MLIR greatly reduce boilerplate in creating new IR entities
+      (dialects, types, ops etc.), their utility is sometimes underestimated beyond this narrow role.
+      TableGen descriptions, should and can be more. As such, the goal of this talk is to demonstrate
+      why Tablegen descriptions should —— and how they can —— serve as a single source of truth, for a
+      given IR entity, encoding all information required to effectively interface with said IR entity.
+      Rich TableGen descriptions can: 1) Make a compiler's domain and feature-set clearer. 2) Make a
+      compiler's behavior more apparent and robust. 3) Reduce the mental overhead on compiler
+      developers. 4) Lower the barrier to entry for new contributors. Audience can expect this talk to
+      help them realize the above-mentioned benefits of richer TableGen descriptions through existing
+      utilities, concepts, and often underappreciated software engineering pragmatisms.
+
+  - title: "MLIR Testing Guide – What and Why?"
+    speaker: "Andrzej Warzyński"
+    video_url: "https://youtu.be/_6stF7fjfXY"
+    slides_url: "/devmtg/2025-10/slides/quick_talks/warzynski.pdf"
+    description: |
+      MLIR includes a dedicated Testing Guide that prescribes how to write minimal, consistent, and
+      discoverable tests. Unlike other testing guides in LLVM that leave formatting choices to
+      contributors, the MLIR guide takes an extra step - it discusses in detail how to structure and
+      document tests effectively. This talk will highlight the core principles of the formatting guide
+      ("what") and explain the reasoning behind them ("why"). It will demonstrate how to write
+      self-documenting tests that make it easier to spot edge cases being exercised - and those that are
+      missing. Real-world examples will show how adopting the guide helped identify duplicated tests and
+      reduce redundancy. The presentation is both an encouragement and a call to action to adopt the
+      guide more broadly. It will also touch on potential future directions for improving MLIR's test
+      ecosystem.
+
+  - title: "LLM Schedule Primitive Generator with MLIR based Polyhedral Engine"
+    speaker: "Kai-Ting Amy Wang"
+    video_url: "https://youtu.be/LXQqdqJGXWU"
+    slides_url: "/devmtg/2025-10/slides/quick_talks/wang.pdf"
+    description: |
+      Using the open-sourced and MLIR-based Polymorphous project [1], we explore using LLM agents to
+      generate schedule primitives that result in competitive performance for Polybench. Our method
+      consists of two stages: first, a planning agent proposes a high level transformation strategy and
+      second, a coding agent realizes the strategy in syntactically correct MLIR. The coding agent
+      iteratively attempts to produce correctly labeled payload IR and transform IR as guided by
+      feedbacks from mlir-opt. Initial experiments show that 29 out of 30 Polybench testcases compile
+      and run successfully with competitive performance, highlighting the potential of LLMs for
+      optimization and code generation. Ongoing performance tuning includes multi-agent LLM techniques
+      to improve the generated transformation sequences.
+
+  - title: "New & Improved LLVM Premerge Testing: Status Update"
+    speaker: "Aiden Grossman, Caroline Tice"
+    video_url: "https://youtu.be/A_IY7qgyM6s"
+    slides_url: "/devmtg/2025-10/slides/quick_talks/grossman_tice.pdf"
+    description: |
+      In this talk we will give an update on the new premerge testing system, including all the
+      improvements that we have made (and are continuing to make): We have eliminated a major pain point
+      for libc++ developers, by migrating libc++ premerge testing to a set of more powerful, dedicated
+      (non-preemptible) machines; we have made testing both faster and more reliable, by improving start
+      up and build performance and reducing the flakiness of test results; we have made it easier to see
+      and track the performance improvements over time, by overhauling our new dashboard(s) that show
+      the performance and build latencies for the premerge tests. If there is time we will also present
+      our plans for future improvements to the premerge testing system.
+
+  - title: "Timing-Resistant Coding Support in LLVM"
+    speaker: "Julius Alexandre"
+    video_url: "https://youtu.be/zLBEXGTdd6o"
+    slides_url: "/devmtg/2025-10/slides/quick_talks/alexandre.pdf"
+    description: |
+      There is a fundamental tension between cryptographic coding and compiler optimizations. When
+      cryptographers write C and C++ code that needs to be constant-time, they tend to follow bitwise
+      arithmetic recipes that unfortunately do not always stand up to the optimization pipeline, or they
+      write raw inline assembly. WYSIWYG compiler-level support for constant-time coding will prevent
+      attackers from learning useful information from timing conditional branches, jumps, and memory
+      accesses, and will make it simpler for cryptographers to build the functionality that we all rely
+      on in TLS libraries, hash functions, and more. This talk will cover the technical challenges of
+      constant-time coding support in Clang and LLVM, and how optimization passes can inadvertently
+      introduce timing vulnerabilities.
+
+  - title: "Impossible Perspectives in Data Layout"
+    speaker: "Justin Bogner"
+    video_url: "https://youtu.be/GkDhot6I8ec"
+    slides_url: "/devmtg/2025-10/slides/quick_talks/bogner.pdf"
+    description: |
+      In this talk, we'll discuss the challenges we faced representing constructs in HLSL that are
+      somewhat odd compared to the usual rules of C and C++, and consider the tradeoffs of various
+      approaches along the way. There are several contexts where HLSL doesn't match C++ in terms of
+      layout. "CBuffers" have rules that grew out of the history of shading languages, DirectX APIs, and
+      weird GPU hardware that result in odd alignment and padding requirements, especially for arrays.
+      The packoffset feature of CBuffers and the vk::offset attribute which can inject arbitrary amounts
+      of padding into a structure. Small vector types are aligned based on their element type instead of
+      their total size. All of these need some care in how they're handled throughout the compiler. This
+      talk will discuss the implementation, present lessons learned, and consider where these techniques
+      are useful in other contexts.
+
+  - title: "Towards Automatic Reduction of Module Bugs"
+    speaker: "Maksim Ivanov"
+    video_url: "https://youtu.be/8dLPQLwSe_U"
+    slides_url: "/devmtg/2025-10/slides/quick_talks/ivanov.pdf"
+    description: |
+      Tools that automatically reduce compiler bugs have been known for a long time (C-Reduce, C-Vise,
+      etc.) and have been used effectively to get small reproducers from tens or even hundreds of
+      megabytes of code. However, reducing C++ module bugs specifically presents unique challenges that
+      rendered the tools virtually unusable for that use-case. In this talk, we discuss how we automated
+      module bug reduction at Google by adding necessary support to C-Vise, as well as other
+      improvements we made in the process.
+
+  - title: "Save Our Source-Locations"
+    speaker: "Stephen Livermore-Tozer"
+    video_url: "https://youtu.be/OJMToFlxqog"
+    slides_url: "/devmtg/2025-10/slides/quick_talks/livermore-tozer.pdf"
+    description: |
+      Keeping an accurate record of source locations for instructions is necessary for both debugging
+      and sample-based PGO, but LLVM can often fail to do so, in part due to the unnecessary dropping of
+      source location information during optimizations, which has led to degradation of source location
+      quality over the course of LLVM's development. To counteract this, we at Sony have added a new
+      feature to LLVM to better track and describe missing source locations, in order to permanently fix
+      this class of problem: this talk will explain how this feature works and what it means for LLVM
+      developers going forwards.
