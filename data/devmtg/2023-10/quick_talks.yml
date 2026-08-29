@@ -1,0 +1,217 @@
+quick_talks:
+  - title: "MLIR Dialect For GraphBLAS"
+    speaker: "Sriram Aananthakrishnan"
+    video_url: "https://youtu.be/J7Bnoe827bE?feature=shared"
+    slides_url: "/devmtg/2023-10/slides/quicktalks/Aananthakrishnan-MLIRDialectForGraphBLAS.pdf"
+    description: |
+      Graph analytics is the analysis of graph-based unstructured data, and a wide range of graph
+      algorithms are expressible as sparse matrix and vector operations on an extended algebra of
+      semirings. GraphBLAS defines the standard for creating graph algorithms in the language of
+      linear algebra over semirings. In this work, we present a dialect for GraphBLAS and show our
+      ongoing work of code generation for graph algorithms expressed using GraphBLAS operations.
+
+  - title: "Caching Explicit Clang Modules with Content-Addressable Storage"
+    speaker: "Ben Langmuir"
+    video_url: "https://youtu.be/6P9787H_SlQ?feature=shared"
+    slides_url: "/devmtg/2023-10/slides/quicktalks/Blangmuir-clang-cache-modules.pdf"
+    description: |
+      This talk describes how we added sound compilation caching to explicitly built clang
+      modules. This talk builds on the system for compilation caching using content-addressable
+      storage presented at the 2022 LLVM developer meeting, discussing how we use the clang
+      dependency scanner to discover modular inputs, how we model those inputs, and what
+      challenges we needed to overcome along the way.
+
+  - title: "EmitC - Recent Improvements and Future Development"
+    speaker: "Marius Brehler"
+    video_url: "https://youtu.be/sBouU3WbF2s?feature=shared"
+    slides_url: "/devmtg/2023-10/slides/quicktalks/Brehler-EmitC.pdf"
+    description: |
+      EmitC is a dialect to generate C and C++ from MLIR. The EmitC dialect is part of the main
+      tree and allows to convert operations from other MLIR dialects to EmitC operations. These
+      operations can be translated to C/C++ through an emitter, which can then be compiled into
+      native code. In this talk, we provide an update about the current and ongoing development of
+      the dialect and its potential future. We summarize use cases that we have seen in the last
+      year where EmitC is used and present how the dialect has been recently enhanced to better
+      support such use cases. Furthermore, we discuss what is still missing and how the dialect
+      can further evolve
+
+  - title: "A Novel Data Layout Optimization In BiSheng Compiler"
+    speaker: "Ehsan Amiri"
+    video_url: "https://youtu.be/T7imC0udovo?feature=shared"
+    slides_url: "/devmtg/2023-10/slides/quicktalks/Ehsan-ANovelDataLayoutOptimizationInBiShengCompiler.pdf"
+    description: |
+      We talk about two new data layout optimizations in Bisheng compiler. The first optimization
+      , Structure Peeling Using Runtime Memory Identifiers (SPRMI) is a variation of the
+      well-known Array of Structures to Structure of Arrays (AoS to SoA) optimization. This
+      optimization addresses cases where there are multiple arrays of the structure that we want
+      to optimize. The second optimization, Nested Container Flattening (NCF) relocates some of
+      the data members of one C++ class (e.g. class D) to another class (e.g. class A). As we will
+      explain in the talk, this allows us to reduce the number of load instructions and improve
+      locality of data accessed in the program. These optimizations have significant impact on
+      some of the SPEC CPU bemchmarks. We also highlight techniques used for legality analysis
+      that can be of independent interest and applicable to C++ workloads.
+
+  - title: "Compromises With Large X86-64 Binaries"
+    speaker: "Arthur Eubanks"
+    video_url: "https://youtu.be/lkOiEin55qM?feature=shared"
+    slides_url: "/devmtg/2023-10/slides/quicktalks/Eubanks-CompromisesWithLargeX86-64Binaries.pdf"
+    description: |
+      When x86-64 binaries get too large, the typical instruction sequences to access globals can
+      stop working. We take a look at the medium code model and the compromises it makes to keep
+      large binaries linking without sacrificing too much performance, and what needs to be added
+      to LLVM to make this work.
+
+  - title: "MPI Dialect For MLIR"
+    speaker: "Anton Lydike"
+    video_url: "https://youtu.be/HEaWLWFTrDs?feature=shared"
+    slides_url: "/devmtg/2023-10/slides/quicktalks/Grosser-MPIDialectForMLIR.pdf"
+    description: |
+      This talk will present our work on the MPI dialect, which brings standard MPI calls into the
+      MLIR ecosystem as its own dialect. We want to present the various challenges faced during
+      our exploratory development, and the solutions we came up with. We want to touch on the
+      dialect design and the challenges connected with lowering to a C library in MLIR without a
+      standardised ABI. While this talk focuses on bringing MPI into MLIR, we would like to
+      motivate the addition of the dialect by showing our work that is performing automatic domain
+      decomposition fully in MLIR and targets MPI.-----
+
+  - title: "What's New In The LLVM JIT"
+    speaker: "Lang Hames"
+    video_url: "https://youtu.be/2kZ_lu4dhhc?feature=shared"
+    slides_url: "/devmtg/2023-10/slides/quicktalks/Hames-WhatsNewInTheLLVMJIT.pdf"
+    description: |
+      Windows support, shared memory transport for JIT'd code, new architectures, ergonomic
+      improvements and bug fixes. This talk will cover improvements to LLVM's JIT APIs since the
+      2021 LLVM Developer's Meeting, and discuss future directions for LLVM's JIT.
+
+  - title: "Profiling Based Global Machine Outlining"
+    speaker: "Gai Liu"
+    video_url: "https://youtu.be/gQdn7y7VqnM?feature=shared"
+    slides_url: "/devmtg/2023-10/slides/quicktalks/Liu-ProfilingBasedGlobalMachineOutlining.pdf"
+    description: |
+      While LTO based global machine outlining has shown significant code size reduction, it often
+      suffers from very long compilation time. Here we propose a two-stage approach to move the
+      time-consuming global analysis stage offline, which achieves similar code size saving
+      without significantly lengthening the frequent integration builds.
+
+  - title: "An MLIR Backend for Linear Algebra"
+    speaker: "Sasha Lopoukhine"
+    video_url: "https://youtu.be/W4094V3Je8A?feature=shared"
+    slides_url: "/devmtg/2023-10/slides/quicktalks/Lopoukhine-MLIRBackendForLinearAlgebra.pdf"
+    description: |
+      We present our work on a backend MLIR dialect representing the RISC-V instruction set,
+      designed to facilitate compilation to assembly for standard and novel RISC-V hardware. We
+      explore how leveraging a multi-level compilation approach gives us control over what
+      information to preserve when lowering higher-level operations down to assembly. We show how
+      to represent hardware extensions with additional dialects, and how we have approached
+      register allocation in SSA form.
+
+  - title: "APX & AVX10: The next major evolution of Intel® architecture"
+    speaker: "Sergey Maslov"
+    video_url: "https://youtu.be/pcjKPjenukc?feature=shared"
+    slides_url: "/devmtg/2023-10/slides/quicktalks/Maslov-APXandAVX10.pdf"
+    description: |
+      Intel disclosed two exciting extensions for future Intel architecture. Intel® Advanced
+      Performance Extensions (Intel® APX) doubles the number of GPRs to 32, and introduces many
+      other new features. Intel® Advanced Vector Extensions 10 (Intel® AVX10) introduces a modern
+      vector ISA which can run across Intel future P-core and E-core. Compiler support is key to
+      enable those ISA features and exploit the hardware capability. In this talk, we will
+      introduce the new ISA extension and how we can utilize them to speed up the application with
+      compatibility.
+
+  - title: "Differential Outlining: outlining similar instruction sequences"
+    speaker: "Girish Mururu"
+    video_url: "https://youtu.be/B1sUHP90f6Q?feature=shared"
+    slides_url: "/devmtg/2023-10/slides/quicktalks/Mururu-DifferentialOutlining.pdf"
+    description: |
+      Reducing the size of mobile applications is an important optimization goal and there have
+      been several compiler techniques towards it. One such technique is outlining of repeated
+      instruction sequences. The idea of differential outlining is to look for similar instruction
+      sequences rather than same sequences of instructions to outline. If there are two sequences
+      of instructions that are similar, then the sequences can be outlined with one of the
+      sequences. The original sequences can then be replaced with a jump to the outline. For one
+      with unwanted changes in the outline due to the differences, the effects from the
+      differences are reverted after the jump back.
+
+  - title: "MLIR Side Effect Modeling"
+    speaker: "Siddharth Bhat, Jeff Niu"
+    video_url: "https://youtu.be/6bDKasLZyxU?feature=shared"
+    slides_url: "/devmtg/2023-10/slides/quicktalks/Niu-MLIRSideEffectModeling.pdf"
+    description: |
+      This talk will provide an overview of side-effect modelling in MLIR, point to limitations in
+      the current model and offer tentative suggestions to improve it. We first review the
+      semantics of the memory effects and conditionally speculatable operation interfaces, as
+      defined by the MLIR language reference, and how they are used upstream. We then highlight
+      interesting out-of-tree applications that suggest limitations in the model. For example,
+      there are contentious modelling issues of undefined behaviour, parallelism, and
+      computational divergence. Finally, we hope to open the conversation about side-effecting
+      modelling by proposing several paths for the evolution of MLIR's side-effect API.
+
+  - title: "Seamless Debugging Of Emulated Applications With LLDB"
+    speaker: "Pavel Labath"
+    video_url: "https://youtu.be/tW3jCrCBDRc?feature=shared"
+    slides_url: "/devmtg/2023-10/slides/quicktalks/Pavel-SeamlessDebuggingOfEmulatedApplicationsWithLLDB.pdf"
+    description: |
+      We will talk about how we've adapted LLDB to provide a native-like user experience for
+      debugging non-native applications, including advanced features like expression evaluation
+      and process attaching. The talk will focus on integration of LLDB with Google's user-space
+      emulator (GEMU), but we believe that this topic will be interesting for anyone wishing to
+      improve debugging experience in a complex environment.
+
+  - title: "Debug info for concurrency in LLVM"
+    speaker: "Adrian Prantl"
+    video_url: "https://youtu.be/g4fei6Vl7o8?feature=shared"
+    slides_url: "/devmtg/2023-10/slides/quicktalks/Prantl-DebugInfoForConcurrency.pdf"
+    description: |
+      In his keynote "The State of Debugging in 2022" at SPLASH'22 [1], Robert O'Callahan calls
+      out that no pairing of debugger and compiler attempted to support a debugging experience for
+      async/await language constructs. But could this be done? In this talk we will describe how
+      we co-designed the queue mechanism in the runtime, the ABI and the debug info generated by
+      the compiler, and the debugger itself to create a seamless debugging experience for Swift
+      async functions that allows stepping in and out of asynchronous functions and displaying
+      virtual backtraces, by using existing LLVM debug info features in a new context.
+
+  - title: "Precision and Performance Analysis of LLVM's C Standard Math Library on GPUs"
+    speaker: "Anton Rydahl"
+    video_url: "https://youtu.be/j5KyAzKPfPM?feature=shared"
+    slides_url: "/devmtg/2023-10/slides/quicktalks/Rydahl-PrecisionAndPerformanceAnalysisofLLVM-CStandardMathLibsOnGPUS.pdf"
+    description: |
+      The LLVM C standard math library, LIBM, is under active development but primarily focused on
+      supporting CPU architectures. We compare the accuracy and performance of existing
+      implementations of standard math library functions across GPU targets. The analysis
+      highlights when target-agnostic implementations from LIBM produce accurate results on GPU
+      targets. The existing LLVM intrinsics or LIBM target-agnostic implementations are, in many
+      cases, comparable to vendor libraries in precision and performance. However, the analysis
+      also highlights weak spots where LIBM needs to rely on vendor implementations for now. We
+      propose a fully functional GPU math library that, as a starting point, mixes vendor and LLVM
+      native implementations. It will provide the users with the best possible performance and
+      precision and, if mutually exclusive, offer configurations prioritizing the former or the
+      latter.
+
+  - title: "TableGen Formatter: Extending Clang-Format Capabilities"
+    speaker: "Venkat Nikhil Tatavarthy, Himanshu Shishir Shah"
+    video_url: "https://youtu.be/NtYP6ph6_oc?feature=shared"
+    slides_url: "/devmtg/2023-10/slides/quicktalks/Shah-TableGenFormatter.pdf"
+    description: |
+      The TableGen infrastructure holds a pivotal position within LLVM and its sub-projects,
+      particularly in LLVM backends, where a considerable amount of target-specific information,
+      such as instruction definitions and CPU features, is expressed using TableGen. Furthermore,
+      MLIR also heavily depends on TableGen as its backbone, playing a critical role in defining
+      dialects, custom operators, and lowering rules. Both subsystems contain a significant volume
+      of TableGen code, with over 300 and 44 KLOC utilized in LLVM and MLIR, respectively. Despite
+      its extensive usage, the TableGen language currently lacks a proper code formatter, creating
+      a need for one. To address this issue, we propose a solution that involves adding support
+      for TableGen in Clang-Format. By building on top of the existing Clang-Format codebase, we
+      efficiently achieve this with minimal modifications, benefiting from code reuse and ensuring
+      seamless compatibility with its core functionalities. These modifications enable the
+      Clang-Format to recognize a majority of the TableGen syntax including conditional
+      statements, loops, and keywords such as def and multiclass. This effort contributes to
+      enhancing code consistency and readability within TableGen, further empowering developers
+      working on LLVM and its related projects.
+
+  - title: "Common facilities for ML-Guided Optimizations in LLVM"
+    speaker: "Mircea Trofin"
+    video_url: "https://youtu.be/mQu1CLZ3uWs?feature=shared"
+    slides_url: "/devmtg/2023-10/slides/quicktalks/Trofin-CommonFacilitiesForMLGuidedOptimizationsInLLVM.pdf"
+    description: |
+      A comprehensive overview of the facilities for ML-guided optimizations currently available
+      in LLVM.

@@ -1,0 +1,96 @@
+birds_of_a_feather:
+  - title: "Let the compiler do its job?"
+    speaker: "Sjoerd Meijer (ARM)"
+    video_url: ""
+    slides_url: ""
+    description: |
+      At the 2019 US LLVM developers' meeting we have presented Arm's new M-profile Vector Extension
+      (MVE), which is a vector extension for Arm's microcontrollers to accelerate execution of DSP
+      workloads. While it is still early days for this new architecture extension and its compiler
+      support, we are now getting experience with vectorisation for this DSP-like architecture. I.e.,
+      after adding compiler support for the new architecture features such as vectorisation, predication,
+      and hardware-loops, which is still ongoing work, we are now also confronted with the next challenge:
+      adoption of the technology. The main question is: will LLVM's auto- vectorisation and MVE
+      code-generation good enough for DSP workloads so that people will give up writing intrinsics and
+      even assembly, and can we thus just let the compiler do its job? Since DSP workloads are usually
+      characterised by small, tight loops where every cycle counts, any compiler translation inefficiency
+      means resorting to hand-tuned intrinsics/assembly code, which obviously comes at the expense of
+      portability and maintainability of these codes. For this reason, and just for software ecosystem
+      legacy reasons, the auto-vectoriser's competition for DSP workloads is often still hand-tuned
+      intrinsics/assembly code, but can we change that? In order to answer this question, we need to have
+      a closer look at: • What exactly are these DSP workloads? Are there industry accepted benchmarks and
+      workloads, and which DSP idioms are important to translate efficiently? • How good is the
+      auto-vectoriser performing against intrinsics, and how far off are we if there is a gap? • Do we see
+      obvious areas to improve the vectoriser? • Besides performance, usability of the toolchain is
+      crucial. That is, if performance goals are not met, how easy can users get insights in the compiler
+      and auto-vectorisation decision making, and how can it influence and steer this to achieve better
+      results?
+
+  - title: "Debugging an bare-metal accelerator with LLDB"
+    speaker: "Romaric JODIN (UPMEM)"
+    video_url: ""
+    slides_url: ""
+    description: |
+      UPMEM made an accelerator based on PiM (Processing in Memory). It is a standard DRAM-based DDR4 DIMM
+      where each DRAM chip embeds several multi-threaded processors capable of computing a program on the
+      data stored in the DRAM chip. In order to debug such a target, we have made some modifications to
+      LLDB in order to interact with the accelerator. Especially, as no server or gdb stub can run on the
+      accelerator, we added a lldb-server for our bare-metal target that runs on the host CPU (which can
+      be viewed as a kind of a cross-compiled server) and we modified LLDB at different points to be able
+      to have it working. We are using a single lldb client instance to debug both the application running
+      on the host CPU and the multiple accelerator CPU it is using. The aim of the BoF is to present those
+      modifications and discussed about how to make LLDB friendlier with such targets including re-using
+      the lldb-server code for remote target without operating system.
+
+  - title: "LLVM Binutils BoF"
+    speaker: "James Henderson (SN Systems (Sony Interactive Entertainment))"
+    video_url: ""
+    slides_url: ""
+    description: |
+      LLVM has a suite of binary utilities that broadly mirror the GNU binutils suite, with tools such as
+      llvm-readelf, llvm-nm, and llvm- objcopy. These tools are already widely used in testing the rest of
+      LLVM, and have also been adopted as full replacements for the GNU tools in some production
+      environments. This discussion will be a chance for people to present how their migration efforts are
+      going, and to highlight what is impeding their adoption of the tools. It will also provide the
+      opportunity for participants to discuss potential new features and the future direction of new
+      tools.
+
+  - title: "FunC++. Make functional C++ more efficient"
+    speaker: "Pavel Kosov (Huawei R&D)"
+    video_url: ""
+    slides_url: ""
+    description: |
+      In nowadays functional programming (FP) in C++ is not as efficient as it may be. Mainly because of
+      weak optimization of such features as std::variant, std::visit, std::function etc. I will present
+      list of cases of possible improvements and after this I will propose several solutions. Let’s
+      discuss them and maybe we will be able to find others ways to make functional programming in C++
+      more usable. It is worth to mention that benefit of this work will spread to all C++ programmers,
+      not only FP fans (because std::variant, std::function etc. are used in a lot of different
+      applications)
+
+  - title: "Loop Optimization BoF"
+    speaker: "Michael Kruse (Argonne National Laboratory), Kit Barton (IBM)"
+    video_url: ""
+    slides_url: ""
+    description: |
+      In this Bird-of-a-Feathers we will discuss the current and future development around loop
+      optimizations in LLVM, summarizing and building on topics discussed during the bi-weekly Loop
+      Optimization Working Group conference call. The topics that we intend to discuss include: • Loop
+      pass infrastructure such as the pass managers • Specific loop passes (LoopVectorize, LoopUnroll,
+      LoopUnrollAndJam, LoopDistribute, LoopFuse, LoopInterchange) • Polly and other polyhedral analysis
+      capabilities (e.g., in MLIR) • Analyses (LoopInfo, ScalarEvolution, LoopNestAnalysis,
+      LoopCacheAnalysis, etc.) • Dependence analysis, in particular progress on the DataDependenceGraph
+      and PragmaDependencyGraph • Canonical loop forms (such as rotated, simplified, LCSSA, max- fused or
+      max-distributed, etc) • User-directed transformations • Alternative intermediate representations
+      (MLIR, VPlan, Loop Hierarchy)
+
+  - title: "Code Size Optimization"
+    speaker: "Sean Bartell (University of Illinois at Urbana-Champaign)"
+    video_url: ""
+    slides_url: ""
+    description: |
+      Code size is often overlooked as a target of optimization, but is still important in situations
+      ranging from space-constrained embedded devices to improving cache coherency on supercomputers. This
+      will be an open-ended BoF for anyone interested in optimizing code size. Potential topics of
+      discussion include benefits of reducing code size, size optimization techniques, and related
+      improvements that could be made to LLVM.

@@ -1,0 +1,505 @@
+technical_talks:
+  - title: "Building Modern Language Frontends with MLIR: Lessons from Mojo's Compile-Time Meta-Programming"
+    speaker: "Chris Lattner, Billy Zhu"
+    video_url: "https://youtu.be/5RpOF-F0Gps"
+    slides_url: "/devmtg/2025-10/slides/technical_talks/lattner_zhu.pdf"
+    description: |
+      This talk explains how Mojo, a new programming language, leverages MLIR to create a powerful
+      compile-time metaprogramming system designed for heterogeneous computing. The language uses
+      high-level features like traits and dependent types to build robust, type-safe abstractions that
+      can target diverse hardware from a single programming model. The core of the implementation
+      involves a parametric IR built on MLIR, where MLIR's attribute system is used to represent the
+      parameters in Mojo's polymorphic system. This design, which makes both operations and types
+      parameterizable, allows for the efficient specialization of generic code while ensuring type
+      safety throughout the compilation process. The presentation will share practical insights and
+      patterns learned during development to help other language implementers working with MLIR.
+
+  - title: "Magellan: Autonomous Discovery of Novel Compiler Optimization Heuristics with AlphaEvolve"
+    speaker: "Hongzheng Chen"
+    video_url: "https://youtu.be/D8lcsfOjEOs"
+    slides_url: "/devmtg/2025-10/slides/technical_talks/chen.pdf"
+    description: |
+      This talk proposes a shift toward 'evolvable compilers' by using AlphaEvolve, a Gemini-powered
+      agent, to automatically generate and refine compiler optimization heuristics for LLVM and XLA. By
+      applying this method to challenges like function inlining and register allocation in LLVM, the
+      project aims to reduce manual tuning efforts and create more performant, concise optimization
+      policies. The results demonstrate that these automatically generated heuristics can outperform
+      human-designed ones, with plans to upstream the solutions to the LLVM and XLA communities.
+
+  - title: "Mind the Gap: Key Missing Features in the LLVM Toolchain for Windows on Arm"
+    speaker: "Muhammad Omair Javaid"
+    video_url: "https://youtu.be/7ISlHzJs2ks"
+    slides_url: "/devmtg/2025-10/slides/technical_talks/javaid.pdf"
+    description: |
+      This talk discusses the current state of LLVM-based toolchains for Windows on Arm, highlighting
+      key missing features compared to other platforms. While Clang has made significant progress in
+      supporting this target, several gaps remain that impact both user experience and performance.
+      These include incomplete support for Structured Exception Handling (SEH) which is critical for
+      robust error handling, lack of a native linker (ldd), and missing features in LLDB for debugging.
+      The talk will provide an overview of these issues, their implications for developers, and the
+      ongoing work to address them. By the end of this talk, the audience will have a better
+      understanding of the challenges and opportunities for improving the LLVM toolchain on Windows on
+      Arm.
+
+  - title: "Climbing the ladder of complete: LLVM-libc past and future"
+    speaker: "Michael Jones"
+    video_url: "https://youtu.be/HtCMCL13Grg"
+    slides_url: "/devmtg/2025-10/slides/technical_talks/jones.pdf"
+    description: |
+      LLVM-libc has been in progress for almost 6 years. One of the questions I get fairly frequently is
+      when it will be complete. The answer is that it depends on how you define "complete", but
+      generally people mean "when can I build X piece of software with LLVM-libc?" In this talk I'll
+      take you through what you can build with LLVM-libc now, what still needs to be finished to build
+      the things you care about, and how you can help. This talk is suitable for anyone interested in
+      LLVM-libc, either as a developer or a user. There will be some technical discussion, but it's
+      mostly focused on the higher level status. Ideally this talk will provide the strategy for
+      LLVM-libc for the next year.
+
+  - title: "State of Clang 2025"
+    speaker: "Aaron Ballman"
+    video_url: "https://youtu.be/dROeqPmgZJg"
+    slides_url: "/devmtg/2025-10/slides/technical_talks/ballman.pdf"
+    description: |
+      As a follow-up to last year's State of Clang report, come along with Clang's lead maintainer to
+      hear about what the Clang community has been up to. The talk will cover what new features have
+      been added to Clang 21 and beyond, as well as data about the Clang community and how it compares
+      to the overall LLVM project.
+
+  - title: "Through the Compiler's Keyhole: Migrating to Clang Without Seeing the Source"
+    speaker: "Petr Hosek"
+    video_url: "https://youtu.be/CHbyo0Ux60o"
+    slides_url: "/devmtg/2025-10/slides/technical_talks/hosek.pdf"
+    description: |
+      This talk recounts the experience of migrating a proprietary, closed-source vendor codebase to the
+      standard Clang toolchain, a significant departure from previous projects where full source code
+      was available. The lack of source access necessitated a heavy reliance on automated solutions and
+      the development of new features within the LLVM ecosystem. Key strategies included building
+      minimal baremetal ports of the **UBSan** and **PGO** runtimes to detect undefined behavior and
+      guide performance optimizations, respectively. The team also utilized **FatLTO** for aggressive
+      optimizations under tight resource constraints, implemented the `-fseparate-named-section` option
+      to manage memory layout, and proposed a **DWARF CFI validation** feature to aid in debugging
+      hand-written assembly. The presentation will cover the lessons learned, the new features developed
+      during this process, and ideas to simplify similar migrations in the future.
+
+  - title: "Automating the search aspects of compiler engineering: IR for auto-tuning & beyond"
+    speaker: "Rolf Morel"
+    video_url: "https://youtu.be/UgKvsIz0Jhs"
+    slides_url: "/devmtg/2025-10/slides/technical_talks/morel.pdf"
+    description: |
+      This talk is about automating the mechanical bits of your job. The main ingredients:
+      - Encoding plans for pipeline/schedule-manipulations into an IR for pipelines/schedules, and
+      - Having tools automatically perform the optimization-through-considering-alternatives loop.
+      Consider an average compiler engineer's plan for an average day:
+      - Out of all possible optimizations, first try optimization F. Evaluate. If perf isn't there...
+      - Then tweak F's knobs. Evaluating each time.
+      - Try optimization G next. Evaluate.
+      - Then tweak G's knobs. Evaluate.
+      - Now try F;G. Tweak knobs. Evaluate.
+      - Then G;F. Tweak knobs. Evaluate.
+      Most of this is pretty repetitive and hence mechanizable. Except for formulating the plan—this is
+      where you as an engineer are essential.
+      We build on MLIR's Transform-dialect [0], which exposes fine-grained transformations as operations
+      which compose into schedules. (SSA-values fed into and produced by ops control transform ordering;
+      parameters, i.e. attributes, are tweakable knobs.) We introduce transform ops with
+      non-deterministic choice semantics. For example, an op's parameter can be the result of our new op
+      which represents non-det selection among valid options. We go further: an op which chooses among
+      regions to represent a choice between alternative sub-schedules. Further still: we employ SSA to
+      encode that choices are tied together. E.g., we can encode that a sub-schedule later on should
+      only be selected if a particular sub-schedule was chosen early on.
+      We demonstrate one approach to dealing with the non-determinism: a driver that obtains all
+      choices—and their dependencies and constraints—and throws them to a solver. The solver selects a
+      viable overall configuration which we use to rewrite the schedule so it no longer has
+      non-determinism (to our knowledge, the first instance of a useful schedule IR rewrite). Thus
+      obtained deterministic schedules are then automatically applied to payloads to obtain perf
+      numbers, which we feed back into the solver for it to learn about the parameter space. The driver
+      runs in a loop until a stopping criteria has been reached (e.g. until you come back into work in
+      the morning).
+      Finally, we emphasize we go beyond:
+      - Auto-tuning, as we "reify" choices into (transform) IR and tune more than just parameters,
+      - Auto-scheduling (systems which automatically compose transforms), as we allow the engineer to
+      effectively specify templates with composition choices at just the places they would have
+      considered in the course of the day.
+      In short, our approach enables both expressiveness and controllable tractability.
+
+  - title: "Enhancing MLGO Inlining with IR2Vec Embeddings"
+    speaker: "S. VenkataKeerthy"
+    video_url: "https://youtu.be/ywe1-lI9H4k"
+    slides_url: "/devmtg/2025-10/slides/technical_talks/venkatakeerthy.pdf"
+    description: |
+      Our initial experiments on internal binaries demonstrate that combining existing MLGO features
+      with IR2Vec embeddings yields additional code size reductions of up to 5% in comparison to `-Os`
+      and 4% in comparison to `-Os` with MLGO Inliner. This talk will outline the design of IR2Vec, the
+      plan for upstreaming its support into LLVM, and discuss experimental results validating its
+      effectiveness and scalability on real-world datacenter binaries. Specifically, we will describe
+      how IR2Vec embeddings are used for driving ML-Guided Compiler Optimizations, focusing on our
+      efforts to enhance current MLGO infrastructure and its possible extensions.
+
+  - title: "A Faster and Simpler Dialect Conversion Driver without Pattern Rollback"
+    speaker: "Markus Böck, Matthias Springer"
+    video_url: "https://youtu.be/m-wAe80rMPs"
+    slides_url: "/devmtg/2025-10/slides/technical_talks/boeck_springer.pdf"
+    description: |
+      This talk presents a new "One-Shot Dialect Conversion" driver for MLIR, designed to address
+      long-standing performance, usability, and maintenance issues with the existing dialect conversion
+      infrastructure. The talk will give an overview of the design of the new driver, describe how to
+      migrate existing passes/patterns to the new infrastructure, and report some first performance
+      numbers.
+
+  - title: "Specializing MLIR Data Structures: an Experiment"
+    speaker: "Mathieu Fehr, Leo Stefanesco"
+    video_url: "https://youtu.be/EHq4iT-3htw"
+    slides_url: "/devmtg/2025-10/slides/technical_talks/fehr_stefanesco.pdf"
+    description: |
+      MLIR's extensible type system is a powerful tool for building custom dialects. However, it can be
+      challenging to specialize data structures for a given dialect without modifying the core MLIR
+      infrastructure. In this talk, we will present an experiment in which we specialized MLIR data
+      structures for a custom dialect. We will discuss the challenges we faced, the solutions we came up
+      with, and the lessons we learned. We will also discuss how this work could be generalized to other
+      dialects, and how it could be used to improve the performance of MLIR-based compilers.
+
+  - title: "Normal forms for MLIR"
+    speaker: "Alex Zinenko"
+    video_url: "https://youtu.be/Esw84hH1Ed0"
+    slides_url: ""
+    description: |
+      MLIR's powerful rewrite system is a key component of its success. However, the lack of a canonical
+      representation for MLIR operations can make it difficult to write robust and efficient rewrite
+      patterns. In this talk, we will discuss the concept of normal forms for MLIR operations, and how
+      they can be used to simplify the process of writing rewrite patterns. We will present a new
+      framework for defining and working with normal forms in MLIR, and we will show how it can be used
+      to improve the quality of MLIR-based compilers.
+
+  - title: "Automatically generating pattern rewrites in MLIR"
+    speaker: "Mathieu Fehr"
+    video_url: "https://youtu.be/MkYgNpWlvD8"
+    slides_url: "/devmtg/2025-10/slides/technical_talks/fehr.pdf"
+    description: |
+      MLIR's declarative rewrite rule system is a powerful tool for writing compiler optimizations.
+      However, it can be tedious and error-prone to write these rules by hand. In this talk, we will
+      present a new system for automatically generating pattern rewrites in MLIR. We will discuss how
+      this system can be used to automatically generate rewrite rules from a high-level specification,
+      and we will show how it can be used to improve the quality of MLIR-based compilers.
+
+  - title: "Lightweight Fault Isolation: LLVM Support for Efficient Native Code Sandboxing"
+    speaker: "Tal Garfinkel, Zachary Yedidia"
+    video_url: "https://youtu.be/S0apBhyZklg"
+    slides_url: "/devmtg/2025-10/slides/technical_talks/garkinfel_yedidia.pdf"
+    description: |
+      This talk presents a new approach to lightweight fault isolation in LLVM. We will discuss how we
+      can use LLVM's existing infrastructure to build a system that can efficiently sandbox native code.
+      We will also discuss the challenges we faced, the solutions we came up with, and the lessons we
+      learned. We will show how this work can be used to improve the security of a wide range of
+      applications, from web browsers to operating systems.
+
+  - title: "Hardening the Core: Challenges in Mitigating Hardware Vulnerabilities with LLVM"
+    speaker: "Reshabh K Sharma"
+    video_url: "https://youtu.be/rOH9rCAaJJA"
+    slides_url: "/devmtg/2025-10/slides/technical_talks/sharma.pdf"
+    description: |
+      In this talk, we will explore the challenges faced by compiler developers using LLVM to mitigate
+      hardware vulnerabilities and the potential need to evolve the LLVM compiler to effectively
+      integrate security-focused transformations alongside its powerful optimization capabilities. As
+      microarchitectural side-channel attacks like Spectre continue to evolve, it is crucial to address
+      the challenges faced by mitigation developers at various levels of LLVM. These compiler-based
+      defenses provide a flexible and timely response to emerging threats. They also enhance the overall
+      security posture by layering defenses, protecting systems even when hardware-based solutions fall
+      short or are not feasible. We will examine common defense patterns, the complexities of
+      implementing mitigations, and the critical differences between these and traditional compiler
+      transformations. Furthermore, we will discuss potential enhancements to LLVM that could increase
+      the reliability of security measures and argue why compilers are the optimal platform for these
+      defenses. We aim to underscore the necessity of a two-step mitigation infrastructure and highlight
+      how tools like Bolt could help in addressing current limitations, paving the way for a more secure
+      code transformation landscape.
+
+  - title: "Using and Improving Optimization Remarks"
+    speaker: "Tobias Stadler"
+    video_url: "https://youtu.be/i7O62-2qxpU"
+    slides_url: "/devmtg/2025-10/slides/technical_talks/stadler.pdf"
+    description: |
+      Optimization remarks are a powerful yet underutilized tool for gaining insight into compiler
+      heuristics and transformations. Remarks can inform the user on which optimizations applied
+      successfully, which failed to apply, and which heuristics led to those decisions. We want to
+      provide users with actionable, low-noise remarks about possible performance oversights in their
+      code, and compiler developers with fine-grained per-function telemetry to qualify optimizer
+      changes on large codebases and track down regressions. Our goal is to provide a unified remarks
+      framework to cover both use-cases. In this talk, we will provide an overview of the state of
+      optimization remarks, how to use them, and how to further extend them. We will show examples for
+      applying remarks to different use-cases (e.g. improved vectorization failure hints, inlining
+      summaries, regression analysis).
+
+  - title: "Byte Type: Supporting Raw Data Copies in the LLVM IR"
+    speaker: "Pedro Lobo"
+    video_url: "https://youtu.be/eQF-hDmlLog"
+    slides_url: "/devmtg/2025-10/slides/technical_talks/lobo.pdf"
+    description: |
+      In this talk, we will discuss the challenges of supporting raw data copies in the LLVM IR. We will
+      present a new `byte` type for the LLVM IR, and we will show how it can be used to represent raw
+      data copies in a way that is both efficient and easy to work with. We will also discuss how this
+      new type can be used to improve the performance of a wide range of applications, from image
+      processing to scientific computing.
+
+  - title: "Optimizing Flang's optimizer"
+    speaker: "Leandro Lupori"
+    video_url: "https://youtu.be/H4Desa4PG3s"
+    slides_url: "/devmtg/2025-10/slides/technical_talks/lupori.pdf"
+    description: |
+      Flang is a new Fortran front-end for LLVM. In this talk, we will discuss the challenges of
+      optimizing Flang's optimizer. We will present a new approach to optimizing Flang's optimizer, and
+      we will show how it can be used to improve the performance of Flang-compiled code. We will also
+      discuss how this work can be generalized to other front-ends, and how it can be used to improve
+      the performance of LLVM-based compilers.
+
+  - title: "LT-Uh-Oh: Adventures using LTO with libc"
+    speaker: "Paul Kirth, Daniel Thornburgh"
+    video_url: "https://youtu.be/cG278WjmIFs"
+    slides_url: "/devmtg/2025-10/slides/technical_talks/kirth_thornburgh.pdf"
+    description: |
+      Link-Time Optimization (LTO) can be a powerful tool for improving the performance of C and C++
+      code. However, it can also be a source of subtle and hard-to-debug bugs. In this talk, we will
+      discuss our adventures using LTO with libc. We will discuss the challenges we faced, the solutions
+      we came up with, and the lessons we learned. We will also discuss how this work can be used to
+      improve the quality of LTO in LLVM.
+
+  - title: "An Undefined Behavior Annex for C++"
+    speaker: "Shafik Yaghmour"
+    video_url: "https://youtu.be/aTKv5xVg2Kw"
+    slides_url: "/devmtg/2025-10/slides/technical_talks/yaghmour.pdf"
+    description: |
+      Undefined behavior is a major source of bugs in C and C++ programs. In this talk, we will present
+      a new Undefined Behavior Annex for C++. We will discuss how this annex can be used to detect and
+      diagnose undefined behavior in C and C++ programs. We will also discuss how this work can be used
+      to improve the quality of C and C++ compilers.
+
+  - title: "LLVM Foundation Updates"
+    speaker: "LLVM Foundation Board of Directors"
+    video_url: "https://youtu.be/UVF2EhGS2pY"
+    slides_url: ""
+    description: |
+      This talk will provide an update on the latest activities of the LLVM Foundation. We will discuss
+      the foundation's recent work, and we will provide a look at what's in store for the future. We
+      will also discuss how you can get involved with the LLVM Foundation, and how you can help support
+      the LLVM project.
+
+  - title: "JIT-loading Arbitrary Programs - Powering Xcode Previews with LLVM's JIT"
+    speaker: "Lang Hames"
+    video_url: "https://youtu.be/AKfwEZVm2PE"
+    slides_url: "/devmtg/2025-10/slides/technical_talks/hames.pdf"
+    description: |
+      Xcode Previews is a new feature in Xcode that allows developers to see the results of their code
+      changes in real time. In this talk, we will discuss how we use LLVM's JIT to power Xcode Previews.
+      We will discuss the challenges we faced, the solutions we came up with, and the lessons we
+      learned. We will also discuss how this work can be used to improve the quality of JIT compilers in
+      LLVM.
+
+  - title: "Iago: AI Driven Superoptimization for LLVM"
+    speaker: "Manasij Mukherjee"
+    video_url: "https://youtu.be/x4TFaweVJQ4"
+    slides_url: "/devmtg/2025-10/slides/technical_talks/mukherjee.pdf"
+    description: |
+      We designed Iago to be a drop-in replacement for Souper—a state-of-the-art superoptimizer for LLVM
+      IR—we can perform a direct comparison between Iago's synthesis by LLM and Souper's synthesis by
+      enumeration. We evaluated both Iago and Souper on a random sample of the synthesis problems
+      encountered when optimizing the SPEC CPU 2017 benchmark suite. We found that while Iago finds 7.4%
+      fewer optimizations than Souper does, 35.7% of the optimizations found by Iago were not found by
+      Souper: most of these required synthesizing two or more new instructions and multiple fresh
+      constants.
+
+  - title: "CUTLASS Python DSL Infrastructure"
+    speaker: "Guray Ozen"
+    video_url: "https://youtu.be/5NXd6MbKYNQ"
+    slides_url: "/devmtg/2025-10/slides/technical_talks/ozen.pdf"
+    description: |
+      CUTLASS is a new Python DSL for writing high-performance GPU kernels. In this talk, we will
+      discuss the CUTLASS Python DSL infrastructure. We will discuss the challenges we faced, the
+      solutions we came up with, and the lessons we learned. We will also discuss how this work can be
+      used to improve the quality of GPU support in LLVM.
+
+  - title: "Synthesizing Practical Transfer Functions in Data-flow Analysis"
+    speaker: "Yuyou Fan"
+    video_url: "https://youtu.be/jv4Oob2vpeA"
+    slides_url: "/devmtg/2025-10/slides/technical_talks/fan.pdf"
+    description: |
+      Data-flow analysis is a key component of many compiler optimizations. In this talk, we will
+      discuss the challenges of synthesizing practical transfer functions in data-flow analysis. We will
+      present a new approach to synthesizing transfer functions, and we will show how it can be used to
+      improve the quality of data-flow analysis in LLVM. We will also discuss how this work can be
+      generalized to other compilers, and how it can be used to improve the quality of compiler
+      optimizations.
+
+  - title: "Instruction Cost-Modelling: Can We Do Better?"
+    speaker: "Neil Hickey"
+    video_url: "https://youtu.be/uvOiF0RtaGs"
+    slides_url: "/devmtg/2025-10/slides/technical_talks/hickey.pdf"
+    description: |
+      Instruction cost-modelling is a key component of many compiler optimizations. In this talk, we
+      will discuss the challenges of instruction cost-modelling. We will present a new approach to
+      instruction cost-modelling, and we will show how it can be used to improve the quality of compiler
+      optimizations in LLVM. We will also discuss how this work can be generalized to other compilers,
+      and how it can be used to improve the quality of compiler optimizations.
+
+  - title: "The LLVM Offloading Infrastructure"
+    speaker: "Joseph Huber"
+    video_url: "https://youtu.be/pndPwVMouPg"
+    slides_url: "/devmtg/2025-10/slides/technical_talks/huber.pdf"
+    description: |
+      The LLVM offloading infrastructure is a new feature in LLVM that allows developers to offload
+      computations to a remote device. In this talk, we will discuss the LLVM offloading infrastructure.
+      We will discuss the challenges we faced, the solutions we came up with, and the lessons we
+      learned. We will also discuss how this work can be used to improve the quality of offloading
+      support in LLVM.
+
+  - title: "Clang-Doc: Where We've Been and Where We're Going"
+    speaker: "Erick Velez"
+    video_url: "https://youtu.be/vuHF_ZeAPVI"
+    slides_url: "/devmtg/2025-10/slides/technical_talks/velez.pdf"
+    description: |
+      Clang-Doc is a LibTooling-based documentation generator that has been a part of LLVM for almost 10
+      years. In that timeframe, it has experienced long periods of neglect. However, over the last two
+      years, the project has seen steady improvement. In this talk, we’ll give a historical overview of
+      its development, evolution, improvements to performance, C++ support, and a redesign of its core
+      architecture leveraging Mustache templates.
+
+  - title: "Loop Optimisations in LLVM: Mission Impossible?"
+    speaker: "Sjoerd Meijer"
+    video_url: "https://youtu.be/87UUMVpBAOU"
+    slides_url: ""
+    description: |
+      At last year’s LLVM Developer Conference, we presented our work on loop vectorization and
+      highlighted the lack of certain loop optimisations as a key factor limiting Clang/LLVM’s ability
+      to generate competitive code for scientific applications compared to other compilers. After
+      another year of effort—and following in the footsteps of many before us— we still don't have any
+      of the loop optimisations running by default, so it’s fair to ask whether loop optimisations in
+      LLVM are a mission impossible. In this follow-up talk, we’ll share what we’ve learned this year,
+      what we’ve achieved, and what’s next, as we explore whether this challenge can truly be overcome.
+
+  - title: "Triton-San: Toward Precise Debugging of Triton Kernels via LLVM Sanitizers"
+    speaker: "Tim Lu"
+    video_url: "https://youtu.be/Ncvjewv6hZ0"
+    slides_url: "/devmtg/2025-10/slides/technical_talks/lu.pdf"
+    description: |
+      We evaluated Triton-San on both synthetic micro-benchmarks and real-world kernels from the
+      official Triton tutorial and TritonBench. Our results show that Triton-San detected all known bugs
+      with no false positives and introduced acceptable runtime and memory overhead. This talk will
+      present the motivation, design, and implementation of Triton-San, along with key findings from our
+      evaluation. We will also provide guidance on how to use Triton-San and share details about its
+      public release on GitHub.
+
+  - title: "Building an LLVM-based Compiler Toolchain for Distributed Quantum Computing"
+    speaker: "Vyacheslav Levytskyy"
+    video_url: "https://youtu.be/TukHhQnFRXE"
+    slides_url: "/devmtg/2025-10/slides/technical_talks/levytskyy.pdf"
+    description: |
+      As quantum computing is approaching a phase of quantum utility, a need for new compiler toolchains
+      arises to support recent hardware breakthroughs. This talk will present an overview of our
+      MLIR-based compiler infrastructure for quantum photonic networks and explore its design aimed at
+      overcoming the limitations of current quantum devices and support distributed quantum processing.
+      We also aim to provide insights into the specifics of compiler development for quantum computing,
+      guided by non-obvious user priorities and the nuanced behavior of quantum hardware and control
+      devices. The discussion spans from the challenges of adoption of a programming model adequate for
+      extending heterogeneous computing and distributed systems with quantum devices to interfacing with
+      different categories of quantum computing users, via well-established in the field frontends and
+      with the prospect of adopting smoother ways of leveraging quantum MLIR-based compilers and tools.
+      We are exploring the LLVM-based compiler toolchain for quantum computing from low-level details to
+      high-level concepts, from code generation for quantum experiments in real-time setup and for
+      multiple hardware designs and system generations to architectural concerns of supporting
+      resource-efficient scalable quantum computing platform.
+
+  - title: "Modular MAX’s JIT Graph Compiler"
+    speaker: "Feras Boulala"
+    video_url: "https://youtu.be/NQb-Q0g6Pw4"
+    slides_url: "/devmtg/2025-10/slides/technical_talks/boulala.pdf"
+    description: |
+      This talk introduces Modular MAX’s **MLIR-based Graph Compiler**, a system designed to overcome
+      the difficulty of extending operator sets in traditional deep learning compilers. Rather than
+      requiring complex rebuilds or separate DSLs, MAX's framework uses a pragmatic, "kernel-first"
+      approach built for extensibility. At its core is a JIT compiler that optimizes model graphs for
+      specific hardware. The key innovation is its use of **Mojo primitives**—such as decorators,
+      parameters, and traits—that empower developers to easily register custom, high-performance kernels
+      directly, without needing to modify and rebuild the underlying compiler infrastructure. The
+      presentation will walk through the compiler's phases, focusing on this extensibility and
+      demonstrating how Mojo-authored kernels interact with the system.
+
+  - title: "Building C++ compiler runtimes on demand: Why and how"
+    speaker: "Brooks Moses"
+    video_url: "https://youtu.be/4oKegT4TWV0"
+    slides_url: "/devmtg/2025-10/slides/technical_talks/moses.pdf"
+    description: |
+      TIn Google's internal C++ toolchain, we build the compiler runtimes such as libc++ and llvm-libc
+      "on demand" from source for each user build command (with caching, of course!), rather than using
+      pre-compiled libraries. Doing so allows us to support a much wider range of target systems and
+      sanitizer configurations, while also providing performance improvements and improving the
+      toolchain development and release experience. This talk discusses the build-system mechanisms we
+      use to do this, the practical benefits and costs that we've seen when deploying this, and unique
+      challenges we are facing when using the LLVM runtime-library sources in this manner. The talk
+      should be of interest to attendees who design and maintain toolchain deployments, as well as
+      helping LLVM library maintainers gain insight into this use-case for their code.
+
+  - title: "What’s New in VPlan"
+    speaker: "Florian Hahn"
+    video_url: "https://youtu.be/GYusDQ0tSoY"
+    slides_url: "/devmtg/2025-10/slides/technical_talks/hahn.pdf"
+    description: |
+      Since the last presentation focusing on VPlan in 2023, there has been quite a bit of progress
+      along the proposed roadmap, including work on the VPlan-based cost model, improvements to VPlan
+      construction and lowering, and a number of new VPlan transformations. In this talk, we will
+      highlight recent major improvements to the VPlan infrastructure and show a number of examples of
+      new VPlan-based transformations and vectorization features, as well as examples of legacy code
+      replaced by VPlan features. To wrap up, we will revisit the roadmap from 2023 and discuss next
+      steps.
+
+  - title: "Taming GPU programming in safe Rust"
+    speaker: "Manuel Drehwald"
+    video_url: "https://youtu.be/ASUek97s5P0"
+    slides_url: "/devmtg/2025-10/slides/technical_talks/drehwald.pdf"
+    description: |
+      This presentation explores a method for safe GPU programming in Rust by leveraging Rust's compiler
+      guarantees, such as ownership and alias analysis, to improve runtime performance for HPC and
+      machine learning applications. The research focuses on how these safety features can be used to
+      optimize code for GPUs, aiming to provide both high performance and memory safety without the
+      typical pitfalls of GPU programming. This work is relevant for developers looking to use Rust for
+      high-performance computing on GPU hardware within the LLVM ecosystem.
+
+  - title: "A Better HLSL Compiler: Using the offload-test-suite to improve quality"
+    speaker: "Chris Bieneman"
+    video_url: "https://youtu.be/umTaqZYYBlU"
+    slides_url: "/devmtg/2025-10/slides/technical_talks/bieneman.pdf"
+    description: |
+      Microsoft, and Google have been partnering to add HLSL support to Clang which includes full code
+      generation support for DirectX's DXIL intermediate format and Vulkan's SPIR-V. In this effort
+      we've invested significantly in a new testing infrastructure to enable our project goals. This
+      talk will discuss the project goals, provide an overview of the testing infrastructure, and some
+      early data and real world results demonstrating the value we're already seeing from the
+      infrastructure.
+
+  - title: "An overview of recent performance work in libc++"
+    speaker: "Louis Dionne"
+    video_url: "https://youtu.be/D2P3_G8ZCpU"
+    slides_url: ""
+    description: |
+      Libc++ has recently been focusing on improving the performance of many Standard APIs. We have also
+      streamlined and improved our benchmarks suite, and made it much easier for contributors to just
+      jump into the code and implement new optimizations. This talk will go over the workflow for
+      contributing performance optimizations to libc++ and showcase some of the most interesting and
+      impactful optimizations contributed in the last few releases.
+
+  - title: "Lifetime Safety in Clang"
+    speaker: "Utkarsh Saxena"
+    video_url: "https://youtu.be/3zWK7Lx96vI"
+    slides_url: "/devmtg/2025-10/slides/technical_talks/saxena.pdf"
+    description: |
+      This talk introduces a new, powerful **intra-procedural, flow-sensitive lifetime analysis in
+      Clang** designed to detect complex use-after-scope and use-after-return bugs in C++. Moving beyond
+      simple statement-local checks, this analysis tracks pointer and reference origins across entire
+      function bodies and control-flow paths. It employs a sophisticated dataflow analysis model
+      inspired by **Rust's borrow checker (Polonius)**, using symbolic "Origins" and "Loans" to reason
+      about object lifetimes. The feature is integrated as a native Clang warning, is highly
+      configurable, and is designed for safe default enablement in large codebases. While not a full
+      borrow checker, this analysis lays the crucial infrastructure for potentially introducing
+      Rust-like lifetime annotations into C++ in the future, promising stronger correctness guarantees.
+
+  - title: "Area Team Updates"
+    speaker: ""
+    video_url: "https://youtu.be/RVImySA_e6A"
+    slides_url: ""
+    description: |
+      Updates from the LLVM Area Teams.

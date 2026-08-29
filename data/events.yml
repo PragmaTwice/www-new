@@ -8,6 +8,15 @@ events:
     url: "/devmtg/2026-04/"
     event_site: "https://llvm.swoogo.com/2026eurollvm/"
 
+  - name: "2025 US LLVM Developers' Meeting"
+    id: "2025-10"
+    start_date: "2025-10-27"
+    end_date: "2025-10-29"
+    description: "2025 US LLVM Developers' Meeting"
+    location: "Santa Clara Marriott, Santa Clara, California"
+    url: "/devmtg/2025-10/"
+    event_site: "https://llvm.org/devmtg/2025-10/"
+
   - name: "AsiaLLVM Developers' Meeting"
     id: "2025-06"
     start_date: "2025-06-10"
@@ -97,6 +106,15 @@ events:
     location: "Virtual"
     url: "/devmtg/2020-10/"
     event_site: "https://llvm.org/devmtg/2020-09/"
+
+  - name: "2020 European LLVM Developers' Meeting (Cancelled)"
+    id: "2020-04"
+    start_date: "2020-04-06"
+    end_date: "2020-04-07"
+    description: "Cancelled 2020 European LLVM Developers' Meeting"
+    location: "Marriott Rive Gauche, Paris, France"
+    url: "/devmtg/2020-04/"
+    event_site: "https://llvm.org/devmtg/2020-04/"
 
   - name: "2019 LLVM Developers' Meeting"
     id: "2019-10"
@@ -277,6 +295,15 @@ events:
     location: "Cupertino, CA"
     url: "/devmtg/2009-10/"
     event_site: "https://llvm.org/devmtg/2009-10/"
+
+  - name: "LLVM Developers' Gathering in Japan"
+    id: "2008-08-23"
+    start_date: "2008-08-23"
+    end_date: "2008-08-23"
+    description: "2008 LLVM Developers' Gathering in Japan"
+    location: "Tokyo, Japan"
+    url: "/devmtg/2008-08-23/"
+    event_site: "https://llvm.org/devmtg/2008-08-23/"
 
   - name: "LLVM Developers' Meeting"
     id: "2008-08"

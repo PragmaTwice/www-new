@@ -2,7 +2,7 @@ tutorials:
   - title: "Using MLIR from C and Python"
     speaker: "Alex Zinenko"
     video_url: "https://youtu.be/E2xLXcrkOTE"
-    slides_url: "https://llvm.org/devmtg/2024-10/slides/tutorial/Zinenko-UsingMLIR-from-C-and-Python.pdf"
+    slides_url: "/devmtg/2024-10/slides/tutorial/Zinenko-UsingMLIR-from-C-and-Python.pdf"
     description: |
       MLIR, like the rest of LLVM, is primarily written in C++. However, the C++ API is
       known to be complex and unstable. Moreover, both quick prototyping and deep integration
@@ -15,7 +15,7 @@ tutorials:
   - title: "LLVM Supply Chain Security: From developer’s desk to user’s device."
     speaker: "Tom Stellard"
     video_url: "https://youtu.be/eBHgcsz-HPg"
-    slides_url: "https://llvm.org/devmtg/2024-10/slides/tutorial/Stellard-SupplyChainSecurity.pdf"
+    slides_url: "/devmtg/2024-10/slides/tutorial/Stellard-SupplyChainSecurity.pdf"
     description: |
       Compilers are often the last line of defense in securing against dangerous exploits.
       Compiler features like "Stack Protector", "Safe Stack", and "Stack Clash Protection" can
@@ -30,7 +30,7 @@ tutorials:
   - title: "A Beginners’ Guide to SelectionDAG"
     speaker: "Alex MacLean, Justin Fargnoli"
     video_url: "https://youtu.be/nNQ6AF6i5FI"
-    slides_url: "https://llvm.org/devmtg/2024-10/slides/tutorial/MacLean-Fargnoli-ABeginnersGuide-to-SelectionDAG.pdf"
+    slides_url: "/devmtg/2024-10/slides/tutorial/MacLean-Fargnoli-ABeginnersGuide-to-SelectionDAG.pdf"
     description: |
       SelectionDAG is a crucial framework within LLVM for lowering LLVM IR into efficient
       machine code. However, little beginner-friendly documentation exists for it. This talk
@@ -42,7 +42,7 @@ tutorials:
   - title: "Support a new Calling Convention in LLVM"
     speaker: "Brandon Wu"
     video_url: "https://youtu.be/6ZaiFA8eyHk"
-    slides_url: "https://llvm.org/devmtg/2024-10/slides/tutorial/Wu-Support-a-NewCallingConvention.pdf"
+    slides_url: "/devmtg/2024-10/slides/tutorial/Wu-Support-a-NewCallingConvention.pdf"
     description: |
       Vector processors play a big role among high performance computing applications such
       as image processing, machine learning as well as gaming, thus handling vector registers
