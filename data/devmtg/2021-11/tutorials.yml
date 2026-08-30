@@ -1,0 +1,26 @@
+tutorials:
+- title: Introduction to the Flang Frontend
+  speaker: Kiran Chandramohan
+  video_url: https://youtu.be/0eAOKA_GnS0
+  slides_url: /devmtg/2021-11/slides/2021-Flang-Tutorial.pdf
+  description: ''
+- title: How to Use Enzyme to Automatically Differentiate Any LLVM-based Language
+  speaker: Valentin Churavy, William Moses, Ludger Paehler
+  video_url: https://youtu.be/rux1-oje9u8
+  slides_url: ''
+  description: ''
+- title: How to write a TableGen backend
+  speaker: Min-Yih Hsu
+  video_url: https://youtu.be/UP-LBRbvI_U
+  slides_url: /devmtg/2021-11/slides/2021-how-to-write-a-tablegen-backend.pdf
+  description: ''
+- title: Architecting out-of-tree LLVM projects using cmake
+  speaker: Stephen Neuendorffer
+  video_url: https://youtu.be/7wOU7csj1ME
+  slides_url: ''
+  description: ''
+- title: How to utilize LoopNest pass
+  speaker: Ettore Tiotto, Whitney Tsang, Yueh-Ting Chen
+  video_url: https://youtu.be/G6Fmeyv068w
+  slides_url: ''
+  description: ''

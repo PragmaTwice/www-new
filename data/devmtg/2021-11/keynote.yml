@@ -1,0 +1,16 @@
+keynote:
+- title: 'Supporting Diversity and Inclusion in our Community: What Not To Do!'
+  speaker: Kim Hazelwood
+  video_url: https://youtu.be/_D1EbgHcY7Y
+  slides_url: /devmtg/2021-11/slides/2021-Hazelwood-Supporting%20Diversity%20and%20Inclusion%20in%20our%20Community%20-%20What%20NotTo%20Do.pdf
+  description: ''
+- title: 'CIRCT: Lifting hardware development out of the 20th century'
+  speaker: Andrew Lenharth, Chris Lattner
+  video_url: https://youtu.be/ee01_yHjs9k
+  slides_url: /devmtg/2021-11/slides/2021-CIRCT-LiftingHardwareDevOutOfThe20thCentury.pdf
+  description: ''
+- title: Building an Operating System from Scratch with LLVM
+  speaker: Petr Hosek
+  video_url: https://youtu.be/DYaqzEbU0Vk
+  slides_url: /devmtg/2021-11/slides/2021-BuildinganOperatingSystemfromScratchwithLLVM.pdf
+  description: ''

@@ -1,0 +1,21 @@
+lightning_talks:
+- title: 'fp-model: single option floating point configuration'
+  speaker: ''
+  video_url: https://youtu.be/GPB_o_wXPcY
+  slides_url: /devmtg/2021-11/slides/2021-QuickTalks-fp-model-single-option-floating-point-configuration.pdf
+  description: ''
+- title: Lightning Talks on GSOC/Outreachy Projects and Experience
+  speaker: Soham Dixit, Riccardo Mori, Pratyush Das, George Mitenkov, Tarindu Jayatilaka, Konstantin Sidorov
+  video_url: https://youtu.be/mxI9fYbpndI
+  slides_url: ''
+  description: ''
+- title: Growing your Career in Tech through Mentorship
+  speaker: Monica Sarbu, Madalina Tepelmann
+  video_url: https://youtu.be/52a1bbHmFhs
+  slides_url: ''
+  description: ''
+- title: 'Deconstructing the Myth: Only real coders contribute to LLVM!? - Takeaways'
+  speaker: Adelina Chalmers
+  video_url: https://youtu.be/uORjOwuSG_M
+  slides_url: ''
+  description: ''
