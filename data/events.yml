@@ -95,7 +95,7 @@ events:
     end_date: "2020-10-08"
     description: "2020 LLVM Developers' Meeting"
     location: "Virtual"
-    url: "/devmtg/2020-10/"
+    url: "/devmtg/2020-09/"
     event_site: "https://llvm.org/devmtg/2020-09/"
 
   - name: "2020 European LLVM Developers' Meeting (Cancelled)"
