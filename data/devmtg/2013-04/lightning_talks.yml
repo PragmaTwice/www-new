@@ -26,7 +26,7 @@ lightning_talks:
 - title: "Rebuild of all Debian packages using Clang instead of GCC"
   speaker: "Sylvestre Ledru"
   slides_url: "/devmtg/2013-04/ledru-slides.pdf"
-  video_url: "/devmtg/2013-04/"
+  video_url: "https://llvm.org/devmtg/2013-04/"
   description: "Besides the GNU/Linux kernel, Debian is now able to run with two others kernels (KFreeBSD & HURD). However, in terms of compilation, Debian is still coupled to gcc. This lightning talk will present the results of the rebuild of the whole Debian archive with various clang versions. A necessary step to make Debian compiler agnostic."
 
 - title: "FDO-based whole program optimization in LLVM"
