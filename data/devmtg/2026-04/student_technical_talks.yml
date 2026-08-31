@@ -1,0 +1,38 @@
+student_technical_talks:
+  - title: "IR2Vec Python Bindings: Native Integration for Pythonic, ML Workflows"
+    speaker: "Nishant Sachdeva"
+    video_url: ""
+    slides_url: "/devmtg/2026-04/slides/student_technical_talk/student_technical_talk_sachdeva.pdf"
+    description: |
+      IR2Vec is a widely adopted framework for generating vector embeddings from LLVM IR to enable
+      machine-learning–driven compiler optimizations. This work introduces native Python bindings for
+      IR2Vec using pybind11, enabling seamless and efficient integration with Python-based ML ecosystems
+      such as PyTorch and TensorFlow. By replacing subprocess-based CLI invocation with a direct
+      programmatic interface, the bindings eliminate process overhead, provide inbuilt C++–Python type
+      conversion, and support robust exception handling. The implementation and usage are demonstrated
+      through practical embedding-generation examples. The project is currently under active development
+      for upstream integration into the LLVM monorepo, with multiple pull requests already accepted, and
+      is available in beta form via TestPyPI.
+
+  - title: "GPU optimizations, and where Rust knows more than LLVM"
+    speaker: "Marcelo Domínguez"
+    video_url: ""
+    slides_url: "/devmtg/2026-04/slides/student_technical_talk/student_technical_talk_dominguez.pdf"
+    description: |
+      In this talk we compare the performance of Rust's `std:offload` interface on various benchmarks
+      with C++ OpenMP, CUDA, and ROCm implementations. We show the impact of a new set of LLVM-IR
+      optimizations, and the performance difference between "safe" and "unsafe" Rust. We briefly
+      introduce two aliasing models that are under consideration in the Rust community, and how
+      higher-level Rust alias info can be combined with our lower-level LLVM-IR opt pass.
+
+  - title: "Accelerating Pass Order Auto-tuning via Profile-Guided Cost Modeling"
+    speaker: "Bingyu Gao, presented by Wei Wei"
+    video_url: ""
+    slides_url: "/devmtg/2026-04/slides/student_technical_talk/student_technical_talk_gao.pdf"
+    description: |
+      LLVM pass ordering auto-tuning can outperform standard -O3, but it is often hindered by an
+      enormous search space and the high overhead of hundreds of dynamic measurements. This talk
+      presents an efficient auto-tuning framework that minimizes expensive measurements using a
+      profile-guided relative cost model and calibrated beam search. Evaluation on cBench shows an
+      average 10.46% speedup over -O3 with only ​20 dynamic measurements​, significantly accelerating
+      the search for optimal pass sequences.

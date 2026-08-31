@@ -1,0 +1,9 @@
+panels:
+  - title: "Clang and LLVM in Modern Gaming Platforms"
+    speaker: "Nicolai Hähnle, Tobias Hieta, Felix Klinge, Chris Bieneman, Jeremy Morse"
+    video_url: ""
+    slides_url: "/devmtg/2026-04/slides/panel/panel_bieneman_haehnle_hieta_klinge_morse.pdf"
+    description: |
+      A moderated panel with AMD, Intel, Sony, and Microsoft will examine how Clang/LLVM power
+      real-world game production, from platform SDKs and build pipelines to shader compilers and
+      security tooling and identify where upstream collaboration can have the biggest impact.
