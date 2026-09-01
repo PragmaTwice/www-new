@@ -1,0 +1,25 @@
+keynote:
+  - title: "Capabilities Great and Small: CHERI, CHERIoT, and LLVM"
+    speaker: "Owen Anderson, presented by Edoardo Marangoni, Q&A featuring Owen Anderson and David Chisnall"
+    video_url: ""
+    slides_url: "/devmtg/2026-04/slides/keynote/keynote_anderson.pdf"
+    description: |
+      Support for the CHERI capability architecture and its embedded derivative, CHERIoT, is being
+      upstreamed to LLVM. This talk explores what that means for LLVM developers, which parts of the
+      toolchain are affected, and how these changes may interact with existing frontend, optimizer,
+      backend, and linker work. We’ll take a look at work to date, the status of upstreaming, and open
+      problems where community involvement could help.
+
+  - title: "Keynote: The Testing Funnel: Validating LLVM at Scale"
+    speaker: "Reid Kleckner"
+    video_url: ""
+    slides_url: "/devmtg/2026-04/slides/keynote/keynote_kleckner.pdf"
+    description: |
+      LLVM is foundational software, so stakes for making changes to it are very high, and most
+      downstream vendors of LLVM have elaborate testing pipelines to validate all of the properties they
+      care about. However, because these private pipelines are often slow and disconnected from the
+      community, detecting defects is expensive and leads to labor-intensive negotiations over
+      misaligned technical requirements. To improve the experience for both contributors and
+      downstreams, this talk shares lessons from 15 years of LLVM continuous integration experience to
+      advocate for shared upstream CI infrastructure that "shifts left" on testing, to create a better,
+      more harmonious experience for contributors and consumers alike.

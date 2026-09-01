@@ -1,4 +1,5 @@
 events:
+
   - name: "2026 US LLVM Developers' Meeting"
     id: "2026-10"
     start_date: "2026-10-26"
@@ -7,6 +8,15 @@ events:
     location: "Santa Clara Marriott, Santa Clara, CA"
     url: "/devmtg/2026-10/"
     event_site: "https://llvm.swoogo.com/2026devmtg"
+
+  - name: "2026 EuroLLVM Developers' Meeting"
+    id: "2026-04"
+    start_date: "2026-04-13"
+    end_date: "2026-04-15"
+    description: "2026 EuroLLVM Developers' Meeting"
+    location: "Clayton Hotel Burlington Road, Dublin, Ireland"
+    url: "/devmtg/2026-04/"
+    event_site: "https://llvm.swoogo.com/2026eurollvm/"
 
   - name: "2025 US LLVM Developers' Meeting"
     id: "2025-10"

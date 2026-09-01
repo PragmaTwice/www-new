@@ -1,0 +1,246 @@
+technical_talks:
+  - title: "Fast-math flags: a bag of issues and a handful of solutions"
+    speaker: "Mikolag Pirog"
+    video_url: ""
+    slides_url: "/devmtg/2026-04/slides/technical_talk/technical_talk_pirog.pdf"
+    description: |
+      LLVM's fast-math flags allow users to specify which floating-point transformations they want to
+      see. Unfortunately, their semantics are both not entirely respected by LLVM and underspecified.
+      This talk covers a number of fast-math issues, an overview of efforts to address them and gives an
+      outlook for the future, more systemic approach to fast-math flags.
+
+  - title: "MLIR-iteration cycle goes brrr: defining ops and rewrites in Python"
+    speaker: "Rolf Morel"
+    video_url: ""
+    slides_url: "/devmtg/2026-04/slides/technical_talk/technical_talk_morel.pdf"
+    description: |
+      This is a tutorial on MLIR’s new Python bindings for defining (1) dialects and ops, via an
+      embedded op-definition DSL, as well as (2) writing rewrites (passes, pattern rewrites, and
+      transform ops) that integrate with the existing infrastructure. These features enable a new
+      iteration cycle for developing MLIR compilers: we can now do rapid prototyping of dialects and
+      rewrites in a high-level language without having a compiler in the loop!
+
+  - title: "Scaling Certified Instruction Selection For LLVM IR Through Bitblasting"
+    speaker: "Sarah Linh Kuhn, Luisa Cicolini"
+    video_url: ""
+    slides_url: "/devmtg/2026-04/slides/technical_talk/technical_talk_cicolini_kuhn.pdf"
+    description: |
+      Instruction selection is responsible for turning high-level languages into efficient, reliable
+      machine code. Yet, today’s LLVM backends often introduce subtle bugs through complex optimizing
+      rewrites which are coupled with code generation passes. Fully verified backends like CompCert's
+      avoid these issues at the cost of heavy, complex manual proofs.
+      We present an LLVM instruction selector verified in Lean, which benefits from a small trusted
+      base, strong automation, and relies on authoritative RISC-V semantics. Using Sail’s new Lean
+      backend, we formalize the RISC-V ISA and automatically verify real LLVM instruction selection and
+      optimization patterns, exploiting Lean’s bitvector library and its verified bitblaster. Our
+      selector achieves performance comparable to LLVM’s GlobalISel (11.9% more cycles estimated with
+      MCA, geomean) while providing machine-checked correctness. This demonstrates that practical,
+      trustworthy verification can scale to modern, rapidly evolving compiler ecosystems.
+
+  - title: "The LLVM Release Process, a status update"
+    speaker: "Tobias Hieta, Cullen Rhodes, Douglas Yung"
+    video_url: ""
+    slides_url: "/devmtg/2026-04/slides/technical_talk/technical_talk_hieta_rhoades_yung.pdf"
+    description: |
+      LLVM’s release process is an ever-evolving chaos machine. Since our last talk on it in 2023, we
+      have shipped six releases and made a number of changes to how we plan, cut, and stabilize a
+      release. This talk is a practical status update on what changed, why it changed, what works well
+      today, and what still creates stress for release managers and contributors. I’ll also introduce
+      our two new Release Managers and close with ideas for where the process should go next, with the
+      goal of fewer surprises when “the release is coming.”
+
+  - title: "Toward A More Declarative InstCombine: Generalization & Parametric Bitvector Algorithms"
+    speaker: "Siddharth Bhat"
+    video_url: ""
+    slides_url: "/devmtg/2026-04/slides/technical_talk/technical_talk_bhat.pdf"
+    description: |
+      LLVM contains thousands of bitwidth-dependent rewrites that are hard to maintain and reason about.
+      We introduce new parametric bitvector algorithms that automatically generalize these rewrites
+      across all widths. By applying a mixed unary–binary encoding and finite-state reasoning, our
+      solver lifts concrete LLVM test cases into true width-independent identities, recovering
+      parametric rewrites from LLVM's test suite that has fixed width rewrites. This moves LLVM toward a
+      declarative InstCombine specification, where rewrite rules are uniform, provably correct, and
+      mechanically derived.
+
+  - title: "Rust or CHERI?"
+    speaker: "Edoardo Marangoni"
+    video_url: ""
+    slides_url: "/devmtg/2026-04/slides/technical_talk/technical_talk_marangoni.pdf"
+    description: |
+      CHERI and Rust may, at first, appear as two mutually exclusive and clashing philosophies that want
+      to solve the same problems. We claim that it is the opposite: Rust and CHERI (and CHERIoT, in
+      particular) are complementary and work best when used together, as Rust provides compile-time
+      guarantees for safe code whereas CHERI provides runtime guarantees for every fragment of unsafe
+      code. In this talk we will show evidence to back our claim, presents recent work to bring
+      production-quality Rust support to CHERIoT leveraging to the maturity of the CHERIoT port of LLVM
+      and Rust’s strict provenance model (which aligns naturally with CHERI’s capabilities) and discuss
+      our plans to engage with the Rust and LLVM communities.
+
+  - title: "Tracking Warnings at Scale: Extending Clang Diagnostics to Support Issue Baselining and Backslide Prevention"
+    speaker: "Dave Bartolomeo"
+    video_url: ""
+    slides_url: "/devmtg/2026-04/slides/technical_talk/technical_talk_bartolomeo.pdf"
+    description: |
+      Compiler warnings are an effective tool for developers to catch potential security, compatibility,
+      and correctness problems — however a challenging problem is ensuring that specific warnings are
+      actually enabled across codebases and that diagnostics are addressed over time. This talk
+      describes how we have extended Clang's diagnostic infrastructure to enable developers to build a
+      policy enforcement system that supports issue baselining (i.e., reporting only newly introduced
+      warnings) and backslide prevention (informing project maintainers when a warning has accidentally
+      been turned off).
+
+  - title: "Lighthouse: infrastructure for end-to-end MLIR-compilers and testing"
+    speaker: "Renato Golin"
+    video_url: ""
+    slides_url: "/devmtg/2026-04/slides/technical_talk/technical_talk_golin.pdf"
+    description: |
+      Last year, a new project was added to the LLVM family: Lighthouse. Its main purpose to guide the
+      development and testing of MLIR based compilers. Like the LLVM test-suite, it should be a common
+      ground for validating upstream assumptions about code, IR, dialects. At the same time, it enables
+      building specific compilers in minutes, using the evolving Python API and MLIR’s Python bindings.
+      In this talk, we’ll show the project main structure, including its components and how to use them
+      to build a simple compiler. We’ll then show the infrastructure that uses those components to
+      validate assumptions in MLIR (canonical forms, invariants, applicability of transforms and passes,
+      correctness tests, etc), and how you can create your own on top of that. Finally, we’ll provide a
+      number of pipeline examples, going from generic PyTorch models to performant execution on various
+      targets.
+
+  - title: "What Compiler Implementers and Language Designers Need to Know About Pointer Authentication"
+    speaker: "Oliver Hunt"
+    video_url: ""
+    slides_url: "/devmtg/2026-04/slides/technical_talk/technical_talk_hunt.pdf"
+    description: |
+      In this talk, which is targeted at compiler implementers and languages designers, we will give a
+      high-level overview of the security benefits of pointer authentication and why LLVM-based
+      compilers should adopt it.
+
+  - title: "Effective Clang Tidy"
+    speaker: "Tom James"
+    video_url: ""
+    slides_url: "/devmtg/2026-04/slides/technical_talk/technical_talk_james.pdf"
+    description: |
+      This talk explores strategies that have worked well when writing custom clang-tidy checks for
+      Simcenter STAR-CCM+, a complex real-world codebase. It is intended to be intermediate level, so
+      some familiarity with clang-tidy is assumed. In particular, participants should be familiar with
+      writing Clang AST matchers.
+
+  - title: "CppInterOp: Interactive C++ as a Service and Advanced Language Interoperability"
+    speaker: "Aaron Jomy"
+    video_url: ""
+    slides_url: "/devmtg/2026-04/slides/technical_talk/technical_talk_jomy.pdf"
+    description: |
+      CppInterOp provides compiler-as-a-service capabilities using Clang-REPL, enabling dynamic
+      languages to interoperate with C++. This talk covers its technical architecture, including runtime
+      template instantiation, C++ overload resolution, and JitCall - a lightweight runtime wrapper
+      generator. We demonstrate how CppInterOp's API, built on Clang's AST, enables practical Python-C++
+      interoperability, including use cases like invoking CUDA kernels from Python and cross-language
+      inheritance between Python and C++ classes.
+
+  - title: "clang-reforge: Automatic whole-codebase source code rewriting tool for security hardening"
+    speaker: "Jan Korous"
+    video_url: ""
+    slides_url: "/devmtg/2026-04/slides/technical_talk/technical_talk_korous.pdf"
+    description: |
+      We're building clang-reforge, an automatic source code rewriting tool that enables adoption of
+      bounds-safety in large existing C++ codebases. clang-reforge analyzes source code to identify
+      unsafe pointer operations and capture pointer flow. It replaces built-in pointers with bounds-safe
+      types in pointer flow segments from allocation sites to unsafe operations, such as pointer
+      arithmetic. We have a working internal prototype and we're now rebuilding it on top of clang's
+      Scalable Static Analysis Framework.
+
+  - title: "Finding Injection Vulnerabilities: Improvements of the Taint Analysis of the Clang Static Analyzer"
+    speaker: "Daniel Krupp"
+    video_url: ""
+    slides_url: "/devmtg/2026-04/slides/technical_talk/technical_talk_krupp.pdf"
+    description: |
+      Clang Static Analyzer provides a configurable taint analysis checker optin.taint.GenericTaint and
+      a few specialized taint checkers (in the optin.taint group) which can identify potential improper
+      input validation security vulnerabilities.
+      Although promising, the current implementation is still in its early stages, and its limitations
+      prevent it from efficient industrial use. We were able to identify key issues after taking
+      measurements on both the synthetic Juliet test suite and real-world projects. Based on these
+      findings, we propose some improvements to the current solution, which we prototyped and evaluated.
+
+  - title: "Bounds Checking with the Clang Static Analyzer: Improvements and Insights"
+    speaker: "Donat Nagy"
+    video_url: ""
+    slides_url: "/devmtg/2026-04/slides/technical_talk/technical_talk_nagy.pdf"
+    description: |
+      This talk presents my improvements in the checker `security.ArrayBound`, which become ready for
+      production use in April 2025. In addition to the results, I will also showcase an educational
+      issue that had plagued the older prototype-quality bounds validator checker; and briefly speak
+      about the planned generalizations that would extend my improvements to other related checkers.
+
+  - title: "Floating-Point Types in MLIR: Infrastructure, New Types and Dialect Design"
+    speaker: "Matthias Springer"
+    video_url: ""
+    slides_url: "/devmtg/2026-04/slides/technical_talk/technical_talk_springer.pdf"
+    description: |
+      This technical talk summarizes recent improvements to MLIR’s floating-point type infrastructure,
+      focusing on how to represent and lower the rapidly growing zoo of low-precision and block-scaled
+      formats used in modern ML workloads.
+      It introduces the "FloatTypeInterface", explains the interaction with LLVM’s "APFloat" and
+      "fltSemantics", and shows step-by-step how to add new floating-point types, from extending
+      "APFloat" to defining lowering rules and dialect design for "special" FP types across high-level
+      and low-level dialects.
+      The talk also covers the new "arith-to-apfloat" infrastructure for software emulation of
+      low-precision FP arithmetics on CPUs, discusses current limitations of adding FP types without
+      patching LLVM, and outlines future directions for more extensible, vendor-friendly floating-point
+      type systems in MLIR.
+
+  - title: "Optimising small AArch64 cores: stories from the trenches"
+    speaker: "Ties Stuij"
+    video_url: ""
+    slides_url: "/devmtg/2026-04/slides/technical_talk/technical_talk_stuij.pdf"
+    description: |
+      Optimizing LLVM for AArch64 has in the past mostly concentrated on big cores which prioritized
+      performance over efficiency. As the market has become more interested in smaller AArch64 cores
+      outside of mobile phones, we have been putting effort into optimizing LLVM for these more
+      constrained cores, which flirt with the embedded space. In this talk we discuss why LLVM has left
+      performance off the table for these smaller cores, and we will give some examples of how we
+      improved this. We will also touch on how benchmarking for these cores differs from benchmarking
+      the bigger AArch64 cores.
+
+  - title: "Writing a Formal Execution and Memory Model for Execution Synchronization Primitives on AMD GPUs."
+    speaker: "Pierre van Houtryve"
+    video_url: ""
+    slides_url: "/devmtg/2026-04/slides/technical_talk/technical_talk_van_houtryve.pdf"
+    description: |
+      Overview of ongoing efforts to develop and document a formal execution model for the execution
+      synchronization primitives (barriers) of the AMDGPU backend, and how they integrate with the LLVM
+      and AMDGPU target-specific memory models. The talk will also cover the motivation for this work,
+      the benefits for users and developers, and the challenges we faced and are still facing.
+
+  - title: "Adding Nullability Checking and Annotations to Many Millions of Lines of Code"
+    speaker: "Jan Voung"
+    video_url: ""
+    slides_url: "/devmtg/2026-04/slides/technical_talk/technical_talk_voung.pdf"
+    description: |
+      At Google, our team has been working on reducing null pointer dereference crashes in a huge and
+      diverse C++ codebase by: (a) adopting the Clang nullability annotations and (b) implementing a
+      flow-sensitive intra-procedural dataflow analysis in ClangTidy that verifies that code adheres to
+      the contracts of the annotations. However, to get the most coverage, we need to introduce the
+      annotations to millions of lines of code. To assist with that, we've developed an inter-TU
+      annotation inference tool, and added inferred annotations through a "large-scale change". This
+      talk introduces how the ClangTidy verification and inference tools work, but also discusses the
+      practical experience and the challenges we faced attempting to infer the annotations in "legacy"
+      C++.
+
+  - title: "rocMLIR: High-Performance ML Compilation for AMD GPUs with MLIR"
+    speaker: "Pablo Antonio Martinez"
+    video_url: ""
+    slides_url: "/devmtg/2026-04/slides/technical_talk/technical_talk_martinez.pdf"
+    description: |
+      This talk presents rocMLIR, a kernel generator for AMD GPUs using MLIR. We present the compilation
+      flow from high-level IR (TOSA and Linalg dialects) to low-level code generation using downstream
+      and upstream MLIR dialects (AMDGPU and ROCDL). We focus on implementing MI300X/MI350X features in
+      MLIR, including double-rate MFMAs, DirectToLDS, and support for MXFP4/FP4 data types. We also
+      cover application-specific optimizations such as SplitK for GEMMs and KV Cache for attention,
+      along with fusion strategies.
+
+  - title: "LLVM Foundation Updates"
+    speaker: "LLVM Foundation Board of Directors"
+    video_url: ""
+    slides_url: "/devmtg/2026-04/slides/llvm_foundation/llvm_foundation_updates.pdf"
+    description: |
+      The LLVM Foundation Board of Directors gives an update on status of the LLVM Foundation.
